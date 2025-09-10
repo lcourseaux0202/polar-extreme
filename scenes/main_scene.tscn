@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://gqmhjk6sneh0"]
+
+[ext_resource type="Texture2D" uid="uid://djb50bf34fggg" path="res://icon.svg" id="1_w2twt"]
+[ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/main_camera.tscn" id="2_pw63i"]
+
+[node name="main_scene" type="Node2D"]
+
+[node name="testicon" type="Sprite2D" parent="."]
+position = Vector2(-3, -2)
+texture = ExtResource("1_w2twt")
+
+[node name="MainCamera" parent="." instance=ExtResource("2_pw63i")]
