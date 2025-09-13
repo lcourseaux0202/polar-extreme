@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djpen6dblu1da" path="res://scripts/base_building.gd" id="1_jf5pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jf5pk"]
+size = Vector2(32, 32)
 
 [node name="base_building2" type="Area2D"]
 script = ExtResource("1_jf5pk")

@@ -14,6 +14,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_1f3ra")
 
-[node name="Node2D" type="TileMapLayer"]
+[node name="placement_grid" type="TileMapLayer"]
+z_index = 10
 tile_set = SubResource("TileSet_f2w8h")
 script = ExtResource("2_tbs4h")

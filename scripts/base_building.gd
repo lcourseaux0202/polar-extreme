@@ -1,47 +1,21 @@
-extends Node2D
-class_name base_building
+@tool
+@icon("res://assets/icon/building_icon.svg")
+extends Area2D
+class_name BaseBuilding
 
-var CollisionShape : CollisionShape2D
-var sprite : Sprite2D
-var _size: Vector2i
-var _sprite_texture: Texture2D = null
+
+@onready var sprite: Sprite2D = $building_sprite
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
-	CollisionShape = $CollisionShape2D
-	sprite = $building_sprite
-
-	if _size != Vector2i.ZERO:
-		_apply_size()
-	if _sprite_texture:
-		_apply_sprite()
+	if not sprite:
+		push_error("BaseBuilding nécessite un Sprite2D assigné !")
+	if not collision_shape:
+		push_error("BaseBuilding nécessite un CollisionShape2D assigné !")
 
 
-func init(size: Vector2i, texture: Texture2D = null) -> void:
-	if size == Vector2i.ZERO:
-		push_error("Size null")
-		return
-
-	_size = size
-	_sprite_texture = texture
-
-	if CollisionShape:
-		_apply_size()
-	if sprite and _sprite_texture:
-		_apply_sprite()
-
-
-func _apply_size() -> void:
-	if CollisionShape and CollisionShape.shape is RectangleShape2D:
-		CollisionShape.shape.extents = _size / 2.0
-
-
-
-func _apply_sprite() -> void:
-	sprite.texture = _sprite_texture
-	
-func _set_position(pos: Vector2):
-	var grid_pos = Vector2(pos)  
-	position = grid_pos
-
+func init(_pos : Vector2) -> void:
+	z_index = 4
+	position = _pos
 	

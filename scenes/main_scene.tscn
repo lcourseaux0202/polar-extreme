@@ -16,6 +16,7 @@ texture = ExtResource("1_w2twt")
 
 [node name="MainCamera" parent="." instance=ExtResource("2_pw63i")]
 
-[node name="Node2D" parent="." instance=ExtResource("3_pu3yx")]
+[node name="placement_grid" parent="." instance=ExtResource("3_pu3yx")]
 
-[node name="Node2D2" parent="." instance=ExtResource("3_7ykc4")]
+[node name="wolrd_grid" parent="." instance=ExtResource("3_7ykc4")]
+unique_name_in_owner = true
