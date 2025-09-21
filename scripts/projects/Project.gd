@@ -1,6 +1,9 @@
 class_name Project
 extends Node
 
+@export var project_name: String
+@export var project_description: String
+
 enum project_type { UPGRADE, RESEARCH }
 enum reward_type { 
 	SCIENCE, 		# fixed amount of science
