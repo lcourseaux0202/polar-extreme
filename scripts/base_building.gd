@@ -8,6 +8,12 @@ class_name BaseBuilding
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 
+
+@export var michelle: Texture:
+	get:
+		return $building_sprite.texture
+
+
 func _ready() -> void:
 	if not sprite:
 		push_error("BaseBuilding nécessite un Sprite2D assigné !")

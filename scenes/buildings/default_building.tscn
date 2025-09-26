@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbkvgdmm8nmiy"]
 
 [ext_resource type="PackedScene" uid="uid://d4notm77g5dcw" path="res://scenes/base_building.tscn" id="1_q4uca"]
-[ext_resource type="Texture2D" uid="uid://gcqjv2kyjhch" path="res://assets/building/building-base.png" id="2_8onlq"]
+[ext_resource type="Texture2D" uid="uid://yahqaemwdj38" path="res://assets/building/testbuilding.png" id="2_q4uca"]
 
 [node name="base_building2" instance=ExtResource("1_q4uca")]
+michelle = ExtResource("2_q4uca")
 
 [node name="building_sprite" parent="." index="0"]
-scale = Vector2(5, 5)
-texture = ExtResource("2_8onlq")
+texture = ExtResource("2_q4uca")
 
 [node name="CollisionShape2D" parent="." index="1"]
 scale = Vector2(4.5, 4.5)

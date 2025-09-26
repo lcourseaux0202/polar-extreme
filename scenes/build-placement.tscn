@@ -18,3 +18,6 @@ sources/0 = SubResource("TileSetAtlasSource_1f3ra")
 z_index = 10
 tile_set = SubResource("TileSet_f2w8h")
 script = ExtResource("2_tbs4h")
+
+[node name="preview" type="Sprite2D" parent="."]
+z_index = -2
