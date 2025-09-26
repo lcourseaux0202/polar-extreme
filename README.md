@@ -1,28 +1,118 @@
 # T3 25 SCI25 A  
 
-Base scientifique au pôle nord  
-
-Projet :  
-- GDscript  
-- Commits en minuscule et en anglais  
-- snake_case  
-
 ## Cahier des charges  
 
-### Objectif pédagogique  
+### 1. Présentation du projet
+
+#### 1.1. Nom du jeu
+Polar Extreme
+
+#### 1.2. Type de jeu
+Jeu de gestion en 2D vue de dessus (Rimworld like)
+
+### 2. Contexte & objectifs
+
+#### 2.1. Objectifs
 Comprendre les enjeux scientifiques, humains et environnementaux liés à l’implantation et à la gestion d’une station de recherche en Antarctique, un milieu extrême hostile.  
 
-### Objectifs pédagogiques avancés  
-1. **Comprendre l’environnement de l'Antarctique**  
-   Identifier les caractéristiques géographiques, climatiques et les contraintes de vie liées à ce milieu extrême et isolé.  
+- **Comprendre l’environnement de l'Antarctique**
+  Identifier les caractéristiques géographiques, climatiques et les contraintes de vie liées à ce milieu extrême et isolé.  
 
-2. **Relever les défis techniques et logistiques**  
-   Analyser les enjeux de conception, de construction et de gestion durable d'une station scientifique en Antarctique.  
+- **Relever les défis techniques et logistiques**
+  Analyser les enjeux de conception, de construction et de gestion durable d'une station scientifique en Antarctique.  
 
-3. **Explorer les dimensions humaines**  
-   Comprendre les impacts psychologiques, culturels et sociaux de la vie en communauté dans un environnement isolé et multiculturel.  
+- **Explorer les dimensions humaines**
+  Comprendre les impacts psychologiques, culturels et sociaux de la vie en communauté dans un environnement isolé et multiculturel.  
 
-## Brainstorming  
+#### 2.2. Contraintes
+- Date début : 3 septembre 2025
+- Date fin : 19 décembre 2025
+- Equipe de 4 personnes
+
+### 3. Description du gameplay
+
+#### 3.1. Vue & style
+- 2D
+- Vue de dessus
+- Pixel art 
+
+#### 3.2. Mécaniques principales
+- Gestion d'une base polaire passant par
+  - Construction / amélioration de bâtiments
+  - Engagement de scientifiques (pnjs) permettant l'exploitation de ces bâtiments
+  - Construction de chemins permettant de relier ces batîments et d'y conduire les scientifiques
+- Production d'une monnaie / score appelée **Science** via la construction et la gestion de bâtiments
+- Limite de temps avec score final
+
+#### 3.3. Durée de vie
+- 30 minutes de jeu pour une première partie
+- 2 fins possibles :
+  - Arriver à la fin du temps imparti : victoire & score
+  - Base s'effondre avant la fin du temps imparti : défaite & 0 point
+
+### 4. Spécifications techniques
+
+#### 4.1. Moteur de jeu
+Godot 4 (GDScript)
+
+#### 4.2. Plateformes visées
+- Windows
+- Linux
+
+### 5. Direction artistique
+
+#### 5.1. Graphismes
+- Pixel art 32px
+- Couleurs dominantes : blanc & bleu
+
+#### 5.2. Interface utilisateur
+- UI moyennement chargée
+- Souris + clavier (possibilité de jouer uniquement souris)
+
+#### 5.3. Inspirations visuelles
+- Rimworld
+
+## Explications avancées des mécaniques 
+
+### Menu du jeu
+- 3 options disponibles :
+  - Nouvelle partie
+  - Paramètres
+  - Quitter
+- Si possible : 4eme option pour voir les scores sur un site web
+
+### Paramètres
+- Résolution
+- Plein écran
+- VSync
+- Volume
+  - Effets sonores
+  - Musiques
+- Sélection avec clic droit ou clic gauche
+
+### En jeu
+
+#### UI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Concept  
 - Rimworld simplifié  
@@ -40,13 +130,8 @@ Comprendre les enjeux scientifiques, humains et environnementaux liés à l’im
 - Chemins dans la neige  
   - Pas de chemin = scientifique perdu et mort 
 
-### Tutoriels
-- Joueur guidé indirectement à travers :
-  - Les pnj en exprimant leur ressenti
-  - L'environnement
-- Pour d'autres mécaniques, passer la souris sur certains éléments donne des indications
-  - Jauge écologie : une bulle apparaît expliquant les conséquences d'une écologie trop basse
-  - 
+### Tutoriel "caché"
+- Joueur guidé indirectement  
 
 ### Rôle des scientifiques  
 - Début : généralistes (pas de spécialisation)  
@@ -90,7 +175,7 @@ Comprendre les enjeux scientifiques, humains et environnementaux liés à l’im
   - Influence sur les événements aléatoires (tempêtes, etc.)  
 
 ### Environnement & écologie  
-- **Production d'énergie**  
+- **Énergie**  
   - Pétrole = polluant  
   - Éolienne = durable  
   - Panneau solaire = efficace la moitié de l’année  
