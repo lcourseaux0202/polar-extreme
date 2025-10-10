@@ -8,16 +8,21 @@ extends Building
 @export var science_per_second: float:		# per scientist
 	set(value):
 		science_per_second = clamp(value, 0, max_science_per_second)
+		
 @export var max_science_per_second: int
 
-# minimum number of scientists to start producing science
+# number of scientist producing science in the building
 @export var nb_scientists: int:
 	set(value):
-		nb_scientists = clamp(value, 0, nb_scientists_min)
+		nb_scientists = clamp(value, 0, nb_scientists_max)
 
-@export var nb_scientists_min: int: 	
+# max number of scientists producing science
+@export var nb_scientists_max: int: 	
 	set(value):
-		nb_scientists_min = value if (nb_scientists_min + value > 1) else 1
+		nb_scientists_max = value if (nb_scientists_max + value > 1) else 1
 
-func change_min_scientists(n: int):
-	nb_scientists_min += n
+# capped number of the max number of scientists
+@export var nb_scientists_max_max: int
+
+func change_max_scientists(n: int):
+	nb_scientists_max += n

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf2q1o3ffr4jb"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_2qc31"]
+
+[node name="IceMine" instance=ExtResource("1_2qc31")]
+science_per_second = 1.0
+max_science_per_second = 2
+nb_scientists_max = 0
+nb_scientists_max_max = 0
+building_name = "Mice de Glace"
+building_description = "Une mine de glace permet de récupérer des glaçons de très grandes profondeurs, ce qui permet littérallement de voir dans le passé, par exemple en analysant les bulles de glaces capturées par la glace il y a 400 000 ans."

@@ -14,7 +14,6 @@ enum BUILDING_TYPE { SCIENCE, UTILITY }
 # location
 @export var size: Vector2 		# from the the upper left tile of the building, starting at 0,0
 @export var building_position: Vector2
-@export var entrance: Vector2 	# same
 
 @export var projets = []
 
