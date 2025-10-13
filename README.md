@@ -113,6 +113,26 @@ Godot 4 (GDScript)
 
 #### Construction d'un bâtiment
 
+Quand le joueur veut créer un batîment, le menu de construction les affichera répartis en 3 catégories :
+- Recherche
+  - Laboratoire de glaciologie
+  - Laboratoire de physique de l'atmosphère
+  - Laboratoire de magnétisme & sismologie
+  - Laboratoire de biologie humaine
+  - Mine de glace
+  - Serre
+- Vie quotidienne
+  - Chambres
+  - Cuisines
+  - Salle à manger
+  - Toilettes
+  - Douches
+  - Salle de repos
+  - Salle de sport
+- Technique
+  - Tri des déchets
+  - Recyclage de l'eau
+  - Centrale électrique
 
 
 
