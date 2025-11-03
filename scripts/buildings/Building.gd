@@ -7,8 +7,8 @@ enum BUILDING_TYPE { SCIENCE, UTILITY }
 @export var id: int
 @export var building_name: String
 @export var building_description: String
+@export var building_type: BUILDING_TYPE
 
-@export var projets_list: Array[Project] = []
 
 func _init():
 	id = BuildingIdManager.register(self)
@@ -21,6 +21,3 @@ func get_id():
 
 func get_building_name():
 	return building_name
-
-func project_add(project: Project):
-	projets_list.append(project)

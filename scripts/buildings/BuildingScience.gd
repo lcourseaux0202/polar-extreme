@@ -1,7 +1,6 @@
 class_name BuildingScience
 extends Building
 
-@export var building_type = BUILDING_TYPE.SCIENCE
 
 @export var producing: bool 	# whether the building is producing science atm
 
@@ -24,5 +23,15 @@ extends Building
 # capped number of the max number of scientists
 @export var nb_scientists_max_max: int
 
+# Liste des projets du batiments
+@export var projets_list: Array[Project] = []
+
+func _init():
+	super._init()
+	building_type = BUILDING_TYPE.SCIENCE
+
 func change_max_scientists(n: int):
 	nb_scientists_max += n
+
+func project_add(project: Project):
+	projets_list.append(project)

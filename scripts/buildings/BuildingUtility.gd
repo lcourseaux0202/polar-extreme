@@ -1,4 +1,6 @@
 class_name BuildingUtility
 extends Building
 
-var building_type = BUILDING_TYPE.UTILITY
+func _init():
+	super._init()
+	building_type = BUILDING_TYPE.UTILITY
