@@ -238,3 +238,8 @@ Quand le joueur veut créer un batîment, le menu de construction les affichera 
   - Bulle apparaît au dessus de sa tête avec une indication de ce qu'il désire (tuto ambulant)
   - Apparition d'autres informations dans un menu (au-dessus de sa tête ou dans un cadre à part, à discuter)
   - Possiblité d'affilier des formations en secourisme, cuisine, etc... 
+
+
+  ## Crédits
+
+  - Godot Engine : https://godotengine.org/license
