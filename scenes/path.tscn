@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6eb3xgrqgvie"]
+
+[ext_resource type="Texture2D" uid="uid://uljk5ea1tqpr" path="res://icon.svg" id="1_1dods"]
+[ext_resource type="Script" uid="uid://cwd8yi0wa0cbo" path="res://scripts/path/path.gd" id="1_sqppf"]
+[ext_resource type="Shader" uid="uid://5ujcnocn0ij6" path="res://assets/pathmain.gdshader" id="2_mtoee"]
+[ext_resource type="Shader" uid="uid://d8jf6eksnpfd" path="res://assets/path.gdshader" id="3_wvrg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqppf"]
+size = Vector2(128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lpcp"]
+shader = ExtResource("2_mtoee")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sqppf"]
+vertices = PackedVector2Array(48, -48, 64, -48, 64, 48, 48, 48, 48, 64, -48, 64, -48, 48, -48, -48, -64, 48, -64, -48, 48, -64, -48, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(6, 8, 9, 7), PackedInt32Array(10, 0, 7, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-48, -48, -48, -64, 48, -64, 48, -48, 64, -48, 64, 48, 48, 48, 48, 64, -48, 64, -48, 48, -64, 48, -64, -48)])
+agent_radius = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dods"]
+size = Vector2(18, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtoee"]
+shader = ExtResource("3_wvrg6")
+
+[node name="Path" type="Area2D"]
+script = ExtResource("1_sqppf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sqppf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1lpcp")
+texture = ExtResource("1_1dods")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_sqppf")
+
+[node name="LinkCollisions" type="Node2D" parent="."]
+
+[node name="Left" type="Area2D" parent="LinkCollisions"]
+position = Vector2(-64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Left"]
+position = Vector2(-10, 0)
+shape = SubResource("RectangleShape2D_1dods")
+debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
+
+[node name="Haut" type="Area2D" parent="LinkCollisions"]
+position = Vector2(0, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Haut"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_1dods")
+debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
+
+[node name="Droite" type="Area2D" parent="LinkCollisions"]
+position = Vector2(64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Droite"]
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_1dods")
+debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
+
+[node name="Bas" type="Area2D" parent="LinkCollisions"]
+position = Vector2(0, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinkCollisions/Bas"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_1dods")
+debug_color = Color(0.69887, 0.470185, 0.410463, 0.42)
+
+[node name="BlockSprites" type="Node2D" parent="."]
+
+[node name="Left" type="Sprite2D" parent="BlockSprites"]
+material = SubResource("ShaderMaterial_mtoee")
+position = Vector2(-56, 0)
+scale = Vector2(0.125, 1)
+texture = ExtResource("1_1dods")
+
+[node name="Right" type="Sprite2D" parent="BlockSprites"]
+material = SubResource("ShaderMaterial_mtoee")
+position = Vector2(56, 0)
+scale = Vector2(0.125, 1)
+texture = ExtResource("1_1dods")
+
+[node name="Up" type="Sprite2D" parent="BlockSprites"]
+material = SubResource("ShaderMaterial_mtoee")
+position = Vector2(0, -56)
+scale = Vector2(1, 0.125)
+texture = ExtResource("1_1dods")
+
+[node name="Down" type="Sprite2D" parent="BlockSprites"]
+material = SubResource("ShaderMaterial_mtoee")
+position = Vector2(0, 56)
+scale = Vector2(1, 0.125)
+texture = ExtResource("1_1dods")
+
+[connection signal="area_entered" from="LinkCollisions/Left" to="." method="_on_left_area_entered"]
+[connection signal="area_entered" from="LinkCollisions/Haut" to="." method="_on_haut_area_entered"]
+[connection signal="area_entered" from="LinkCollisions/Droite" to="." method="_on_droite_area_entered"]
+[connection signal="area_entered" from="LinkCollisions/Bas" to="." method="_on_bas_area_entered"]
