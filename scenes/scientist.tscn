@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dk3tmvweer7i"]
 
 [ext_resource type="Script" uid="uid://ddu01x4gf7rbi" path="res://scripts/npc/ia_pnj.gd" id="1_yc63n"]
-[ext_resource type="Texture2D" uid="uid://76whrb6dwfsa" path="res://assets/npc/scientifique.png" id="2_umeaf"]
+[ext_resource type="Texture2D" uid="uid://dpgsvc7e55sre" path="res://assets/npc/scientifique.png" id="2_umeaf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_umeaf"]
 radius = 7.28011

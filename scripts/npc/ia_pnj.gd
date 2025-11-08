@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name NPC
+class_name Scientist
 
 @onready var navigation_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
