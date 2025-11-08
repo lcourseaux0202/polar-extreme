@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://gqmhjk6sneh0"]
+
+[ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/Camera.tscn" id="1_c6dvc"]
+[ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://scenes/buildings/BuildPlacement.tscn" id="2_611at"]
+[ext_resource type="PackedScene" uid="uid://bnq6uy4vulgey" path="res://scenes/Ground.tscn" id="3_k24pf"]
+
+[sub_resource type="GDScript" id="GDScript_pu3yx"]
+
+[node name="MainScene" type="Node2D"]
+script = SubResource("GDScript_pu3yx")
+
+[node name="MainCamera" parent="." instance=ExtResource("1_c6dvc")]
+
+[node name="PlacementGrid" parent="." instance=ExtResource("2_611at")]
+
+[node name="WorldGrid" parent="." instance=ExtResource("3_k24pf")]
+unique_name_in_owner = true

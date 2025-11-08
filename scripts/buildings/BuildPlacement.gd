@@ -1,14 +1,15 @@
 extends TileMapLayer
 class_name BuildPlacement
 
+@onready var anim_invalid_placement : AnimationPlayer = $AnimationInvalidPlacement
+@onready var preview : Sprite2D = $PreviewSprite
 
 @export var effect_size: Vector2 = Vector2(3,3)
 
 var building_data : Building
 
-var celle_array: Array[Vector2i] = []
+var cell_array: Array[Vector2i] = []
 var can_be_placed: bool = true
-@onready var preview: Sprite2D = $preview
 var placement_position : Vector2;
 var last_mousePosition : Vector2;
 var inPlacement : bool = false;
@@ -48,15 +49,15 @@ func _input(event: InputEvent) -> void:
 	last_mousePosition = mouse_pos_glob
 	preview.position = world_grid_pos
 
-	for cell_pos in celle_array:
+	for cell_pos in cell_array:
 		set_cell(cell_pos, 0, Vector2i(0, 0))
-	celle_array.clear()
+	cell_array.clear()
 	
 	if Input.is_key_pressed(KEY_H):
-		start_building(load("res://scenes/buildings/IceMine.tscn").instantiate())
+		start_building(load("res://scenes/buildings/instanciables/IceMine.tscn").instantiate())
 	
 	if Input.is_key_pressed(KEY_J):
-		start_building(load("res://scenes/buildings/Toilet.tscn").instantiate())
+		start_building(load("res://scenes/buildings/instanciables/Toilet.tscn").instantiate())
 		
 	if(!inPlacement):
 		return
@@ -73,7 +74,7 @@ func _input(event: InputEvent) -> void:
 	for i in range(-size.x / 2, size.x / 2 + 1):
 		for j in range(-size.y / 2, size.y / 2 + 1):
 			var pos: Vector2i = tile_under_mouse_pos + Vector2i(i, j)
-			celle_array.append(pos)
+			cell_array.append(pos)
 			var cell_world_pos: Vector2 = map_to_local(pos)
 			if _cell_collides(cell_world_pos):
 				set_cell(pos, 0, Vector2i(1, 0)) 
@@ -84,18 +85,20 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		placement_position = world_grid_pos
 		blockmouse = true
-		$AnimationInvalidPlacement.play("placementAnimationLib/invalidPlacement")
+		anim_invalid_placement.play("placementAnimationLib/invalidPlacement")
 		
 
-func _place_building(_anim_name: StringName) -> void:
+func _place_building(world_grid : TileMapLayer, _anim_name: StringName) -> void:
 	if not can_be_placed:
 		return
+		
 	var instance : Building = building_data
 	instance.rotation = preview.rotation
 	instance.position = placement_position
 	instance.name =instance.name+"_"+str(building_data.get_id())
-	%world_grid.add_child(instance)
 	print(instance.name)
+	
+	world_grid.add_child(instance)
 	BuildingsInfo.add_building(instance)
 	stop_building();
 

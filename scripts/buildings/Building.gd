@@ -9,10 +9,10 @@ extends  Area2D
 @export var projets = []
 
 func _init():
-	id = BuildingIdManager.register(self)
+	id = BuildingManager.register(self)
 
 func destroy():
-	BuildingIdManager.remove(id)
+	BuildingManager.remove(id)
 
 func get_id():
 	return id

@@ -19,7 +19,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("preview:scale")
+tracks/0/path = NodePath("PreviewSprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("preview:scale")
+tracks/0/path = NodePath("PreviewSprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,12 +54,12 @@ _data = {
 &"invalidPlacement": SubResource("Animation_ewve8")
 }
 
-[node name="placement_grid" type="TileMapLayer"]
+[node name="PlacementGrid" type="TileMapLayer"]
 z_index = 10
 tile_set = SubResource("TileSet_f2w8h")
 script = ExtResource("2_tbs4h")
 
-[node name="preview" type="Sprite2D" parent="."]
+[node name="PreviewSprite" type="Sprite2D" parent="."]
 z_index = -2
 
 [node name="AnimationInvalidPlacement" type="AnimationPlayer" parent="."]

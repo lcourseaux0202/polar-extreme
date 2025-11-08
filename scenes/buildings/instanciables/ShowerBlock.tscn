@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://csnq80mlunlvo"]
 
-[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/abstracts/BuildingUtility.tscn" id="1_k6vr0"]
-[ext_resource type="Texture2D" uid="uid://dp3t4el7nabgw" path="res://assets/building/Toilets.png" id="2_mf5q7"]
+[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/abstracts/BuildingUtility.tscn" id="1_5q5v0"]
+[ext_resource type="Texture2D" uid="uid://dp3t4el7nabgw" path="res://assets/building/Toilets.png" id="2_02n0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6vr0"]
 size = Vector2(155, 155)
 
-[node name="ShowerBlock" instance=ExtResource("1_k6vr0")]
+[node name="ShowerBlock" instance=ExtResource("1_5q5v0")]
 building_name = "Douches"
 building_description = "Bah des douches quoi"
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("2_mf5q7")
+texture = ExtResource("2_02n0g")
 
 [node name="BuildingZone" parent="." index="3"]
 shape = SubResource("RectangleShape2D_k6vr0")
