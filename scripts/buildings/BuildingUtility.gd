@@ -1,4 +1,4 @@
 class_name BuildingUtility
 extends Building
 
-var building_type = BUILDING_TYPE.UTILITY
+var building_genre = Enums.BUILDING_GENRE.UTILITY

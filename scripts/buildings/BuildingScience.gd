@@ -1,6 +1,7 @@
 class_name BuildingScience
 extends Building
 
+var building_genre = Enums.BUILDING_GENRE.SCIENCE
 @export var building_type : Enums.BUILDING_TYPE = Enums.BUILDING_TYPE.LABO
 
 @export var producing: bool 	# whether the building is producing science atm

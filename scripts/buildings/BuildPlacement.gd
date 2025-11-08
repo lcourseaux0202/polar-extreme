@@ -53,10 +53,10 @@ func _input(event: InputEvent) -> void:
 	celle_array.clear()
 	
 	if Input.is_key_pressed(KEY_H):
-		start_building(load("res://scenes/buildings/builddings/IceMine.tscn").instantiate())
+		start_building(load("res://scenes/buildings/IceMine.tscn").instantiate())
 	
 	if Input.is_key_pressed(KEY_J):
-		start_building(load("res://scenes/buildings/builddings/Toilet.tscn").instantiate())
+		start_building(load("res://scenes/buildings/Toilet.tscn").instantiate())
 		
 	if(!inPlacement):
 		return

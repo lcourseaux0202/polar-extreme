@@ -1,8 +1,6 @@
 class_name Building
 extends  Area2D
 
-enum BUILDING_TYPE { SCIENCE, UTILITY }
-
 # infos
 @export var id: int
 @export var building_name: String
