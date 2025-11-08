@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c6eb3xgrqgvie"]
 
-[ext_resource type="Texture2D" uid="uid://uljk5ea1tqpr" path="res://icon.svg" id="1_1dods"]
+[ext_resource type="Texture2D" uid="uid://dw0jlk1cm3rga" path="res://icon.svg" id="1_1dods"]
 [ext_resource type="Script" uid="uid://cwd8yi0wa0cbo" path="res://scripts/path/path.gd" id="1_sqppf"]
-[ext_resource type="Shader" uid="uid://5ujcnocn0ij6" path="res://assets/pathmain.gdshader" id="2_mtoee"]
-[ext_resource type="Shader" uid="uid://d8jf6eksnpfd" path="res://assets/path.gdshader" id="3_wvrg6"]
+[ext_resource type="Shader" uid="uid://5ujcnocn0ij6" path="res://assets/path/pathmain.gdshader" id="2_mtoee"]
+[ext_resource type="Shader" uid="uid://d8jf6eksnpfd" path="res://assets/path/path.gdshader" id="3_wvrg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqppf"]
 size = Vector2(128, 128)

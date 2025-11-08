@@ -32,17 +32,14 @@ func _physics_process(delta):
 func handle_animation():
 	var dir = velocity.normalized()
 	
-	if dir.dot(Vector2.DOWN) > 0.9:
+	if dir.dot(Vector2.DOWN) > 0.5:
 		animation.play("down_walk")
-	elif dir.dot(Vector2.UP) > 0.9:
+	elif dir.dot(Vector2.UP) > 0.5:
 		animation.play("up_walk")
-	elif dir.dot(Vector2.RIGHT) > 0.9:
+	elif dir.dot(Vector2.RIGHT) > 0.5:
 		animation.play("right_walk")
-	elif dir.dot(Vector2.LEFT) > 0.9:
+	elif dir.dot(Vector2.LEFT) > 0.5:
 		animation.play("left_walk")
-	else :
-		animation.stop()
-		animation.play("RESET")
 
 
 func _on_time_changed(current_time):
