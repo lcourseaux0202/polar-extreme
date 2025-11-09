@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TimeManager="*res://scripts/autoloads/TimeManager.gd"
-BuildingsInfo="*res://scripts/autoloads/BuildingsManager.gd"
+GlobalBuildingManager="*res://scripts/autoloads/BuildingManager.gd"
 
 [rendering]
 

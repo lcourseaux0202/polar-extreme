@@ -7,24 +7,34 @@ class_name BuildPlacement
 @export var effect_size: Vector2 = Vector2(3, 3)
 
 var in_placement: bool = false
+var in_path_placement : bool = false
 var can_be_placed: bool = true
 var building_data: Building
+var path_data : Path = load("res://scenes/buildings/path/Path.tscn").instantiate()
+var animation_playing: bool = false  
 
 var placement_position: Vector2
 var cell_array: Array[Vector2i] = []
 
 
 func _input(event: InputEvent) -> void:
+	if animation_playing:
+		return
+	
 	_update_mouse_positions()
 	_handle_hotkeys()
 	if in_placement:
 		_handle_rotation_input()
 		_handle_placement_preview(event)
 		_handle_building_click(event)
-
-
+	elif in_path_placement:
+		_handle_placement_preview(event)
+		_handle_building_click(event)
 
 func start_building(building: Building) -> void:
+	if animation_playing:
+		return
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	in_placement = true
 	building_data = building
@@ -42,15 +52,16 @@ func stop_building() -> void:
 	building_data = null
 	preview.texture = null
 
-
-
 func _handle_hotkeys() -> void:
+	if animation_playing:
+		return
+	
 	if Input.is_key_pressed(KEY_H):
-		start_building(load("res://scenes/buildings/instanciables/IceMine.tscn").instantiate())
+		start_building(GlobalBuildingManager.instantiate_building("IceMine"))
 	elif Input.is_key_pressed(KEY_J):
-		start_building(load("res://scenes/buildings/instanciables/Toilet.tscn").instantiate())
-
-
+		start_building(GlobalBuildingManager.instantiate_building("Toilet"))
+	elif Input.is_key_pressed(KEY_P):
+		build_path()
 
 func _update_mouse_positions() -> void:
 	var mouse_pos_glob: Vector2 = get_global_mouse_position()
@@ -69,22 +80,23 @@ func _handle_placement_preview(event: InputEvent) -> void:
 	can_be_placed = true
 
 	var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
-	var size = effect_size
+	var size = effect_size.round()
 
 	for i in range(-size.x / 2, size.x / 2 + 1):
 		for j in range(-size.y / 2, size.y / 2 + 1):
 			var pos: Vector2i = tile_under_mouse + Vector2i(i, j)
 			cell_array.append(pos)
 			var cell_world_pos: Vector2 = map_to_local(pos)
-			if _cell_collides(cell_world_pos):
+			if _cell_collides(cell_world_pos, [2]):
 				set_cell(pos, 0, Vector2i(1, 0))
 				can_be_placed = false
 			else:
 				set_cell(pos, 0, Vector2i(2, 0))
 
 func _handle_building_click(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_be_placed:
 		placement_position = preview.position
+		animation_playing = true  
 		animation.play("placementAnimationLib/goodPlacement")
 
 func _clear_previous_preview() -> void:
@@ -92,25 +104,24 @@ func _clear_previous_preview() -> void:
 		set_cell(cell_pos, 0, Vector2i(0, 0))
 	cell_array.clear()
 
-
-
 func _place_building(_anim_name: StringName) -> void:
-	if not can_be_placed:
-		return
-
-	var instance: Building = building_data
-	instance.rotation = preview.rotation
-	instance.position = placement_position
-	instance.name = instance.name + "_" + str(building_data.get_id())
+	animation_playing = false 
+	_clear_previous_preview()
+	if in_placement :
+		var instance: Building = building_data
+		instance.rotation = preview.rotation
+		instance.position = placement_position
+		instance.name = instance.name + "_" + str(building_data.get_id())
+		%WorldGrid.add_child(instance)
+		GlobalBuildingManager.add_building(instance)
+	elif in_path_placement :
+		var instance : Path = path_data
+		instance.position = placement_position
+		%PathRegions.add_child(instance)
 	
-	print(instance.name)
-	%WorldGrid.add_child(instance)
-	BuildingsInfo.add_building(instance)
 	stop_building()
-
-
-
-func _cell_collides(cell_world_pos: Vector2) -> bool:
+	
+func _cell_collides(cell_world_pos: Vector2, ignored_layers: Array = []) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var cell_size = tile_set.tile_size
 
@@ -124,5 +135,22 @@ func _cell_collides(cell_world_pos: Vector2) -> bool:
 	query.collide_with_bodies = true
 	query.exclude = [self]
 
+	# --- Construction du masque de collision ---
+	var collision_mask := 0xFFFFFFFF  # Tous les bits activés par défaut
+
+	for layer_index in ignored_layers:
+		if layer_index >= 1 and layer_index <= 32:
+			collision_mask &= ~(1 << (layer_index - 1))  # On désactive le bit du layer à ignorer
+
+	query.collision_mask = collision_mask
+	# ------------------------------------------
+
 	var result = space_state.intersect_shape(query, 1)
 	return result.size() > 0
+
+
+	
+func build_path():
+	in_path_placement = true
+	preview.texture = path_data.get_preview()
+	effect_size = Vector2(1.0, 1.0)

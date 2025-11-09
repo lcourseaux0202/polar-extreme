@@ -12,6 +12,18 @@ var _buildingsPositions = {
 	Enums.BUILDING_TYPE.SHOWER: []
 }
 
+var buildings_scenes = {
+	"IceMine" : preload("res://scenes/buildings/instanciables/IceMine.tscn"),
+	"Shower" : preload("res://scenes/buildings/instanciables/ShowerBlock.tscn"),
+	"Toilet" : preload("res://scenes/buildings/instanciables/Toilet.tscn")
+}
+
+func instantiate_building(building : String) -> Building :
+	if buildings_scenes.has(building):
+		return buildings_scenes[building].instantiate()
+	else :
+		return null
+
 func add_building(building: Building) -> void:
 	var btype = building.get_building_type()
 	if not _buildingsPositions.has(btype):
