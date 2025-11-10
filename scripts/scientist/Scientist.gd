@@ -96,4 +96,4 @@ func set_goal():
 
 func go_to_building(building_type : Enums.BUILDING_TYPE) -> void:
 	current_activity = building_type
-	navigation_agent.target_position = BuildingsInfo.get_closest_building(current_activity, global_position)
+	navigation_agent.target_position = GlobalBuildingManager.get_closest_building(current_activity, global_position)
