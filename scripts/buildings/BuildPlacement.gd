@@ -160,4 +160,5 @@ func build_path():
 	path_data = load("res://scenes/buildings/path/Path.tscn").instantiate()
 	in_path_placement = true
 	preview.texture = path_data.get_preview()
+	preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	effect_size = Vector2(1.0, 1.0)
