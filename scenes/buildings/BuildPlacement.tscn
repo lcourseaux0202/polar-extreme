@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cism5ivh6jv6b"]
 
-[ext_resource type="Texture2D" uid="uid://cj0by52v72v60" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
+[ext_resource type="Texture2D" uid="uid://47ebm1o7ucn7" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
 [ext_resource type="Script" uid="uid://c1g1qopd4e4k4" path="res://scripts/buildings/BuildPlacement.gd" id="2_tbs4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1f3ra"]

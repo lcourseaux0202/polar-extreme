@@ -10,6 +10,7 @@ const IGNORED_LAYERS_FOR_BUILDING = [2]
 
 var in_placement: bool = false
 var in_path_placement : bool = false
+var has_to_place_path :bool = false
 var can_be_placed: bool = true
 var building_data: Building
 var path_data : Path
@@ -120,14 +121,15 @@ func _place_building(_anim_name: StringName) -> void:
 		instance.name = instance.name + "_" + str(building_data.get_id())
 		%WorldGrid.add_child(instance)
 		GlobalBuildingManager.add_building(instance)
-	elif in_path_placement :
-		var instance : Path = path_data
+		stop_building()
+	elif in_path_placement:
+		var instance: Path = path_data
 		instance.position = placement_position
-		path_data.name = "Path" + str(n_path)
+		instance.name = "Path" + str(n_path)
 		n_path += 1
 		%PathRegions.add_child(instance)
+		build_path()
 	
-	stop_building()
 	
 func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
@@ -155,6 +157,34 @@ func get_collision_layers_mask(ignored_layers : Array):
 			collision_mask &= ~(1 << (layer_index - 1))
 			
 	return collision_mask
+	
+	
+	
+	
+
+
+
+func _on_path_button_pressed() -> void:
+	if in_path_placement:
+		stop_building_path()
+	else:
+		start_building_path()
+
+
+func start_building_path() -> void:
+	in_path_placement = true
+	has_to_place_path = false
+	build_path()
+
+
+func stop_building_path() -> void:
+	in_path_placement = false
+	path_data = null
+	preview.texture = null
+	has_to_place_path = false
+	return
+
+
 
 func build_path():
 	path_data = load("res://scenes/buildings/path/Path.tscn").instantiate()

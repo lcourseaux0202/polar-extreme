@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/Camera.tscn" id="1_c6dvc"]
 [ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://scenes/buildings/BuildPlacement.tscn" id="2_611at"]
-[ext_resource type="Texture2D" uid="uid://pbxcjett24ac" path="res://assets/ground/base.png" id="3_c6dvc"]
+[ext_resource type="Texture2D" uid="uid://c43ndls14ywdv" path="res://assets/ground/base.png" id="3_c6dvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6dvc"]
 texture = ExtResource("3_c6dvc")
@@ -38,3 +38,12 @@ unique_name_in_owner = true
 navigation_polygon = SubResource("NavigationPolygon_c6dvc")
 
 [node name="MainCamera" parent="." instance=ExtResource("1_c6dvc")]
+
+[node name="PathButton" type="Button" parent="."]
+offset_left = 197.0
+offset_top = -29.0
+offset_right = 285.0
+offset_bottom = 9.0
+text = "Build Path"
+
+[connection signal="pressed" from="PathButton" to="PlacementGrid" method="_on_path_button_pressed"]
