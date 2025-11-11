@@ -1,7 +1,6 @@
 class_name BuildingScience
 extends Building
 
-
 @export var producing: bool 	# whether the building is producing science atm
 
 @export var science_per_second: float:		# per scientist
@@ -28,10 +27,11 @@ extends Building
 
 func _init():
 	super._init()
-	building_type = BUILDING_TYPE.SCIENCE
+	building_genre = Enums.BUILDING_GENRE.SCIENCE
+	building_type = Enums.BUILDING_TYPE.LABO
 
 func change_max_scientists(n: int):
 	nb_scientists_max += n
 
-func project_add(project: Project):
-	projets_list.append(project)
+func get_building_type() -> Enums.BUILDING_TYPE:
+	return building_type

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvccgvdeejgkb"]
+
+[ext_resource type="Script" uid="uid://b2au1ftq4ob63" path="res://scripts/buildings/Building.gd" id="1_jvo4v"]
+
+[node name="Building" type="Area2D"]
+script = ExtResource("1_jvo4v")
+
+[node name="Door" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="PathZone" type="CollisionShape2D" parent="."]
+
+[node name="BuildingZone" type="CollisionShape2D" parent="."]
