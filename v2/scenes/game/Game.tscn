@@ -31,5 +31,8 @@ offset_bottom = 63.0
 text = "Create a path"
 script = ExtResource("5_8djus")
 
+[node name="PathRegions" type="NavigationRegion2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

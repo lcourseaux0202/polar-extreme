@@ -2,4 +2,4 @@ extends Button
 
 
 func _on_pressed():
-	UIController.emit_build_path()
+	UIController.emit_start_building_path()

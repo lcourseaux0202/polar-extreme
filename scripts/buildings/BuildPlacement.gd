@@ -25,7 +25,7 @@ var cell_array: Array[Vector2i] = []
 
 func _ready() -> void:
 	UIController.start_building.connect(_on_building_signal)
-	print("TEst")
+	UIController.start_placing_path.connect(_on_path_button_pressed)
 	
 
 func _input(event: InputEvent) -> void:
@@ -121,7 +121,7 @@ func _place_building(_anim_name: StringName) -> void:
 		instance.name = instance.name + "_" ;
 		#+ str(building_data.get_id())
 		%WorldGrid.add_child(instance)
-		GameController.add_building(instance)
+		#GameController.add_building(instance)
 		UIController.emit_validate_building_placement(instance)
 		stop_building()
 	elif in_path_placement:
@@ -130,6 +130,7 @@ func _place_building(_anim_name: StringName) -> void:
 		instance.name = "Path" + str(n_path)
 		n_path += 1
 		%PathRegions.add_child(instance)
+		UIController.emit_validate_building_path(instance)
 		build_path()
 	
 func _cell_collides(cell_world_pos: Vector2) -> bool:
@@ -178,7 +179,7 @@ func stop_building_path() -> void:
 	return
 
 func build_path():
-	path_data = load("res://scenes/buildings/path/Path.tscn").instantiate()
+	path_data = load("res://v2/scenes/buildings/Path.tscn").instantiate()
 	in_path_placement = true
 	preview.texture = path_data.get_preview()
 	preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
