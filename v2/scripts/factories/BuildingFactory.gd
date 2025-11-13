@@ -95,3 +95,4 @@ func create_building(bname : Enums.BUILDING_NAME):
 	return scene
 
 func get_preview_texture():
+	pass

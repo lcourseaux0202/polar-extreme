@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Scientist
+class_name Sqcientist
 
 @onready var navigation_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -17,7 +17,7 @@ class_name Scientist
 
 
 func _ready() -> void:
-	TimeManager.connect("time_changed", _on_time_changed)
+	#TimeManager.connect("time_changed", _on_time_changed)
 	set_showers_schedule()
 
 func set_showers_schedule():

@@ -20,13 +20,11 @@ var n_path = 0
 var placement_position: Vector2
 var cell_array: Array[Vector2i] = []
 
-
 func _input(event: InputEvent) -> void:
 	if animation_playing:
 		return
 	
 	_update_mouse_positions()
-	_handle_hotkeys()
 	if in_placement:
 		_handle_rotation_input()
 		_handle_placement_preview(event)
@@ -58,18 +56,6 @@ func stop_building() -> void:
 	path_data = null
 	preview.texture = null
 	
-
-func _handle_hotkeys() -> void:
-	if animation_playing:
-		return
-	
-	if Input.is_key_pressed(KEY_H):
-		start_building(GameController.instantiate_building("IceMine"))
-	elif Input.is_key_pressed(KEY_J):
-		start_building(GameController.instantiate_building("Toilet"))
-	elif Input.is_key_pressed(KEY_P):
-		build_path()
-
 func _update_mouse_positions() -> void:
 	var mouse_pos_glob: Vector2 = get_global_mouse_position()
 	var mouse_pos_grid: Vector2 = to_local(mouse_pos_glob)
@@ -130,7 +116,6 @@ func _place_building(_anim_name: StringName) -> void:
 		%PathRegions.add_child(instance)
 		build_path()
 	
-	
 func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var cell_size = tile_set.tile_size
@@ -158,24 +143,16 @@ func get_collision_layers_mask(ignored_layers : Array):
 			
 	return collision_mask
 	
-	
-	
-	
-
-
-
 func _on_path_button_pressed() -> void:
 	if in_path_placement:
 		stop_building_path()
 	else:
 		start_building_path()
 
-
 func start_building_path() -> void:
 	in_path_placement = true
 	has_to_place_path = false
 	build_path()
-
 
 func stop_building_path() -> void:
 	in_path_placement = false

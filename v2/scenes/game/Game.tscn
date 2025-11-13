@@ -14,6 +14,7 @@ script = ExtResource("1_04co1")
 
 [node name="WorldGrid" parent="." instance=ExtResource("3_pbgo2")]
 unique_name_in_owner = true
+script = null
 
 [node name="Camera" parent="." instance=ExtResource("2_puwje")]
 
