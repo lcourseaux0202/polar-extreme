@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dk3tmvweer7i"]
 
-[ext_resource type="Script" uid="uid://ddu01x4gf7rbi" path="res://scripts/scientist/Scientist.gd" id="1_yc63n"]
-[ext_resource type="Texture2D" uid="uid://dpgsvc7e55sre" path="res://assets/npc/scientifique.png" id="2_umeaf"]
+[ext_resource type="Script" uid="uid://c2u5gfoek5pf7" path="res://v2/scripts/models/Scientist.gd" id="1_dg5wj"]
+[ext_resource type="Texture2D" uid="uid://76whrb6dwfsa" path="res://assets/npc/scientifique.png" id="2_umeaf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_umeaf"]
 radius = 7.28011
@@ -98,9 +98,9 @@ _data = {
 &"up_walk": SubResource("Animation_lug0u")
 }
 
-[node name="NPC" type="CharacterBody2D"]
+[node name="Scientist" type="CharacterBody2D"]
 collision_mask = 2
-script = ExtResource("1_yc63n")
+script = ExtResource("1_dg5wj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

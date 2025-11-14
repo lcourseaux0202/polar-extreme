@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameController="*res://v2/scripts/autoloads/GameController.gd"
-UIController="*res://v2/scripts/autoloads/UIController.gd"
-Enums="*res://v2/scripts/autoloads/Enums.gd"
+Enums="*res://scripts/autoloads/Enums.gd"
+GameController="*res://scripts/autoloads/GameController.gd"
+UiController="*res://scripts/autoloads/UIController.gd"
 
 [rendering]
 
