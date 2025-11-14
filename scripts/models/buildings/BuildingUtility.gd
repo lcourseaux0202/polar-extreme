@@ -1,4 +1,6 @@
 extends Building
 class_name BuildingUtility
 
-var building_genre = Enums.BUILDING_GENRE.UTILITY
+func _init():
+	super._init()
+	building_genre = Enums.BUILDING_GENRE.UTILITY
