@@ -24,6 +24,8 @@ signal wellness_changed(wellness: float)
 
 signal lock_scroll_cam()
 
+signal enroll_scientist()
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
