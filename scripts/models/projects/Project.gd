@@ -6,7 +6,7 @@ var project_id := -1
 var project_description: String		# TODO
 var project_state: int:
 	set (value):
-		project_state = max(value, 0)	# 0: created, 1: running, 2: paused, 3: ended, 4: seen
+		project_state = max(value, 0)	# 0: created, 1: running, 2: paused, 3: finished
 
 var building_id := -1	# associated building
 
@@ -25,6 +25,7 @@ var reward_production				# per second science increase
 var reward_slots					# number of scientist allowed to work at the same time
 var reward_pollution				# one time flat amount of pollution
 var reward_pollution_per_second		# per second pollution increase
+var reward_wellness := 0.05			# one time flat amount of wellness
 
 func _init(pid: int, pname: String, rew_sci: int, rew_prod: int, rew_sl: int, rew_poll: int, rew_poll_ps) -> void:
 	project_id = pid
@@ -72,11 +73,18 @@ func pause():
 	
 func finish():
 	project_state = 3
-	console("finishing")
 	
-func validate():
-	project_state = 4
-	console("validate")
+	var building: BuildingScience
+	building = GameController.get_building_manager().get_building(building_id)
+	building.change_pollution(reward_pollution_per_second)
+	building.scientists_add_slots(reward_production)
+	
+	var gauges = GameController.get_gauges()
+	gauges.change_wellness(reward_wellness)
+	gauges.change_pollution(reward_pollution)
+	gauges.change_science(reward_science)
+	
+	console("project finished")
 	
 func time_left() -> int:
 	return int(timer.time_left)

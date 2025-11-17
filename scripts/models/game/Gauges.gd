@@ -7,10 +7,19 @@ var science_per_seconds := 0.0
 var pollution := 1000.0
 var pollution_per_seconds := 0.0
 
+var wellness := 100.0:
+	set (value):
+		wellness = clamp(value, wellness_min, wellness_max)
+var wellness_max := 2.00
+var wellness_min := 0.01
+var wellness_decrement_factor := 0.005
+
 var update_time := 2.0
 
 
-## Science
+## GAUGES MANAGEMENT
+
+# Science
 func get_science() -> float:
 	return science
 
@@ -30,7 +39,7 @@ func change_science_per_second(value: float) -> void:
 		science_per_seconds += value
 
 
-# pollution
+# Pollution
 func get_pollution() -> float:
 	return pollution
 	
@@ -38,17 +47,26 @@ func get_pollution_per_second() -> float:
 	return pollution_per_seconds
 
 func change_pollution(value: float) -> bool:
-	pollution += value
+	pollution += value * (100 / wellness)
 	if pollution <= 0:
-		# todo : reward
-		print("Gauges, pollution : pollution < 0 TODO") 
+		print("Gauges, pollution : pollution < 0, gain 1% wellness") 
+		change_wellness(0.01)
 	return true
 
 func change_pollution_per_second(value: float) -> void:
 	pollution_per_seconds += value
 
 
-## Update (every 2 seconds)
+# Wellness
+func get_wellness() -> float:
+	return wellness
+
+func change_wellness(w: float) -> void:
+	var new_wellness = wellness + w
+	wellness = new_wellness if (new_wellness > wellness_min) else wellness_min
+
+
+## UPDATE (every 2 seconds)
 func _ready():
 	var timer = Timer.new()
 	timer.wait_time = update_time
@@ -60,3 +78,4 @@ func _ready():
 func _update_gauges():
 	change_science(science_per_seconds * update_time)
 	change_pollution(pollution_per_seconds * update_time)
+	change_wellness(wellness_decrement_factor * update_time)

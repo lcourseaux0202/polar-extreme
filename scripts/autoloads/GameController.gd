@@ -36,3 +36,6 @@ func _on_enroll_scientist():
 	
 func get_gauges() -> Gauges:
 	return gauges
+	
+func get_building_manager() -> BuildingManager:
+	return building_manager
