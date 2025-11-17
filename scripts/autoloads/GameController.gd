@@ -5,6 +5,7 @@ extends Node2D
 @onready var time_manager : TimeManager = load("res://scripts/systems/TimeManager.gd").new()
 @onready var building_manager : BuildingManager = load("res://scripts/systems/BuildingManager.gd").new()
 @onready var gauges : Gauges = load("res://scripts/models/game/Gauges.gd").new()
+@onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
 
 func _ready():
 	pass
@@ -39,3 +40,6 @@ func get_gauges() -> Gauges:
 	
 func get_building_manager() -> BuildingManager:
 	return building_manager
+
+func get_projects_manager() -> ProjectsManager:
+	return projects_manager
