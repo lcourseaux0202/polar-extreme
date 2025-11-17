@@ -6,23 +6,26 @@ class_name BuildingScience
 
 @export var science_per_second: float:		# per scientist
 	set(value):
-		value = clamp(value, 0, max_science_per_second)
+		value = clamp(value, 0, science_max_per_second)
 		science_per_second = value
-		
-@export var max_science_per_second: int
+
+@export var science_max_per_second: int
 
 # number of scientist producing science in the building
-@export var nb_scientists: int:
+@export var nb_scientists_working: int:
 	set(value):
-		nb_scientists = clamp(value, 0, nb_scientists_max)
+		nb_scientists_working = clamp(value, 0, nb_scientists_slots)
 
 # max number of scientists producing science
-@export var nb_scientists_max: int: 	
+@export var nb_scientists_slots: int: 	
 	set(value):
-		nb_scientists_max = value if (nb_scientists_max + value > 1) else 1
+		nb_scientists_slots = value if (
+			nb_scientists_slots + value > 1 
+			&& nb_scientists_slots + value < nb_scientists_slots_max
+		) else nb_scientists_slots
 
 # capped number of the max number of scientists
-@export var nb_scientists_max_max: int
+@export var nb_scientists_slots_max: int
 
 # Liste des projets du batiments
 @export var projets_list: Array[Project] = []
@@ -31,16 +34,19 @@ func _init():
 	#super._init()
 	building_genre = Enums.BUILDING_GENRE.SCIENCE
 	building_type = Enums.BUILDING_TYPE.NONE
-	
-func change_max_scientists(n: int):
-	nb_scientists_max += n
 
-func get_building_type() -> Enums.BUILDING_TYPE:
+func scientists_change_working(n: int):
+	nb_scientists_working += n
+
+func scientists_add_slots(n: int):
+	nb_scientists_slots += n
+
+func building_get_type() -> Enums.BUILDING_TYPE:
 	return building_type
 	
-func change_science_per_second(value: float) -> void:
+func science_change_per_second(value: float) -> void:
 	science_per_second = value
 	GameController.get_gauges().change_science_per_second(value)
 
-func production_pause() -> void:
+func science_production_pause() -> void:
 	producing = false

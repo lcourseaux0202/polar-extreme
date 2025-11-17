@@ -9,10 +9,13 @@ class_name Building
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second: float
 
-func get_id():
+func get_id() -> int:
 	return id
+	
+func set_id(new_id: int) -> void:
+	id = new_id
 
-func get_building_name():
+func get_building_name() -> String:
 	return building_name
 	
 func get_building_type() -> Enums.BUILDING_TYPE:
