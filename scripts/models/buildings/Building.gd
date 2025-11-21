@@ -27,6 +27,6 @@ func get_pollution() -> float:
 func change_pollution(value: float) -> void:
 	pollution_per_second += value
 	GameController.get_gauges().change_pollution_per_second(value)
-	
+
 func delete():
 	queue_free()
