@@ -82,10 +82,6 @@ func start_building(building: Building) -> void:
 	var building_zone: CollisionShape2D = building.get_node_or_null("BuildingZone")
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32
-	
-	var door_node = building.get_node_or_null("Door")
-	if door_node and door_node is Marker2D:
-		door_offset = door_node.position / 32
 
 func stop_building() -> void:
 	in_placement = false
@@ -112,7 +108,6 @@ func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
-		door_offset = Vector2(-door_offset.y, door_offset.x)
 
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
@@ -130,6 +125,7 @@ func _handle_placement_preview(event: InputEvent) -> void:
 	var end_y = int(size.y / 2) + 1
 	var is_even_x = int(size.x) % 2 == 0
 	var is_even_y = int(size.y) % 2 == 0
+
 	for i in range(start_x, end_x):
 		for j in range(start_y, end_y):
 			var pos: Vector2i = tile_under_mouse + Vector2i(i, j)
@@ -154,22 +150,14 @@ func _handle_placement_preview(event: InputEvent) -> void:
 					set_cell(pos, 0, Vector2i(2, 0))
 	
 	if in_placement and building_data != null:
-		var door_tiles = _get_door_tiles(tile_under_mouse)
-		print(door_tiles)
-		var door_has_path = true
-		for t in door_tiles:
-			var world_pos = map_to_local(t)
-			print(_is_adjacent_to_path(world_pos))
-			
-			if not _is_adjacent_to_path(world_pos):
-				door_has_path = false
-				break
-		
-		if not door_has_path:
+		var door_ok = _door_touches_path(building_data, map_to_local(tile_under_mouse))
+		if not door_ok:
 			can_be_placed = false
 			for cell_pos in cell_array:
 				set_cell(cell_pos, 0, Vector2i(1, 0))
 
+		
+				set_cell(cell_pos, 0, Vector2i(1, 0))
 
 func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
 	var shape = door.shape

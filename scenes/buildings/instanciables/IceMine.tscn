@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cavw1bwppvtpl" path="res://assets/building/ice_mine.png" id="2_aj2hn"]
 [ext_resource type="Texture2D" uid="uid://c00gjgx7ckk6v" path="res://assets/building/Laboratory.png" id="2_aj2hn"]
 [ext_resource type="Texture2D" uid="uid://bmfe7mtkwkkmo" path="res://assets/building/Laboratory.png" id="2_aj2hn"]
+[ext_resource type="Texture2D" uid="uid://cmtbc4ygo23lf" path="res://assets/building/ice_mine.png" id="2_aj2hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2hn"]
 size = Vector2(95, 95)
