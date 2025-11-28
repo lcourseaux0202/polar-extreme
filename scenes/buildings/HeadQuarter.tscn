@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3y1che8xclod"]
+
+[ext_resource type="Texture2D" uid="uid://bxi8vqi7s1tt0" path="res://icon.svg" id="1_oeesj"]
+[ext_resource type="Script" uid="uid://38quae2t3kny" path="res://scripts/models/buildings/HeadQuarter.gd" id="1_q7pfq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7pfq"]
+size = Vector2(159, 159)
+
+[node name="HeadQuarter" type="Area2D"]
+script = ExtResource("1_q7pfq")
+
+[node name="Area2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q7pfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3.8147e-06, 4.76837e-06)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_oeesj")
+
+[node name="PathDetector" type="NavigationAgent2D" parent="."]
+navigation_layers = 2
+path_postprocessing = 1
+debug_enabled = true

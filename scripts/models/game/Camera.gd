@@ -9,6 +9,10 @@ var smooth_zoom: bool = true
 var dragging := false
 var velocity := Vector2.ZERO
 
+
+func _ready() -> void:
+	UiController.zoom_building.connect(_zoom_towards_position)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == drag_button:
@@ -36,3 +40,19 @@ func _zoom_towards_mouse(factor: float) -> void:
 	var world_before = to_global(mouse_pos)
 	var world_after = to_global(mouse_pos)
 	position += world_before - world_after
+
+
+func _zoom_towards_position(target_global: Vector2) -> void:
+	global_position = target_global
+	
+	var screen_before = get_screen_position(target_global)
+	var new_zoom = Vector2(3, 3)
+	zoom = new_zoom
+	var screen_after = get_screen_position(target_global)
+	var offset = screen_before - screen_after
+	offset.x += 20
+	global_position += offset * zoom
+
+
+func get_screen_position(world_pos: Vector2) -> Vector2:
+	return (world_pos - global_position) / zoom + get_viewport_rect().size * 0.5

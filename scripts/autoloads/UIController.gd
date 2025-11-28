@@ -13,6 +13,8 @@ signal delete_building
 signal enroll_scientist()
 signal new_hour(hour)
 
+signal zoom_building(building_position : Vector2)
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
@@ -39,3 +41,6 @@ func emit_start_delete_object():
 	
 func emit_new_hour(hour):
 	new_hour.emit(hour)
+
+func emit_zoom_building(building_position : Vector2):
+	zoom_building.emit(building_position)

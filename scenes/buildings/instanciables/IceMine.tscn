@@ -8,10 +8,7 @@ size = Vector2(95, 95)
 
 [node name="BuildingScience" instance=ExtResource("1_aj2hn")]
 texture_filter = 1
-science_max_per_second = 0
-nb_scientists_working = 0
-nb_scientists_slots = 0
-nb_scientists_slots_max = 0
+building_type = 4
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 40)

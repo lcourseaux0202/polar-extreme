@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqs5swfc6temo"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_8nb83"]
+[ext_resource type="Texture2D" uid="uid://jh40wargaql0" path="res://assets/building/sismology.png" id="2_cjfu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1aak"]
+size = Vector2(223, 159)
+
+[node name="Sismology" instance=ExtResource("1_8nb83")]
+building_type = 2
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 80)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_cjfu4")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_f1aak")

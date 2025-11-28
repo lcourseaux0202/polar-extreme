@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bikd5kkcy80sd"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_wxps8"]
+[ext_resource type="Texture2D" uid="uid://fqhuy7lly1qm" path="res://assets/building/greenhouse.png" id="2_fhjap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw7a"]
+size = Vector2(31, 95)
+
+[node name="Greenhouse" instance=ExtResource("1_wxps8")]
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 47)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_fhjap")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_xaw7a")

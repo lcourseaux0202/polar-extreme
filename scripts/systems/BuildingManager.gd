@@ -6,6 +6,7 @@ var path_factory = load("res://scripts/factories/PathFactory.gd").new()
 var buildingsIds := {}
 
 var building_counter := 0
+var hovered_building : Building = null
 
 var buildings_positions = {
 	Enums.BUILDING_TYPE.LABORATORY_GLACIOLOGY: [],
@@ -51,7 +52,7 @@ func register(building : Building):
 	buildings_positions[type].append(building.global_position)
 	buildings_positions[type].append(building.get_door_position())
 	buildings_positions_no_group.append(building.get_door_position())
-	
+
 func unregister(building:Building):
 	var type = building.get_building_type()
 	buildings_positions[type].erase(building)
@@ -64,5 +65,3 @@ func get_random_building_position() -> Vector2:
 		return buildings_positions_no_group.pick_random()
 	else :
 		return Vector2(0,0)
-	#var key = buildings_positions.keys().pick_random()
-	#return buildings_positions[key].pick_random()

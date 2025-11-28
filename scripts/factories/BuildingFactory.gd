@@ -6,22 +6,22 @@ const BUILDING_DATA := {
 	Enums.BUILDING_TYPE.LABORATORY_GLACIOLOGY: {
 		"category": "Recherche",
 		"name": "Laboratoire de glaciologie",
-		"scene_path": "res://scenes/buildings/LabGlaciology.tscn",
+		"scene_path": "res://scenes/buildings/instanciables/Glaciology.tscn",
 	},
 	Enums.BUILDING_TYPE.LABORATORY_ATMOSPHERIC_PHYSICS: {
 		"category": "Recherche",
 		"name": "Laboratoire de physique de l'atmosphère",
-		"scene_path": "res://scenes/buildings/LabAtmosphere.tscn",
+		"scene_path": "res://scenes/buildings/instanciables/LabAtmosphere.tscn",
 	},
 	Enums.BUILDING_TYPE.LABORATORY_MAGNETISM_SEISMOLOGY: {
 		"category": "Recherche",
 		"name": "Laboratoire de magnétisme & sismologie",
-		"scene_path": "res://scenes/buildings/LabMagnetism.tscn",
+		"scene_path": "res://scenes/buildings/instanciables/LabMagnetism.tscn",
 	},
 	Enums.BUILDING_TYPE.LABORATORY_HUMAN_BIOLOGY: {
 		"category": "Recherche",
 		"name": "Laboratoire de biologie humaine",
-		"scene_path": "res://scenes/buildings/LabBiology.tscn",
+		"scene_path": "res://scenes/buildings/instanciables/LabBiology.tscn",
 	},
 	Enums.BUILDING_TYPE.ICEMINE: {
 		"category": "Recherche",
@@ -31,7 +31,7 @@ const BUILDING_DATA := {
 	Enums.BUILDING_TYPE.GREENHOUSE: {
 		"category": "Recherche",
 		"name": "Serre",
-		"scene_path": "res://scenes/buildings/Greenhouse.tscn",
+		"scene_path": "res://scenes/buildings/instanciables/Greenhouse.tscn",
 	},
 
 	# === VIE QUOTIDIENNE ===

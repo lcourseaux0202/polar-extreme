@@ -25,7 +25,7 @@ func set_grid(grid : TileMapLayer):
 	UiController.delete_building.connect(_on_delete_building)
 
 func _on_build_batiment(bname:Enums.BUILDING_TYPE):
-	var building := building_manager.create_building(Enums.BUILDING_TYPE.ICEMINE)
+	var building := building_manager.create_building(bname)
 	UiController.emit_start_building(building)
 
 func _on_build_path():
@@ -56,3 +56,6 @@ func notify_scientist_new_hour(hour : int):
 
 func get_random_building_position() -> Vector2:
 	return building_manager.get_random_building_position()
+
+func zoom_camera(building : Building):
+	UiController.emit_zoom_building(building.global_position)

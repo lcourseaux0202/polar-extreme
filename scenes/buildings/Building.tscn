@@ -13,3 +13,6 @@ scale = Vector2(4, 4)
 [node name="PathZone" type="CollisionShape2D" parent="."]
 
 [node name="BuildingZone" type="CollisionShape2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://nxorg46rwsdo"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_028sa"]
+[ext_resource type="Texture2D" uid="uid://230rplkltu7v" path="res://assets/building/glaciology.png" id="2_8vvkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od3lo"]
+size = Vector2(159, 95)
+
+[node name="Glaciology" instance=ExtResource("1_028sa")]
+building_type = 0
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-2.38419e-06, 3.8147e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("2_8vvkn")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_od3lo")

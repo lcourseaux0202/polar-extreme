@@ -9,6 +9,10 @@ class_name Building
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second: float
 
+@onready var mouse_hover := false
+
+signal building_clicked(building : Building)
+
 func get_id() -> int:
 	return id
 	
@@ -30,3 +34,14 @@ func change_pollution(value: float) -> void:
 
 func delete():
 	queue_free()
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and mouse_hover:
+		GameController.zoom_camera(self)
+
+func _on_mouse_entered() -> void:
+	mouse_hover = true
+	
+
+func _on_mouse_exited() -> void:
+	mouse_hover = false

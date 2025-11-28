@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://80m0ccmen7mg"]
+
+[ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_vngcl"]
+[ext_resource type="Texture2D" uid="uid://d2leno6hg2gh8" path="res://assets/building/atmospheric.png" id="2_fw34e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ods"]
+size = Vector2(223, 223)
+
+[node name="Atmospheric" instance=ExtResource("1_vngcl")]
+building_type = 1
+
+[node name="Door" parent="." index="0"]
+position = Vector2(0, 80)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_fw34e")
+
+[node name="BuildingZone" parent="." index="3"]
+shape = SubResource("RectangleShape2D_e4ods")
