@@ -81,6 +81,10 @@ func start_building(building: Building) -> void:
 	var building_zone: CollisionShape2D = building.get_node_or_null("BuildingZone")
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32
+	
+	var door_node = building.get_node_or_null("Door")
+	if door_node and door_node is Marker2D:
+		door_offset = door_node.position / 32
 
 func stop_building() -> void:
 	in_placement = false
@@ -107,6 +111,7 @@ func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
+		door_offset = Vector2(-door_offset.y, door_offset.x)
 
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
