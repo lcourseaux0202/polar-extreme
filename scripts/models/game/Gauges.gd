@@ -1,21 +1,31 @@
 class_name Gauges
 extends Node
 
-var science := 0.0
-var science_per_seconds := 0.0
+var science := 0.0:
+	set(value):
+		science = value
+		UiController.emit_science_changed(science)
+		
+var science_per_seconds := 0.0:
+	set(value):
+		science_per_seconds = value
+		UiController.emit_science_second_changed(science_per_seconds)
 
-var pollution := 1000.0
+var pollution := 1000.0:
+	set(value):
+		pollution = value
+		UiController.emit_pollution_changed(pollution)
 var pollution_per_seconds := 0.0
 
 var wellness := 100.0:
 	set (value):
 		wellness = clamp(value, wellness_min, wellness_max)
+		UiController.emit_wellness_changed(wellness)
 var wellness_max := 2.00
 var wellness_min := 0.01
 var wellness_decrement_factor := 0.005
 
 var update_time := 2.0
-
 
 ## GAUGES MANAGEMENT
 
