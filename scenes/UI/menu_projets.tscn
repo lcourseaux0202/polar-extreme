@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://28bld6ebjyy6"]
+
+[ext_resource type="Script" uid="uid://cql3t2trrtxm8" path="res://scripts/UI/menu_projets.gd" id="1_loijj"]
+[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="2_n1p1n"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="3_gypk2"]
+[ext_resource type="Texture2D" uid="uid://bkfv371chuo3x" path="res://icon.svg" id="4_itfo7"]
+
+[node name="MenuProjets" type="MarginContainer"]
+custom_minimum_size = Vector2(300, 530)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_loijj")
+projectScene = ExtResource("2_n1p1n")
+metadata/_edit_use_anchors_ = true
+
+[node name="ninePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_gypk2")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ButtonTest" type="Button" parent="ninePatchRect"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 318.0
+offset_top = 2.5
+offset_right = 368.0
+offset_bottom = 52.5
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("4_itfo7")
+expand_icon = true
+
+[node name="ButtonTest2" type="Button" parent="ninePatchRect"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 318.0
+offset_top = 75.5
+offset_right = 368.0
+offset_bottom = 125.5
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("4_itfo7")
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ninePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ninePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Projets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(293, 488)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="projetContainer" type="VBoxContainer" parent="ninePatchRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Projet" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Projet2" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+visible = false
+layout_mode = 2
+
+[node name="Projet3" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+visible = false
+layout_mode = 2
+
+[node name="Projet4" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+visible = false
+layout_mode = 2
+
+[node name="Projet5" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+visible = false
+layout_mode = 2
+
+[node name="Projet6" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="ninePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[connection signal="pressed" from="ninePatchRect/ButtonTest" to="." method="_on_button_test_pressed"]
+[connection signal="pressed" from="ninePatchRect/ButtonTest2" to="." method="_on_button_test_2_pressed"]

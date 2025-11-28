@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://biyp1uwmfu6u4"]
+
+[ext_resource type="Script" uid="uid://dirtohj8dh3m3" path="res://scripts/UI/projet.gd" id="1_cg0em"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_h6gdv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cg0em"]
+texture = ExtResource("2_h6gdv")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(320, 448, 64, 64)
+
+[node name="Projet" type="MarginContainer"]
+offset_right = 290.0
+offset_bottom = 100.0
+script = ExtResource("1_cg0em")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(290, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 3
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_cg0em")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cg0em")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cg0em")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -41.5
+offset_right = 130.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Button/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Button/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="nom" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Nom"
+
+[node name="timeLeft" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "Temps"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/Button/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+ignore_time_scale = true

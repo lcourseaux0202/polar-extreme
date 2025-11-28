@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://w68s7km80fw0"]
+
+[ext_resource type="Script" uid="uid://dw6h7tjgbaub8" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
+
+[node name="menu_scientifiques" type="MarginContainer"]
+custom_minimum_size = Vector2(300, 530)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1620.0
+offset_bottom = -550.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2bolv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 530)
+layout_mode = 2
+
+[node name="ninePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_54jhy")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/ninePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Recruter"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Assignés à un batiment"
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(225, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Assignés à un projet"
+
+[node name="Label3" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(225, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label3" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Non assignés"
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="MenuAssignationScientifiques" parent="HBoxContainer" instance=ExtResource("2_y5bk0")]
+visible = false
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
