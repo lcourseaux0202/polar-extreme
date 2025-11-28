@@ -16,7 +16,6 @@ signal new_hour(hour)
 signal zoom_building(building_position : Vector2)
 
 signal ui_change_category(cat_num : int)
-
 signal science_changed(science: float)
 signal science_second_changed(science_per_second: float)
 signal pollution_changed(pollution: float)
