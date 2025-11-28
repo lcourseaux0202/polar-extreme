@@ -82,10 +82,6 @@ func start_building(building: Building) -> void:
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32
 	
-	var door_node = building.get_node_or_null("Door")
-	if door_node and door_node is Marker2D:
-		door_offset = door_node.position / 32
-
 func stop_building() -> void:
 	in_placement = false
 	in_path_placement = false
@@ -111,7 +107,6 @@ func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
-		door_offset = Vector2(-door_offset.y, door_offset.x)
 
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
@@ -159,8 +154,6 @@ func _handle_placement_preview(event: InputEvent) -> void:
 			for cell_pos in cell_array:
 				set_cell(cell_pos, 0, Vector2i(1, 0))
 
-		
-				set_cell(cell_pos, 0, Vector2i(1, 0))
 
 func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
 	var shape = door.shape
@@ -179,7 +172,6 @@ func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
 			return true
 
 	return false
-
 
 func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
