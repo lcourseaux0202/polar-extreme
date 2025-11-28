@@ -1,6 +1,6 @@
 extends Control
 
-class_name buttonBuildings
+class_name buttonPath
 
 
 # exports (permet de modifier pour chaque bouton) et autres vars
@@ -11,8 +11,6 @@ class_name buttonBuildings
 @onready var button: Button = $VBoxContainer/Button
 @onready var label: Label = $VBoxContainer/Control/NinePatchRect/MarginContainer/Label
 @onready var nine_patch_rect: NinePatchRect = $VBoxContainer/Control/NinePatchRect
-
-@export var btype : Enums.BUILDING_TYPE
 
 var alreadyCliked := false
 
@@ -46,7 +44,7 @@ func _on_button_pressed() -> void:
 		_on_button_pressed()
 	else :
 		label.text = "ta mere"
-		UiController.emit_build_batiment(btype)
+		UiController.emit_start_building_path()
 
 
 func afficherPopup() -> void :

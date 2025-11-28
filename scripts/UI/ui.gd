@@ -10,7 +10,8 @@ extends Control
 @onready var h_box_btn_cat_2: HBoxContainer = $BaseContainer/buildingsMenu/hBoxBtnCat2
 @onready var h_box_btn_cat_3: HBoxContainer = $BaseContainer/buildingsMenu/hBoxBtnCat3
 
-
+func _ready() -> void:
+	UiController.connect("ui_change_category", _handle_category_changed)
 
 # projScienMenu
 
@@ -38,6 +39,14 @@ func _on_button_assigner_scientists_pressed() -> void:
 func _on_btn_path_pressed() -> void:
 	pass # Replace with function body.
 
+func _handle_category_changed(cat_num : int) :
+	match cat_num:
+		1:
+			_on_btn_cat_1_pressed()
+		2:
+			_on_btn_cat_2_pressed()
+		3:
+			_on_btn_cat_3_pressed()
 
 func _on_btn_cat_1_pressed() -> void:
 	h_box_btn_cat_1.visible = true
