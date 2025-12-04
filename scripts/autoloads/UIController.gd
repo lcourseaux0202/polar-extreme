@@ -15,6 +15,13 @@ signal new_hour(hour)
 
 signal zoom_building(building_position : Vector2)
 
+signal ui_change_category(cat_num : int)
+
+signal science_changed(science: float)
+signal science_second_changed(science_per_second: float)
+signal pollution_changed(pollution: float)
+signal wellness_changed(wellness: float)
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
@@ -44,3 +51,18 @@ func emit_new_hour(hour):
 
 func emit_zoom_building(building_position : Vector2):
 	zoom_building.emit(building_position)
+
+func emit_science_changed(science: float) -> void:
+	science_changed.emit(science)
+
+func emit_science_second_changed(science_per_second: float) -> void:
+	science_second_changed.emit(science_per_second)
+
+func emit_pollution_changed(pollution: float) -> void:
+	pollution_changed.emit(pollution)
+
+func emit_wellness_changed(wellness: float) -> void:
+	wellness_changed.emit(wellness)
+
+func emit_change_category(cat_num : int) -> void:
+	ui_change_category.emit(cat_num)

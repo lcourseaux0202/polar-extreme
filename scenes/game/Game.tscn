@@ -6,10 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://1np065kd0d37" path="res://scenes/game/WorldGrid.tscn" id="3_pbgo2"]
 [ext_resource type="Script" uid="uid://i5rbfi6c02g8" path="res://scripts/ui/button_2.gd" id="5_8djus"]
 [ext_resource type="Script" uid="uid://b6memj3wonbnn" path="res://scripts/ui/button_building.gd" id="6_wnrko"]
+[ext_resource type="PackedScene" uid="uid://on73whrfey7o" path="res://scenes/UI/UI.tscn" id="5_wnrko"]
+[ext_resource type="Script" uid="uid://da4hnn00s4q53" path="res://scripts/ui/button_building.gd" id="6_wnrko"]
 [ext_resource type="Script" uid="uid://cwpclyuhc3jfe" path="res://scripts/ui/button_3.gd" id="7_gg4pt"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_04co1")
+
+[node name="Camera" parent="." instance=ExtResource("2_puwje")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="GameUI" parent="Camera/CanvasLayer" instance=ExtResource("5_wnrko")]
 
 [node name="PlacementGrid" parent="." instance=ExtResource("2_pbgo2")]
 
@@ -18,8 +26,6 @@ unique_name_in_owner = true
 
 [node name="PathRegions" type="NavigationRegion2D" parent="."]
 unique_name_in_owner = true
-
-[node name="Camera" parent="." instance=ExtResource("2_puwje")]
 
 [node name="Glaciology" type="Button" parent="."]
 offset_right = 140.0
@@ -63,13 +69,6 @@ text = "Create a greenhouse
 script = ExtResource("6_wnrko")
 btype = 5
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 464.0
-offset_right = 577.0
-offset_bottom = 31.0
-text = "Create a path"
-script = ExtResource("5_8djus")
-
 [node name="Button3" type="Button" parent="."]
 offset_left = 432.0
 offset_top = 32.0
@@ -78,5 +77,4 @@ offset_bottom = 63.0
 text = "Create a scientist"
 script = ExtResource("7_gg4pt")
 
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
