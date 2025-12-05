@@ -4,7 +4,6 @@ class_name BuildingScience
 @export var producing: bool 	# whether the building is producing science atm
 @onready var door: Marker2D = $Door
 # whether the building is producing science atm
-@export var producing: bool
 
 @export var science_per_second: float:		# per scientist
 	set(value):

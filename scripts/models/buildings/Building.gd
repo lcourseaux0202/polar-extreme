@@ -8,6 +8,7 @@ class_name Building
 @export var building_genre : Enums.BUILDING_GENRE
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second: float
+
 @onready var mouse_hover := false
 
 signal building_clicked(building : Building)
@@ -44,4 +45,3 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	mouse_hover = false
-	Gauges.change_pollution_per_second(value)

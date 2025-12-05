@@ -8,7 +8,6 @@ extends Node2D
 @onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
 @onready var game_started := false
 
-@onready var game_started := false
 
 func _ready():
 	pass
@@ -60,12 +59,4 @@ func get_random_building_position() -> Vector2:
 
 func zoom_camera(building : Building):
 	UiController.emit_zoom_building(building.global_position)
-func _on_delete_building(building:Building):
-	building_manager.unregister(building)
-
-func _on_enroll_scientist():
-	var scientist_to_place : Scientist = scientist_manager.enroll_scientist()
-	world_manager.place_scientist(scientist_to_place)
 	
-func get_gauges() -> Gauges:
-	return gauges

@@ -5,11 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/game/Camera.tscn" id="2_puwje"]
 [ext_resource type="PackedScene" uid="uid://1np065kd0d37" path="res://scenes/game/WorldGrid.tscn" id="3_pbgo2"]
 [ext_resource type="PackedScene" uid="uid://on73whrfey7o" path="res://scenes/UI/UI.tscn" id="5_wnrko"]
-[ext_resource type="Script" uid="uid://bm26mskwrtlfw" path="res://scripts/ui/button_building.gd" id="6_wnrko"]
-[ext_resource type="Script" uid="uid://i5rbfi6c02g8" path="res://scripts/ui/button_2.gd" id="5_8djus"]
-[ext_resource type="Script" uid="uid://dkrmwt4ncbjnp" path="res://scripts/ui/button_building.gd" id="6_wnrko"]
-[ext_resource type="Script" uid="uid://da4hnn00s4q53" path="res://scripts/ui/button_building.gd" id="6_wnrko"]
-[ext_resource type="Script" uid="uid://cwpclyuhc3jfe" path="res://scripts/ui/button_3.gd" id="7_gg4pt"]
+[ext_resource type="Script" uid="uid://ml8i0pj5o7nb" path="res://scripts/ui/button_building.gd" id="6_wnrko"]
+[ext_resource type="Script" uid="uid://cwpclyuhc3jfe" path="res://scripts/UI/button_3.gd" id="7_gg4pt"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_04co1")
@@ -84,7 +81,5 @@ offset_right = 139.0
 offset_bottom = 127.0
 text = "Delete"
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]

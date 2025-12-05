@@ -8,7 +8,7 @@ var project_state: int:
 	set (value):
 		project_state = max(value, 0)	# 0: created, 1: running, 2: paused, 3: finished
 
-var building: BuildingScience	# associated building
+var building	# associated building
 
 var requirement_scientists: int 	# number of scientifics required for the project
 var timer: Timer

@@ -49,7 +49,6 @@ func _input(event: InputEvent) -> void:
 	elif in_path_placement:
 		_handle_path_drag_input(event)
 		_handle_placement_preview(event)
-		_handle_building_click(event)
 		Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 	elif in_delete_object:
 		_handle_delete_object(event)
@@ -299,15 +298,14 @@ func _handle_path_drag_input(event: InputEvent) -> void:
 			is_dragging_path = true
 			path_preview_cells.clear()
 			_clear_previous_preview()
-			_update_path_preview()
 		else:
-			if is_dragging_path and can_be_placed:
+			if is_dragging_path and can_be_placed and path_preview_cells.size() > 0:
 				_place_all_paths()
 			is_dragging_path = false
 			path_preview_cells.clear()
 			_clear_previous_preview()
 	
-	if is_dragging_path:
+	elif is_dragging_path:
 		_update_path_preview()
 
 func _update_path_preview() -> void:
