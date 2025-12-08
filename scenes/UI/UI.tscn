@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://on73whrfey7o"]
+[gd_scene load_steps=21 format=3 uid="uid://on73whrfey7o"]
 
 [ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
@@ -8,17 +8,35 @@
 [ext_resource type="Script" uid="uid://b23jf8at13mhg" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
 [ext_resource type="Script" uid="uid://d23ke5o0ph3ws" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
 [ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
 texture = ExtResource("5_75u2n")
 region_rect = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob0dx"]
+atlas = ExtResource("5_75u2n")
+region = Rect2(256, 65, 64, 63)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ua6yw"]
 texture = ExtResource("5_75u2n")
 region_rect = Rect2(96, 0, 32, 32)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhjpf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_81vvl"]
+atlas = ExtResource("5_75u2n")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1j05"]
+texture = ExtResource("9_ob0dx")
+region_rect = Rect2(0, 448, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0odk7"]
+texture = ExtResource("10_81vvl")
+region_rect = Rect2(0, 448, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alvv5"]
 texture = ExtResource("5_75u2n")
 region_rect = Rect2(0, 448, 64, 64)
 
@@ -26,19 +44,9 @@ region_rect = Rect2(0, 448, 64, 64)
 atlas = ExtResource("5_75u2n")
 region = Rect2(0, 448, 64, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yamhi"]
-texture = ExtResource("5_75u2n")
-region_rect = Rect2(0, 448, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e6oqk"]
-atlas = ExtResource("5_75u2n")
-region = Rect2(0, 448, 64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qd4ol"]
-texture = ExtResource("5_75u2n")
-region_rect = Rect2(0, 448, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgnrc"]
+atlas = ExtResource("5_75u2n")
+region = Rect2(320, 0, 64, 64)
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -118,11 +126,15 @@ grow_vertical = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dj8aq")
+icon = SubResource("AtlasTexture_ob0dx")
+flat = true
 
 [node name="btnScientists" type="Button" parent="BaseContainer/hBoxProjScien/projScienMenu/vBoxBtns"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ua6yw")
+icon = SubResource("AtlasTexture_81vvl")
+flat = true
 
 [node name="MenuProjects" parent="BaseContainer/hBoxProjScien" instance=ExtResource("3_ua6yw")]
 visible = false
@@ -195,7 +207,6 @@ category = 3
 layout_mode = 2
 
 [node name="hBoxBtnCat1" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -212,12 +223,16 @@ theme_override_constants/separation = 10
 
 [node name="btnLabGlaciology" parent="BaseContainer/buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de glaciologie"
 icon_pos = Vector2(0, 1)
 
 [node name="btnLabPhysicAtmo" parent="BaseContainer/buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de physique de l'atmosphère"
 icon_pos = Vector2(0, 2)
@@ -225,6 +240,8 @@ btype = 1
 
 [node name="btnLabMagne" parent="BaseContainer/buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de magnétisme & sismologie"
 icon_pos = Vector2(0, 3)
@@ -232,6 +249,8 @@ btype = 2
 
 [node name="btnLabBiology" parent="BaseContainer/buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Laboratoire de biologie humaine"
 icon_pos = Vector2(0, 4)
@@ -239,6 +258,8 @@ btype = 3
 
 [node name="btnIcemine" parent="BaseContainer/buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Mine de glace"
 icon_pos = Vector2(0, 5)
@@ -246,6 +267,8 @@ btype = 4
 
 [node name="btnSerre" parent="BaseContainer/buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("9_u6q2i")
 textBuildingName = "Serre"
 icon_pos = Vector2(0, 6)
@@ -254,10 +277,13 @@ btype = 5
 [node name="btnBack" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_mhjpf")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mhjpf")
-theme_override_styles/normal = SubResource("StyleBoxTexture_mhjpf")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_t1j05")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0odk7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_alvv5")
 icon = SubResource("AtlasTexture_u6q2i")
+flat = true
 
 [node name="hBoxBtnCat2" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
 visible = false
@@ -320,8 +346,13 @@ btype = 11
 [node name="btnBack" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_yamhi")
-icon = SubResource("AtlasTexture_e6oqk")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_t1j05")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0odk7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_alvv5")
+icon = SubResource("AtlasTexture_u6q2i")
+flat = true
 
 [node name="hBoxBtnCat3" type="HBoxContainer" parent="BaseContainer/buildingsMenu"]
 visible = false
@@ -363,9 +394,13 @@ btype = 14
 [node name="btnBack" type="Button" parent="BaseContainer/buildingsMenu/hBoxBtnCat3"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxTexture_qd4ol")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_qd4ol")
-theme_override_styles/normal = SubResource("StyleBoxTexture_qd4ol")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_t1j05")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0odk7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_alvv5")
+icon = SubResource("AtlasTexture_u6q2i")
+flat = true
 
 [node name="ParametersMargin" type="MarginContainer" parent="BaseContainer"]
 layout_mode = 2
@@ -379,6 +414,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 icon = SubResource("AtlasTexture_wgnrc")
+flat = true
+expand_icon = true
 
 [node name="menu_batiment" parent="." instance=ExtResource("9_e6oqk")]
 layout_mode = 1

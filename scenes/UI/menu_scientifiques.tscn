@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://w68s7km80fw0"]
+[gd_scene load_steps=5 format=3 uid="uid://w68s7km80fw0"]
 
 [ext_resource type="Script" uid="uid://dw6h7tjgbaub8" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
 [ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54jhy"]
+atlas = ExtResource("2_54jhy")
+region = Rect2(256, 128, 64, 64)
 
 [node name="menu_scientifiques" type="MarginContainer"]
 custom_minimum_size = Vector2(300, 530)
@@ -48,10 +52,32 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="btnRecruit" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+texture = ExtResource("2_54jhy")
+region_rect = Rect2(320, 384, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="btnRecruit" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 text = "Recruter"
+flat = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -73,7 +99,9 @@ text = "000"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "+"
+icon = SubResource("AtlasTexture_54jhy")
+flat = true
+expand_icon = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(225, 50)
@@ -108,5 +136,5 @@ visible = false
 layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/btnRecruit" to="." method="_on_btn_recruit_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/NinePatchRect/btnRecruit" to="." method="_on_btn_recruit_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/btnAssignToBat" to="." method="_on_button_pressed"]

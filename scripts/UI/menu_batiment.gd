@@ -2,9 +2,10 @@ extends MarginContainer
 
 @export var projectScene : PackedScene
 
-@onready var projet_container: VBoxContainer = $NinePatchRect/VBoxContainer/ScrollContainer/projetContainer
+@onready var lbl_name: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
+@onready var projet_container: VBoxContainer = $NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer
 
-@onready var lbl_name = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/lblName
+@onready var lbl_desc: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/lblDesc
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +19,7 @@ func _process(delta: float) -> void:
 func _on_click_on_building(building : Building):
 	lbl_name.text = building.get_building_name()
 	
+	lbl_desc.text = building.building_description
 	
 	var liste = GameController.get_projects_manager().get_list(building.building_type, building)
 	

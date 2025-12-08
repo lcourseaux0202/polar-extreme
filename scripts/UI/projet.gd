@@ -1,8 +1,8 @@
 extends MarginContainer
 
-@onready var nom: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/nom
-@onready var timePercentage: ProgressBar = $MarginContainer/Button/MarginContainer/VBoxContainer/ProgressBar
-@onready var status: Label = $MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer/timeLeft
+@onready var nom: Label = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/nom
+@onready var status: Label = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/timeLeft
+@onready var timePercentage: ProgressBar = $MarginContainer/NinePatchRect/Button/MarginContainer/VBoxContainer/ProgressBar
 
 var timeTotal : int
 var timeLeft : int

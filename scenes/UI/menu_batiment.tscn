@@ -1,20 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4q2wpp4uf3ys"]
+[gd_scene load_steps=6 format=3 uid="uid://b4q2wpp4uf3ys"]
 
 [ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxndm"]
+atlas = ExtResource("1_ymk3k")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al7u3"]
+atlas = ExtResource("1_ymk3k")
+region = Rect2(256, 128, 64, 64)
+
 [node name="menu_batiment" type="MarginContainer"]
-offset_right = 300.0
-offset_bottom = 530.0
+custom_minimum_size = Vector2(350, 700)
+offset_right = 350.0
+offset_bottom = 700.0
 script = ExtResource("1_al7u3")
 projectScene = ExtResource("3_qxndm")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(300, 530)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("1_ymk3k")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 10
@@ -43,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -53,7 +60,7 @@ theme_override_constants/margin_right = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -63,51 +70,130 @@ alignment = 1
 custom_minimum_size = Vector2(210, 64)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Nom bâtiment"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnExpl" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+texture = ExtResource("1_ymk3k")
+region_rect = Rect2(320, 384, 64, 64)
+
+[node name="btnExpl" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "infos"
+flat = true
+icon_alignment = 1
+
+[node name="lblDesc" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "Desc
+
+
+"
+horizontal_alignment = 3
+autowrap_mode = 2
+text_overrun_behavior = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
 
 [node name="lblScient" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(109, 50)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
 text = "Nombre de scientifiques"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="name" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="lblNbr" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "0/0"
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnAdd" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -4
+
+[node name="btnRem" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "+"
+icon = SubResource("AtlasTexture_qxndm")
+flat = true
+expand_icon = true
 
-[node name="btnRem" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="btnAdd" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "-"
+icon = SubResource("AtlasTexture_al7u3")
+flat = true
+expand_icon = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(293, 391)
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Projets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(343, 400)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="projetContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/ScrollContainer"]
+[node name="projetContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = -3
+
+[node name="Projet" parent="NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
+layout_mode = 2
+
+[node name="Projet2" parent="NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
+layout_mode = 2
+
+[node name="Projet3" parent="NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
+layout_mode = 2
+
+[node name="Projet4" parent="NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
+layout_mode = 2
+
+[node name="Projet5" parent="NinePatchRect/VBoxContainer/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("3_qxndm")]
+visible = false
+layout_mode = 2
