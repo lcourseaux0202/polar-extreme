@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_l3534"]
 
 [node name="Popup" type="Popup"]
+transparent_bg = true
 initial_position = 2
 size = Vector2i(500, 200)
 visible = true
+transparent = true
 script = ExtResource("1_5s46u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
