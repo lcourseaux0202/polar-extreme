@@ -56,7 +56,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_building_signal(building:Building)->void:
-	start_building(building)
+	if !in_placement:
+		start_building(building)
+	else:
+		stop_building()
 
 
 func start_building(building: Building) -> void:
@@ -91,6 +94,8 @@ func stop_building() -> void:
 	preview.rotation = 0;
 	is_dragging_path = false
 	path_preview_cells.clear()
+	cell_array.clear()
+	self.clear()
 	door_offset = Vector2.ZERO
 	
 func _update_mouse_positions() -> void:
