@@ -11,6 +11,7 @@ class_name buttonPath
 @onready var button: Button = $VBoxContainer/Button
 @onready var label: Label = $VBoxContainer/Control/NinePatchRect/MarginContainer/Label
 @onready var nine_patch_rect: NinePatchRect = $VBoxContainer/Control/NinePatchRect
+@onready var popup: Popup = $Popup
 
 var alreadyCliked := false
 
@@ -64,8 +65,5 @@ func _on_button_pressed() -> void:
 
 
 func afficherPopup() -> void :
-	var popup := Popup.new()
-	popup.add_child(Label.new())
-	popup.get_child(0).text = textPopup
-	add_child(popup)
-	popup.popup_centered()
+	popup.visible = true
+	popup.setDesc(textPopup)

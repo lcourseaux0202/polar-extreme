@@ -55,14 +55,14 @@ func get_door_position():
 	return door.global_position
 
 func add_scientist() -> bool:
-	if scientist_number + 1 <= max_scientist_number:
+	if scientist_number < max_scientist_number:
 		scientist_number += 1
 		return true
 	else :
 		return false
 	
 func remove_scientist() -> bool:
-	if scientist_number - 1 > 0:
+	if scientist_number > 0:
 		scientist_number -= 1
 		return true
 	else:

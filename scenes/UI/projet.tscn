@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://biyp1uwmfu6u4"]
 
-[ext_resource type="Script" uid="uid://dirtohj8dh3m3" path="res://scripts/UI/projet.gd" id="1_cg0em"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_h6gdv"]
+[ext_resource type="Script" uid="uid://dmys37c6dwwtf" path="res://scripts/UI/projet.gd" id="1_cg0em"]
+[ext_resource type="Texture2D" uid="uid://di4qun7bcut85" path="res://assets/UI/tilesetT3.png" id="2_h6gdv"]
 
 [node name="Projet" type="MarginContainer"]
 offset_right = 290.0

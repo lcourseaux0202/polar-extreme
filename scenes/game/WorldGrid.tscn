@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://1np065kd0d37"]
 
-[ext_resource type="Texture2D" uid="uid://bf1cw7f64qc81" path="res://assets/ground/base.png" id="1_6lrwf"]
+[ext_resource type="Texture2D" uid="uid://pbxcjett24ac" path="res://assets/ground/base.png" id="1_6lrwf"]
 [ext_resource type="Script" uid="uid://bvmvi0q40lxv8" path="res://scripts/models/game/WorldGrid.gd" id="2_n77ic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puwje"]

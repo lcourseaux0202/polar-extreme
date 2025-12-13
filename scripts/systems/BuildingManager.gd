@@ -59,6 +59,9 @@ func unregister(building:Building):
 func get_building(id :int) -> Building:
 	return buildingsIds[id]
 
+func get_building_list() -> Array[Building]:
+	return buildings_list
+
 func get_random_building_position() -> Vector2:
 	if buildings_positions.size() != 0:
 		return buildings_positions.pick_random()

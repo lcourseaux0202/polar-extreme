@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bvccgvdeejgkb" path="res://scenes/buildings/Building.tscn" id="1_xcvh0"]
 [ext_resource type="Script" uid="uid://c263qetta52vc" path="res://scripts/models/buildings/BuildingScience.gd" id="2_kw44n"]
 
-[node name="BuildingScience" node_paths=PackedStringArray("projets_list") instance=ExtResource("1_xcvh0")]
+[node name="BuildingScience" node_paths=PackedStringArray("projects_list") instance=ExtResource("1_xcvh0")]
 script = ExtResource("2_kw44n")
 producing = false
 science_per_second = 0.0
@@ -11,5 +11,5 @@ science_max_per_second = 0
 nb_scientists_working = 0
 nb_scientists_slots = 0
 nb_scientists_slots_max = 0
-projets_list = []
+projects_list = []
 building_type = 3

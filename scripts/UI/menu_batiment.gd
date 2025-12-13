@@ -10,7 +10,6 @@ extends MarginContainer
 @onready var lbl_nbr: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
 
 var buil : Building
-var nombreScientifiques := 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,22 +25,24 @@ func _on_click_on_building(building : Building):
 	
 	lbl_name.text = building.get_building_name()
 	
-	lbl_desc.text = GameController.get_building_description(building.building_type)
+	lbl_nbr.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
 	
-	var liste = GameController.get_projects_manager().get_list(building.building_type, building)
+	lbl_desc.text = GameController.get_building_description(building.building_type)
 	
 	for proj in projet_container.get_children() :
 		projet_container.remove_child(proj)
+			
+	var listeBuildings = GameController.building_manager.get_building_list()
 	
-	for project in liste :
-		var proj = projectScene.instantiate()
-		projet_container.add_child(proj)
-		
-		proj.setName(project.get_project_name())
-		
-		proj.setStatus(project.get_project_state())
-		
-		proj.setVisibility(true)
+	if building.has_method("get_project_list") :
+		var liste = building.get_project_list()
+
+		for project in liste :
+			var proj = projectScene.instantiate()
+			projet_container.add_child(proj)
+			proj.setName(project.get_project_name())
+			proj.setStatus(project.get_project_state())
+			proj.setVisibility(true)
 
 
 func _on_btn_expl_pressed() -> void:
@@ -49,24 +50,14 @@ func _on_btn_expl_pressed() -> void:
 	pop_desc_building.setDesc(buil.building_description)
 
 
-func _on_btn_rem_pressed() -> void:
-	if nombreScientifiques > 0:
-		UiController.emit_deassign_scientist()
-	
-		nombreScientifiques -= 1
-		lbl_nbr.text = str(nombreScientifiques)
-
 
 func _on_btn_add_pressed() -> void:
-	UiController.emit_assign_scientist()
-	
-	nombreScientifiques += 1
-	lbl_nbr.text = str(nombreScientifiques)
+	if GameController.scientist_manager.enough_scientist_for_assignement(1):
+		if buil.add_scientist():
+			UiController.emit_assign_scientist()
+			lbl_nbr.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
 
-
-func _on_desassignation_pressed() -> void:
-	if nombreScientifiques > 0:
+func _on_btn_rem_pressed() -> void:
+	if buil.remove_scientist() :
 		UiController.emit_deassign_scientist()
-	
-		nombreScientifiques -= 1
-		lbl_nbr.text = str(nombreScientifiques)
+		lbl_nbr.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())

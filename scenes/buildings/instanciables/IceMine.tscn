@@ -1,17 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf2q1o3ffr4jb"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_aj2hn"]
-[ext_resource type="Texture2D" uid="uid://c4oowigva3upd" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
+[ext_resource type="Texture2D" uid="uid://cie5pea46oa8v" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2hn"]
 size = Vector2(95, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ddi8"]
 
-[node name="BuildingScience" instance=ExtResource("1_aj2hn")]
+[node name="BuildingScience" node_paths=PackedStringArray("projects_list") instance=ExtResource("1_aj2hn")]
 texture_filter = 1
+projects_list = []
 building_name = "Mine de glace"
 building_description = "Un puits ou une cave foré dans la glace millénaire. Cet entrepôt naturel à -50°C préserve les précieuses carottes de glace avant leur analyse et fournit de l'eau de fonte \"pure\" pour les expériences"
+max_scientist_number = 3
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 48)

@@ -76,3 +76,23 @@ func get_list(type: Enums.BUILDING_TYPE, building: Building) -> Array[Project]:
 		new_list.append(new_project)
 		
 	return new_list
+
+
+# --- Récupération de la liste des projets en cours
+#func get_list_started() -> Array[Project]:
+	#var source: Array[Project]
+	#source += list_glaciology
+	#source += list_atmospheric
+	#source += list_magnetism
+	#source += list_biology
+	#source += list_icemine
+	#source += list_greenhouse
+	#
+	#
+	#var new_list: Array[Project]
+	#
+	#for example_project: Project in source:
+		#if example_project.get_project_state() == 1:
+			#var new_project := example_project.copy()
+			#new_list.append(new_project)
+	#return new_list

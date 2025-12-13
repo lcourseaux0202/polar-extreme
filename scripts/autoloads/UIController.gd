@@ -59,11 +59,9 @@ func emit_deassign_scientist():
 	deassign_scientist.emit()
 	
 func emit_update_assign_scientist():
-	print("dndefemeejifemfeef")
 	update_assign_scientist.emit()
 	
 func emit_update_deassign_scientist():
-	print("dndefemef")
 	update_deassign_scientist.emit()
 
 func emit_start_delete_object():

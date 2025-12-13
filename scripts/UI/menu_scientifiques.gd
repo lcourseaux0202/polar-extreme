@@ -37,11 +37,9 @@ func _on_update_assign_scientist():
 	nbrScientistsUnassigned -= 1
 	nbr_assigned.text = str(nbrScientistsAssigned)
 	nbr_unassigned.text = str(nbrScientistsUnassigned)
-	print("dznjdqnmdzqndzùdz")
 
 func _on_update_deassign_scientist():
 	nbrScientistsAssigned -= 1
 	nbrScientistsUnassigned += 1
 	nbr_assigned.text = str(nbrScientistsAssigned)
 	nbr_unassigned.text = str(nbrScientistsUnassigned)
-	print("dznjdqnmdzqndzùdzdznkldzkdzqdzq")

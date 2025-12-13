@@ -48,12 +48,10 @@ func _on_enroll_scientist():
 	
 func _on_assign_scientist() :
 	scientist_manager.assign_scientist()
-	print("denmfemfemfe")
 	UiController.emit_update_assign_scientist()
 	
 func _on_deassign_scientist() :
 	scientist_manager.deassign_scientist()
-	print("denmfemfemfedzqdzqdzdzq")
 	UiController.emit_update_deassign_scientist()
 
 func enough_scientist_for_assignement(n_scientist : int) -> bool :

@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://cfglvx6t7ul1r" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+[ext_resource type="Script" uid="uid://ywj2xkma8k07" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://di4qun7bcut85" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://d0ltfahl0385u" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://belta2lfpl277" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
+[ext_resource type="Script" uid="uid://cx1xswno0wlcl" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
+[ext_resource type="Script" uid="uid://tmqmjems0efw" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
-[ext_resource type="Texture2D" uid="uid://ddioolhpqigaw" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
-[ext_resource type="Script" uid="uid://rvw3dbm3viha" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
-[ext_resource type="Texture2D" uid="uid://bmvyfsf5ftlhg" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
+[ext_resource type="Texture2D" uid="uid://bbab5tiewqixq" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
+[ext_resource type="Script" uid="uid://c7st4ux7j3hbx" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Texture2D" uid="uid://cna6qcwumt8av" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
 texture = ExtResource("5_75u2n")
@@ -100,6 +100,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 0
+mouse_force_pass_scroll_events = false
 theme_override_constants/separation = 20
 
 [node name="projScienMenu" type="NinePatchRect" parent="hBoxProjScien"]

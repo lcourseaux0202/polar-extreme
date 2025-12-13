@@ -4,13 +4,17 @@ extends MarginContainer
 @onready var nombre_scient: Label = $MarginContainer/nine/MarginContainer/HBoxContainer/nombreScient
 
 
-var nombreScientifiques = 0
+var buil : Building
 
 func setName(text : String) :
 	nom.text = text
 
 func setVisibility(vis : bool) :
 	visible = vis
+
+func setBuiliding(building : Building) :
+	buil = building
+	nombre_scient.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
 
 func _process(delta: float) -> void:
 	pass
@@ -19,17 +23,13 @@ func _ready() -> void:
 	pass
 
 
-
 func _on_assignation_pressed() -> void:
-	UiController.emit_assign_scientist()
-	
-	nombreScientifiques += 1
-	nombre_scient.text = str(nombreScientifiques)
-
+	if GameController.scientist_manager.enough_scientist_for_assignement(1):
+		if buil.add_scientist() :
+			UiController.emit_assign_scientist()
+			nombre_scient.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
 
 func _on_desassignation_pressed() -> void:
-	if nombreScientifiques > 0:
+	if buil.remove_scientist() :
 		UiController.emit_deassign_scientist()
-	
-		nombreScientifiques -= 1
-		nombre_scient.text = str(nombreScientifiques)
+		nombre_scient.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())

@@ -29,7 +29,7 @@ class_name BuildingScience
 @export var nb_scientists_slots_max: int
 
 # Liste des projets du batiments
-@export var projets_list: Array[Project] = []
+@export var projects_list: Array[Project] = []
 
 func _init():
 	#super._init()
@@ -37,7 +37,7 @@ func _init():
 	building_type = Enums.BUILDING_TYPE.NONE
 
 func set_projects(plist: Array[Project]) -> void:
-	projets_list = plist
+	projects_list = plist
 
 func scientists_change_working(n: int):
 	nb_scientists_working += n
@@ -58,3 +58,6 @@ func science_production_pause() -> void:
 
 func production_pause() -> void:
 	producing = false
+
+func get_project_list():
+	return projects_list
