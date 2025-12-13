@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c41cttyipdd8w"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_vngcl"]
-[ext_resource type="Texture2D" uid="uid://of17w51dxn3t" path="res://assets/buildings/labo/observatory.png" id="2_fw34e"]
+[ext_resource type="Texture2D" uid="uid://fiydufpb2qx8" path="res://assets/buildings/labo/atmospheric.png" id="2_vngcl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ods"]
 size = Vector2(223, 223)
@@ -18,7 +18,7 @@ position = Vector2(0, 112)
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(1, 1)
-texture = ExtResource("2_fw34e")
+texture = ExtResource("2_vngcl")
 
 [node name="BuildingZone" parent="." index="2"]
 shape = SubResource("RectangleShape2D_e4ods")

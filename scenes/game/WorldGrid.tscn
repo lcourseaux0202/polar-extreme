@@ -25,12 +25,13 @@ tile_set = SubResource("TileSet_bwisc")
 script = ExtResource("2_n77ic")
 
 [node name="Plane" parent="." instance=ExtResource("3_c6rlt")]
+z_index = 2
 
 [node name="ScientistSpawnPosition" type="Marker2D" parent="."]
 position = Vector2(448, 384)
 
 [node name="ScientistContainer" type="Node2D" parent="."]
-z_index = 2
+z_index = 1
 y_sort_enabled = true
 
 [node name="BuildingContainer" type="Node2D" parent="."]
