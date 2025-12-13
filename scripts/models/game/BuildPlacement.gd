@@ -208,11 +208,11 @@ func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:
 	return false
 
 func _handle_building_click(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_be_placed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and can_be_placed:
 		placement_position = preview.position
 		animation_playing = true  
 		animation.play("placementAnimationLib/goodPlacement")
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not can_be_placed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and not can_be_placed:
 		animation.play("placementAnimationLib/invalidPlacement")
 		
 func _clear_previous_preview() -> void:
@@ -299,7 +299,7 @@ func delete_object():
 	in_delete_object = !in_delete_object
 
 func _handle_path_drag_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
 			var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
 			path_start_pos = tile_under_mouse

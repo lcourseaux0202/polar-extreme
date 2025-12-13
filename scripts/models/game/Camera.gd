@@ -1,9 +1,9 @@
 extends Camera2D
 
-var min_zoom: float = 0.5
-var max_zoom: float = 3.0
+var min_zoom: float = 1
+var max_zoom: float = 4.0
 var zoom_speed: float = 0.1
-var drag_button: MouseButton = MOUSE_BUTTON_RIGHT
+var drag_button: MouseButton = MOUSE_BUTTON_LEFT
 var smooth_zoom: bool = true
 
 var dragging := false
@@ -23,9 +23,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			dragging = event.pressed
 	
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_zoom_towards_mouse(1 - zoom_speed)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			_zoom_towards_mouse(1 + zoom_speed)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_zoom_towards_mouse(1 - zoom_speed)
 
 	if event is InputEventMouseMotion and dragging:
 		position -= event.relative / zoom.x   
