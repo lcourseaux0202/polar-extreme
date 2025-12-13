@@ -24,17 +24,16 @@ func _on_click_on_building(building : Building):
 	buil = building
 	
 	lbl_name.text = building.get_building_name()
-	
-	lbl_nbr.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
-	
 	lbl_desc.text = GameController.get_building_description(building.building_type)
 	
-	for proj in projet_container.get_children() :
-		projet_container.remove_child(proj)
-			
-	var listeBuildings = GameController.building_manager.get_building_list()
+	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
+		lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
 	
-	if building.has_method("get_project_list") :
+		for proj in projet_container.get_children() :
+			projet_container.remove_child(proj)
+				
+		var listeBuildings = GameController.building_manager.get_building_list()
+		
 		var liste = building.get_project_list()
 
 		for project in liste :
@@ -53,11 +52,13 @@ func _on_btn_expl_pressed() -> void:
 
 func _on_btn_add_pressed() -> void:
 	if GameController.scientist_manager.enough_scientist_for_assignement(1):
-		if buil.add_scientist():
-			UiController.emit_assign_scientist()
-			lbl_nbr.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
+		if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
+			if buil.add_scientist():
+				UiController.emit_assign_scientist()
+				lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
 
 func _on_btn_rem_pressed() -> void:
-	if buil.remove_scientist() :
-		UiController.emit_deassign_scientist()
-		lbl_nbr.text = str(buil.get_scientist_number()) + "/" + str(buil.get_max_scientist_number())
+	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
+		if buil.remove_scientist() :
+			UiController.emit_deassign_scientist()
+			lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())

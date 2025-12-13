@@ -5,31 +5,22 @@ class_name BuildingScience
 @onready var door: Marker2D = $Door
 # whether the building is producing science atm
 
-@export var science_per_second: float:		# per scientist
-	set(value):
-		value = clamp(value, 0, science_max_per_second)
-		science_per_second = value
+@export var science_per_second: float = 0		# per scientist
 
 @export var science_max_per_second: int
 
 # number of scientist producing science in the building
-@export var nb_scientists_working: int:
-	set(value):
-		nb_scientists_working = clamp(value, 0, nb_scientists_slots)
+var nb_scientists_working = 0
 
 # max number of scientists producing science
-@export var nb_scientists_slots: int: 	
-	set(value):
-		nb_scientists_slots = value if (
-			nb_scientists_slots + value > 1 
-			&& nb_scientists_slots + value < nb_scientists_slots_max
-		) else nb_scientists_slots
+@export var nb_scientists_slots: int
+
 
 # capped number of the max number of scientists
 @export var nb_scientists_slots_max: int
 
 # Liste des projets du batiments
-@export var projects_list: Array[Project] = []
+var projects_list: Array[Project] = []
 
 func _init():
 	#super._init()
@@ -38,10 +29,37 @@ func _init():
 
 func set_projects(plist: Array[Project]) -> void:
 	projects_list = plist
+	
+func set_science_per_second(value : float) -> void:
+	value = clamp(value, 0, science_max_per_second)
+	science_per_second = value
+	
+func set_nbr_scientist_slots(value : int) -> void:
+	if nb_scientists_slots + value > 1 && nb_scientists_slots + value < nb_scientists_slots_max :
+		nb_scientists_slots = value 
+	else :
+		nb_scientists_slots
 
-func scientists_change_working(n: int):
-	nb_scientists_working += n
+func set_nbr_scientist_slots_max(value : int) -> void:
+	nb_scientists_slots_max = value
 
+#func scientists_change_working(n: int):
+	#nb_scientists_working += n
+	
+func add_scientist() -> bool:
+	if nb_scientists_working < nb_scientists_slots:
+		nb_scientists_working += 1
+		return true
+	else :
+		return false
+
+func remove_scientist() -> bool:
+	if nb_scientists_working > 0:
+		nb_scientists_working -= 1
+		return true
+	else:
+		return false
+	
 func scientists_add_slots(n: int):
 	nb_scientists_slots += n
 
@@ -59,5 +77,11 @@ func science_production_pause() -> void:
 func production_pause() -> void:
 	producing = false
 
-func get_project_list():
+func get_project_list() -> Array[Project]:
 	return projects_list
+
+func get_nbr_scientist() -> int:
+	return nb_scientists_working
+	
+func get_nbr_scientist_max() -> int:
+	return nb_scientists_slots

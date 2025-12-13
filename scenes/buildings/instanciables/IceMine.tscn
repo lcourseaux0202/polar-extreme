@@ -8,9 +8,11 @@ size = Vector2(95, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ddi8"]
 
-[node name="BuildingScience" node_paths=PackedStringArray("projects_list") instance=ExtResource("1_aj2hn")]
+[node name="BuildingScience" instance=ExtResource("1_aj2hn")]
 texture_filter = 1
-projects_list = []
+science_per_second = 1.0
+nb_scientists_slots = 3
+nb_scientists_slots_max = 10
 building_name = "Mine de glace"
 building_description = "Un puits ou une cave foré dans la glace millénaire. Cet entrepôt naturel à -50°C préserve les précieuses carottes de glace avant leur analyse et fournit de l'eau de fonte \"pure\" pour les expériences"
 max_scientist_number = 3
