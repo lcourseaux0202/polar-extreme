@@ -9,7 +9,7 @@ size = Vector2(95, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjibq"]
 
 [node name="Bedroom" instance=ExtResource("1_3yoo0")]
-building_name = "Chambres"
+building_name = "Dortoirs"
 building_description = "Des cellules individuelles minimalistes mais personnalisables. Sanctuaires privés essentiels pour le repos et la préservation de l'intimité dans un environnement collectif intense."
 
 [node name="Door" parent="." index="0"]

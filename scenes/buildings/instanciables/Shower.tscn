@@ -9,7 +9,7 @@ size = Vector2(95, 159)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c167"]
 
 [node name="Showers" instance=ExtResource("1_q6c0r")]
-building_name = "Douche"
+building_name = "Douches"
 building_description = "Espace limité où l'eau est un luxe comptabilisé. Les sessions sont courtes et régulées, faisant de ce moment une routine précieuse.Contraintes polaires : Production d'eau chaude extrêmement coûteuse en énergie. La faible humidité de l'air assèche la peau."
 
 [node name="Door" parent="." index="0"]

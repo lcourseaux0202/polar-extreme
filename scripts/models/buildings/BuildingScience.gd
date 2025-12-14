@@ -75,3 +75,9 @@ func get_nbr_scientist() -> int:
 	
 func get_nbr_scientist_max() -> int:
 	return nb_scientists_slots
+
+func get_science_production() -> float:
+	return nb_scientists_working * science_per_second
+	
+func get_science_production_ratio() -> float:
+	return (nb_scientists_working * science_per_second) / (nb_scientists_slots * science_per_second)

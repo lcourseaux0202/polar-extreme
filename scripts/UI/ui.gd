@@ -13,11 +13,15 @@ extends Control
 @onready var h_box_btn_cat_2: HBoxContainer = $buildingsMenu/hBoxBtnCat2
 @onready var h_box_btn_cat_3: HBoxContainer = $buildingsMenu/hBoxBtnCat3
 
+@onready var lbl_buildings_basic_info: Label = $lblBuildingsBasicInfo
 
 func _ready() -> void:
 	UiController.ui_change_category.connect(_handle_category_changed)
 	UiController.science_changed.connect(_on_science_changed)
 	UiController.science_second_changed.connect(_on_science_second_changed)
+	UiController.display_building_basic_info.connect(_on_display_building_basic_info)
+	UiController.start_building.connect(_show_keybinds)
+	UiController.validate_building_placement.connect(_hide_keybinds)
 	lbl_science.text = "0"
 	lbl_science_per_sec.text = "0/sec"
 
@@ -47,6 +51,34 @@ func _on_science_changed(new_science) ->void:
 func _on_science_second_changed(new_science) ->void:
 	lbl_science_per_sec.text = str(new_science) + "/sec"
 
+func _on_display_building_basic_info(building: Building):
+	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.BLACK)
+	lbl_buildings_basic_info.remove_theme_color_override("font_shadow_color")
+	if building:
+		lbl_buildings_basic_info.text = building.building_name
+		if(building.has_method("get_science_production")):
+			if building.get_science_production() > 0:
+				lbl_buildings_basic_info.text += "\n" + str(building.get_science_production()) + " /sec"
+				var new_color : Color = Color(1.0,0.0,0.0)
+				new_color.r -= building.get_science_production_ratio()
+				new_color.g += building.get_science_production_ratio()
+				print(new_color)
+				lbl_buildings_basic_info.add_theme_color_override("font_color", new_color)
+				lbl_buildings_basic_info.add_theme_color_override("font_shadow_color", Color.WHEAT)
+			else :
+				lbl_buildings_basic_info.text += "\nAucune production : assignez des scientifiques pour lancer la production..."
+		lbl_buildings_basic_info.show()
+	else:
+		lbl_buildings_basic_info.hide()
+
+func _show_keybinds(_building : Building):
+	lbl_buildings_basic_info.remove_theme_color_override("font_shadow_color")
+	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.WHEAT)
+	lbl_buildings_basic_info.text = "R pour pivoter     Clic droit pour placer"
+	lbl_buildings_basic_info.show()
+
+func _hide_keybinds(_building : Building):
+	lbl_buildings_basic_info.hide()
 
 #func _on_button_assigner_scientists_pressed() -> void:
 	#pass

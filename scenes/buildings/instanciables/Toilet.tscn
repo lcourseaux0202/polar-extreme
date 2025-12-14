@@ -9,7 +9,7 @@ size = Vector2(31, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3e4y"]
 
 [node name="Toilet" instance=ExtResource("1_mj3y0")]
-building_name = "Toilets"
+building_name = "Toilettes"
 building_description = "Installations sanitaires basiques mais essentielles. Conçues pour un usage économe en eau et un traitement séparé des déchets solides et liquides."
 
 [node name="Door" parent="." index="0"]

@@ -1,17 +1,17 @@
 [gd_scene load_steps=22 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/ui.gd" id="1_5en4g"]
+[ext_resource type="Script" uid="uid://cfglvx6t7ul1r" path="res://scripts/UI/ui.gd" id="1_5en4g"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://b23jf8at13mhg" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://d23ke5o0ph3ws" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
+[ext_resource type="Script" uid="uid://d0ltfahl0385u" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
+[ext_resource type="Script" uid="uid://belta2lfpl277" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
-[ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
-[ext_resource type="PackedScene" uid="uid://crfeo28407j76" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
+[ext_resource type="Texture2D" uid="uid://ddioolhpqigaw" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
+[ext_resource type="Script" uid="uid://rvw3dbm3viha" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
+[ext_resource type="Texture2D" uid="uid://bmvyfsf5ftlhg" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
+[ext_resource type="PackedScene" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8aq"]
 texture = ExtResource("5_75u2n")
@@ -488,6 +488,7 @@ flat = true
 expand_icon = true
 
 [node name="menu_batiment" parent="." instance=ExtResource("9_e6oqk")]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -504,6 +505,7 @@ mouse_filter = 0
 mouse_force_pass_scroll_events = false
 
 [node name="AffichageProjet" parent="." instance=ExtResource("12_81vvl")]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_top = 0.0
@@ -513,6 +515,21 @@ offset_bottom = 500.0
 grow_vertical = 1
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
+
+[node name="lblBuildingsBasicInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
 
 [connection signal="pressed" from="hBoxProjScien/projScienMenu/vBoxBtns/btnProjets" to="." method="_on_button_projets_pressed"]
 [connection signal="pressed" from="hBoxProjScien/projScienMenu/vBoxBtns/btnScientists" to="." method="_on_button_scientists_pressed"]

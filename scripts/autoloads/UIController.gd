@@ -16,6 +16,7 @@ signal deassign_scientist()
 signal update_assign_scientist()
 signal update_deassign_scientist()
 
+signal display_building_basic_info(building : Building)
 
 signal new_hour(hour)
 
