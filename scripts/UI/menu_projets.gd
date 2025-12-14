@@ -20,9 +20,10 @@ func _on_visibility_changed() -> void:
 			if building.has_method("get_project_list") :
 				var liste = building.get_project_list()
 		
-				for project in liste :
+				for project : Project in liste :
 					var proj = projectScene.instantiate()
 					projet_container.add_child(proj)
 					proj.setName(project.get_project_name())
 					proj.setStatus(project.get_project_state())
+					proj.setProject(project)
 					proj.setVisibility(true)

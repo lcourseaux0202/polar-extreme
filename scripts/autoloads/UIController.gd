@@ -31,6 +31,8 @@ signal lock_scroll_cam()
 
 signal click_on_building(building : Building)
 
+signal open_project_menu(proj : Project)
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
@@ -93,3 +95,6 @@ func emit_lock_scroll_cam(locked :bool)->void:
 
 func emit_click_on_building(building : Building)->void:
 	click_on_building.emit(building)
+	
+func emit_open_project_menu(proj : Project) -> void:
+	open_project_menu.emit(proj)

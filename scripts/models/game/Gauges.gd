@@ -35,7 +35,7 @@ func get_science() -> float:
 func change_science(value: float) -> bool:
 	if science + value >= 0:
 		science += value
-		print("Gauges, science : enough credit, deduce and validate request")
+		#print("Gauges, science : enough credit, deduce and validate request")
 		return true
 	else:
 		print("Gauges, science : NOT enough credit, do no deduce and deny request")
@@ -80,7 +80,6 @@ func change_wellness(w: float) -> void:
 
 
 func update_gauges():
-	print("duiednizqndzq")
 	change_science(science_per_seconds * GameController.update_time)
 	change_pollution(pollution_per_seconds * GameController.update_time)
 	change_wellness(wellness_decrement_factor * GameController.update_time)

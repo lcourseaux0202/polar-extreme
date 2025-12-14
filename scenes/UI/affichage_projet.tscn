@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://crfeo28407j76"]
+[gd_scene load_steps=3 format=3 uid="uid://crfeo28407j76"]
 
+[ext_resource type="Script" uid="uid://b8gi3q1fb0gxj" path="res://scripts/UI/affichage_projet.gd" id="1_2gvgq"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ycggi"]
 
 [node name="AffichageProjet" type="MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -16,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_2gvgq")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2

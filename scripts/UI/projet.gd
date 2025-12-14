@@ -6,7 +6,7 @@ extends MarginContainer
 
 var timeTotal : int
 var timeLeft : int
-
+var project : Project
 
 func setName(text : String) :
 	nom.text = text
@@ -20,6 +20,10 @@ func setStatus(statusValue : int) :
 		status.text = "en pause"
 	elif statusValue >= 3:
 		status.text = "fini"
+
+func setProject(proj : Project) :
+	project = proj
+	print(project)
 	
 func setTime(time : int) :
 	timeTotal = time
@@ -42,4 +46,4 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	pass # Replace with function body.
+	UiController.emit_open_project_menu(project)

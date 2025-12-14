@@ -2,7 +2,6 @@ extends MarginContainer
 
 @onready var menu_assignation_scientifiques: MarginContainer = $HBoxContainer/MenuAssignationScientifiques
 @onready var nbr_assigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/nbrAssigned
-@onready var nbr_assigned_proj: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/nbrAssignedProj
 @onready var nbr_unassigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/nbrUnassigned
 
 var nbrScientists := 0
