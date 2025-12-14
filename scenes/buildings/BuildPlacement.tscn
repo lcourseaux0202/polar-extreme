@@ -47,6 +47,25 @@ _data = {
 &"RESET": SubResource("Animation_stigc")
 }
 
+[sub_resource type="Animation" id="Animation_pc82g"]
+resource_name = "goodPathPlacement"
+length = 0.15
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.1339,
+"start_offset": 0.22,
+"stream": ExtResource("3_pc82g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="Animation" id="Animation_wsdil"]
 length = 0.15
 tracks/0/type = "value"
@@ -93,25 +112,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-10, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(-10, 0), Vector2(0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_pc82g"]
-resource_name = "goodPathPlacement"
-length = 0.15
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.1339,
-"start_offset": 0.22,
-"stream": ExtResource("3_pc82g")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n26yl"]
 _data = {

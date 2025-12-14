@@ -31,6 +31,8 @@ func _on_make_scientist():
 
 func add_building(building_scene : Building):
 	building_container.add_child(building_scene)
+	building_scene.emit_particles()
+
 	
 func _restart_animation():
 	if not scientists_to_place.is_empty() and not plane.anim:

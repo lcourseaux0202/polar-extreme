@@ -16,13 +16,13 @@ building_type = 1
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 112)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_vngcl")
 
-[node name="BuildingZone" parent="." index="2"]
+[node name="BuildingZone" parent="." index="3"]
 shape = SubResource("RectangleShape2D_e4ods")
 
-[node name="DoorCollision" parent="." index="3"]
+[node name="DoorCollision" parent="." index="4"]
 position = Vector2(0, 112)
 shape = SubResource("RectangleShape2D_vngcl")

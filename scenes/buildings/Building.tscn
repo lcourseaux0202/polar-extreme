@@ -1,11 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvccgvdeejgkb"]
+[gd_scene load_steps=8 format=3 uid="uid://bvccgvdeejgkb"]
 
 [ext_resource type="Script" uid="uid://b2au1ftq4ob63" path="res://scripts/models/buildings/Building.gd" id="1_l1dv4"]
+[ext_resource type="Shader" uid="uid://dwfnxtf0titum" path="res://assets/path/pathmain.gdshader" id="2_vnrv4"]
+[ext_resource type="Texture2D" uid="uid://bu1bwhtqhohev" path="res://icon.svg" id="3_h30so"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afunb"]
+shader = ExtResource("2_vnrv4")
+
+[sub_resource type="Curve" id="Curve_vnrv4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.165517, 0.284908), -0.797602, -0.797602, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h30so"]
+curve = SubResource("Curve_vnrv4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_afunb"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.2
+alpha_curve = SubResource("CurveTexture_h30so")
 
 [node name="Building" type="Area2D"]
 script = ExtResource("1_l1dv4")
 
 [node name="Door" type="Marker2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_afunb")
+emitting = false
+amount = 32
+texture = ExtResource("3_h30so")
+one_shot = true
+preprocess = 0.2
+explosiveness = 1.0
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_afunb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -17,3 +52,4 @@ debug_color = Color(0.856041, 0.473787, 0, 0.42)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
