@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/game/Camera.tscn" id="1_c6dvc"]
 [ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://scenes/buildings/BuildPlacement.tscn" id="2_611at"]
-[ext_resource type="Texture2D" uid="uid://pbxcjett24ac" path="res://assets/ground/base.png" id="3_c6dvc"]
+[ext_resource type="Texture2D" uid="uid://bf1cw7f64qc81" path="res://assets/ground/base.png" id="3_c6dvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6dvc"]
 texture = ExtResource("3_c6dvc")

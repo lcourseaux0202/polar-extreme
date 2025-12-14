@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf2q1o3ffr4jb"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_aj2hn"]
-[ext_resource type="Texture2D" uid="uid://cie5pea46oa8v" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
+[ext_resource type="Texture2D" uid="uid://c4oowigva3upd" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2hn"]
 size = Vector2(95, 95)
@@ -10,23 +10,25 @@ size = Vector2(95, 95)
 
 [node name="BuildingScience" instance=ExtResource("1_aj2hn")]
 texture_filter = 1
-science_per_second = 1.0
+science_per_second = 3.0
+science_max_per_second = 10
 nb_scientists_slots = 3
 nb_scientists_slots_max = 10
 building_name = "Mine de glace"
 building_description = "Un puits ou une cave foré dans la glace millénaire. Cet entrepôt naturel à -50°C préserve les précieuses carottes de glace avant leur analyse et fournit de l'eau de fonte \"pure\" pour les expériences"
 max_scientist_number = 3
+price = 100
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 48)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_aj2hn")
 
-[node name="BuildingZone" parent="." index="2"]
+[node name="BuildingZone" parent="." index="3"]
 shape = SubResource("RectangleShape2D_aj2hn")
 
-[node name="DoorCollision" parent="." index="3"]
+[node name="DoorCollision" parent="." index="4"]
 position = Vector2(0, 48)
 shape = SubResource("RectangleShape2D_1ddi8")

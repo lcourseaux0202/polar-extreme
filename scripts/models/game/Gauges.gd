@@ -47,7 +47,7 @@ func get_science_per_second() -> float:
 	return science
 
 func change_science_per_second(value: float) -> void:
-		science_per_seconds += value
+	science_per_seconds += value
 
 
 # Pollution
@@ -85,6 +85,7 @@ func _ready():
 	timer.one_shot = false
 	add_child(timer)
 	timer.timeout.connect(_update_gauges)
+
 
 func _update_gauges():
 	change_science(science_per_seconds * update_time)

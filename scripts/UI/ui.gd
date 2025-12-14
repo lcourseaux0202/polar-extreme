@@ -15,9 +15,9 @@ extends Control
 
 
 func _ready() -> void:
-	UiController.connect("ui_change_category", _handle_category_changed)
-	UiController.connect("science_changed", _on_science_changed)
-	UiController.connect("science_second_changed", _on_science_second_changed)
+	UiController.ui_change_category.connect(_handle_category_changed)
+	UiController.science_changed.connect(_on_science_changed)
+	UiController.science_second_changed.connect(_on_science_second_changed)
 	lbl_science.text = "0"
 	lbl_science_per_sec.text = "0/sec"
 
@@ -40,12 +40,12 @@ func _on_button_scientists_pressed() -> void:
 
 
 
-func _on_science_changed() ->void:
-	lbl_science.text = str(GameController.gauges.get_science())
+func _on_science_changed(new_science) ->void:
+	lbl_science.text = str(new_science)
 
 
-func _on_science_second_changed() ->void:
-	lbl_science_per_sec.text = str(GameController.gauges.get_science_per_second()) + "/sec"
+func _on_science_second_changed(new_science) ->void:
+	lbl_science_per_sec.text = str(new_science) + "/sec"
 
 
 #func _on_button_assigner_scientists_pressed() -> void:

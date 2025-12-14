@@ -8,6 +8,7 @@ extends Node2D
 @onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
 @onready var game_started := false
 
+const START_SCIENCE : int = 500
 
 func _ready():
 	pass
@@ -15,6 +16,7 @@ func _ready():
 func _process(delta) -> void :
 	if game_started :
 		time_manager.process_time(delta)
+
 
 func set_grid(grid : TileMapLayer):
 	game_started = true
@@ -25,6 +27,8 @@ func set_grid(grid : TileMapLayer):
 	UiController.delete_building.connect(_on_delete_building)
 	UiController.assign_scientist.connect(_on_assign_scientist)
 	UiController.deassign_scientist.connect(_on_deassign_scientist)
+	
+	gauges.change_science(START_SCIENCE)
 
 func _on_build_batiment(bname:Enums.BUILDING_TYPE):
 	var building := building_manager.create_building(bname)
@@ -36,6 +40,7 @@ func _on_build_path():
 func _on_validate_building_placement(building:Building):
 	building_manager.register(building)
 	world_manager.place_building(building)
+	gauges.change_science(-building.price)
 
 func _on_delete_building(building:Building):
 	building_manager.unregister(building)

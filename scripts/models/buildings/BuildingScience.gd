@@ -31,8 +31,7 @@ func set_projects(plist: Array[Project]) -> void:
 	projects_list = plist
 	
 func set_science_per_second(value : float) -> void:
-	value = clamp(value, 0, science_max_per_second)
-	science_per_second = value
+	science_change_per_second(value)
 	
 func set_nbr_scientist_slots(value : int) -> void:
 	if nb_scientists_slots + value > 1 && nb_scientists_slots + value < nb_scientists_slots_max :
@@ -49,6 +48,7 @@ func set_nbr_scientist_slots_max(value : int) -> void:
 func add_scientist() -> bool:
 	if nb_scientists_working < nb_scientists_slots:
 		nb_scientists_working += 1
+		set_science_per_second(science_per_second)
 		return true
 	else :
 		return false
@@ -56,6 +56,7 @@ func add_scientist() -> bool:
 func remove_scientist() -> bool:
 	if nb_scientists_working > 0:
 		nb_scientists_working -= 1
+		set_science_per_second(-1 * science_per_second)
 		return true
 	else:
 		return false
@@ -67,7 +68,6 @@ func building_get_type() -> Enums.BUILDING_TYPE:
 	return building_type
 	
 func science_change_per_second(value: float) -> void:
-	science_per_second = value
 	GameController.get_gauges().change_science_per_second(value)
 
 func science_production_pause() -> void:
