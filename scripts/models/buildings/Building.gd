@@ -8,10 +8,8 @@ class_name Building
 @export var building_genre: Enums.BUILDING_GENRE
 @export var building_type: Enums.BUILDING_TYPE
 @export var pollution_per_second: float
-@export var max_scientist_number : int
 @export var price : int
 
-var scientist_number : int = 0
 @onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var building_zone: CollisionShape2D = $BuildingZone
 

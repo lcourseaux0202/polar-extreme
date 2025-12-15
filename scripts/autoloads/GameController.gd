@@ -9,7 +9,7 @@ extends Node2D
 @onready var game_started := false
 
 const START_SCIENCE : int = 500
-var update_time := 1.0
+var update_time := 0.1
 
 func _ready():
 	var timer = Timer.new()
@@ -22,9 +22,7 @@ func _ready():
 func _process(delta) -> void :
 	if game_started :
 		time_manager.process_time(delta)
-		
-
-
+	
 func set_grid(grid : TileMapLayer):
 	game_started = true
 	world_manager.world_grid = grid

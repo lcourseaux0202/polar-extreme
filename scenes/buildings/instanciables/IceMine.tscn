@@ -11,10 +11,9 @@ size = Vector2(95, 95)
 [node name="IceMine" instance=ExtResource("1_aj2hn")]
 texture_filter = 1
 science_per_second = 3.0
-nb_scientists_slots = 4
+nb_scientists_slots = 10
 building_name = "Mine de glace"
 building_description = "Un puits ou une cave foré dans la glace millénaire. Cet entrepôt naturel à -50°C préserve les précieuses carottes de glace avant leur analyse et fournit de l'eau de fonte \"pure\" pour les expériences"
-max_scientist_number = 4
 price = 100
 
 [node name="Door" parent="." index="0"]

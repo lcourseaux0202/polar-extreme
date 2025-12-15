@@ -44,8 +44,9 @@ func _on_button_scientists_pressed() -> void:
 
 
 
-func _on_science_changed(new_science) ->void:
-	lbl_science.text = str(new_science)
+func _on_science_changed(new_science : float) ->void:
+	var science_int : int = int(new_science)
+	lbl_science.text = str(science_int)
 
 
 func _on_science_second_changed(new_science) ->void:
