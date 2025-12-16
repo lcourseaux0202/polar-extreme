@@ -15,7 +15,9 @@ extends MarginContainer
 
 @onready var progress_bar: ProgressBar = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
 @onready var lbl_time_left: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
+@onready var timer: Timer = $Timer
 
+var project : Project
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
@@ -24,14 +26,18 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
 
-func _on_open_project_menu(project : Project) :
+func _on_open_project_menu(proj : Project) :
+	
+	project = proj
+	
 	lbl_name.text = project.get_project_name()
 	setStatus(project.get_project_state())
 	lbl_desc.text = project.get_description()
@@ -54,3 +60,11 @@ func setStatus(statusValue : int) :
 		lbl_status.text = "en pause"
 	elif statusValue >= 3:
 		lbl_status.text = "fini"
+
+
+func setVisibility(vis : bool) :
+	visible = vis
+
+
+func _on_btn_start_pressed() -> void:
+	pass

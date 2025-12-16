@@ -25,7 +25,7 @@ func _ready() -> void:
 	UiController.validate_building_placement.connect(_hide_keybinds)
 	menu_scientists.not_enough_science.connect(_on_not_enough_science)
 	lbl_science.text = "0"
-	lbl_science_per_sec.text = "0/sec"
+	lbl_science_per_sec.text = "0 sciences/sec"
 
 # projScienMenu
 
@@ -48,11 +48,11 @@ func _on_button_scientists_pressed() -> void:
 
 func _on_science_changed(new_science : float) ->void:
 	var science_int : int = int(new_science)
-	lbl_science.text = str(science_int)
+	lbl_science.text = str(science_int) + " sciences"
 
 
 func _on_science_second_changed(new_science) ->void:
-	lbl_science_per_sec.text = str(new_science) + "/sec"
+	lbl_science_per_sec.text = str(new_science) + " sciences/sec"
 
 func _on_display_building_basic_info(building: Building):
 	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.BLACK)

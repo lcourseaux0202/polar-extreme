@@ -201,6 +201,7 @@ size_flags_horizontal = 10
 [node name="btnStart" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+text = "Commencer"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -219,3 +220,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 text = "00:30"
 horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/btnStart" to="." method="_on_btn_start_pressed"]
