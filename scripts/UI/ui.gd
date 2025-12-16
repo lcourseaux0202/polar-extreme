@@ -75,10 +75,10 @@ func _on_display_building_basic_info(building: Building):
 
 func _show_keybinds(_building : Building):
 	lbl_buildings_basic_info.remove_theme_color_override("font_shadow_color")
-	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.WHEAT)
+	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.BLACK)
 	lbl_buildings_basic_info.text = "R pour pivoter     Clic droit pour placer"
 	lbl_buildings_basic_info.show()
-	
+
 func _on_not_enough_science():
 	animation.play("not_enough_credit")
 

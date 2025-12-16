@@ -1,24 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://w68s7km80fw0"]
 
-[ext_resource type="Script" uid="uid://dw6h7tjgbaub8" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="Script" uid="uid://bn5fv201yp8a6" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
 [ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
-[ext_resource type="AudioStream" uid="uid://v4372juvyuxc" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
-
-[sub_resource type="Animation" id="Animation_dojrw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
+[ext_resource type="AudioStream" uid="uid://l7uu6bkoanwo" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
 
 [sub_resource type="Animation" id="Animation_54jhy"]
 resource_name = "not_enough_credit"
@@ -95,7 +80,7 @@ _data = {
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54jhy"]
 atlas = ExtResource("2_54jhy")
-region = Rect2(256, 128, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [node name="menu_scientifiques" type="MarginContainer"]
 custom_minimum_size = Vector2(300, 530)
@@ -186,38 +171,15 @@ volume_db = 10.0
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="txtAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Assignés"
-
-[node name="nbrAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "000"
-
-[node name="btnAssignToBat" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 6
-icon = SubResource("AtlasTexture_54jhy")
-flat = true
-expand_icon = true
+theme_override_constants/separation = 20
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(225, 50)
 layout_mode = 2
 
 [node name="txtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Non assignés"
+text = "Scientifiques libres"
 
 [node name="nbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -225,10 +187,41 @@ size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "000"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="txtAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Scientifiques assignés"
+
+[node name="nbrAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "000"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="nbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Assigner des scientifiques :"
+
+[node name="btnAssignToBat" type="Button" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+icon = SubResource("AtlasTexture_54jhy")
+flat = true
+expand_icon = true
+
 [node name="MenuAssignationScientifiques" parent="HBoxContainer" instance=ExtResource("2_y5bk0")]
 visible = false
 layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/NinePatchRect/btnRecruit" to="." method="_on_btn_recruit_pressed"]
-[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/btnAssignToBat" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/btnAssignToBat" to="." method="_on_button_pressed"]
