@@ -7,7 +7,7 @@ var scientist_total = 0
 var scientist_occupied = 0
 
 const SCIENTIST_START_PRICE : float = 1
-const SCIENTIST_PRICE_FACTOR : float = 1.1
+const SCIENTIST_PRICE_FACTOR : float = 1.4
 var scientist_price = SCIENTIST_START_PRICE
 
 func enroll_scientist() -> Scientist :
@@ -33,4 +33,4 @@ func get_scientist_price() -> float:
 	return scientist_price
 	
 func increase_price()->void:
-	scientist_price += scientist_price * SCIENTIST_PRICE_FACTOR
+	scientist_price = scientist_price * SCIENTIST_PRICE_FACTOR

@@ -32,6 +32,7 @@ script = ExtResource("1_l1dv4")
 [node name="Door" type="Marker2D" parent="."]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 1
 material = SubResource("ShaderMaterial_afunb")
 emitting = false
 amount = 32

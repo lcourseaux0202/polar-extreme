@@ -65,7 +65,6 @@ func _on_display_building_basic_info(building: Building):
 				var new_color : Color = Color(1.0,0.0,0.0)
 				new_color.r -= building.get_science_production_ratio()
 				new_color.g += building.get_science_production_ratio()
-				print(new_color)
 				lbl_buildings_basic_info.add_theme_color_override("font_color", new_color)
 				lbl_buildings_basic_info.add_theme_color_override("font_shadow_color", Color.WHEAT)
 			else :
