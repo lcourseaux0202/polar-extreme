@@ -5,6 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
 [ext_resource type="AudioStream" uid="uid://l7uu6bkoanwo" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
 
+[sub_resource type="Animation" id="Animation_dojrw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+
 [sub_resource type="Animation" id="Animation_54jhy"]
 resource_name = "not_enough_credit"
 length = 0.9
