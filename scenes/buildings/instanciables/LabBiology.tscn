@@ -14,7 +14,7 @@ nb_scientists_slots = 3
 building_name = "Laboratoire de biologie humaine"
 building_description = "Équipé de matériel médical et physiologique de pointe. Il est dédié à l'étude de l'adaptation du corps humain à l'isolement, au froid extrême et aux cycles de lumière polaires."
 pollution_per_second = 2.0
-price = 1600
+price = 2880
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 80)

@@ -9,12 +9,12 @@ size = Vector2(159, 95)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vvkn"]
 
 [node name="Glaciology" instance=ExtResource("1_2st8v")]
-science_per_second = 1.2
+science_per_second = 3.0
 nb_scientists_slots = 3
 building_name = "Laboratoire de glaciologie"
 building_description = "Bâtiment aux parois blanches et aux surfaces ultra-propres. Ici, les carottes de glace, archives du climat terrestre, sont analysées. Ce cœur scientifique décrypte l'histoire du climat sur des centaines de milliers d'années.Contraintes polaires : Le maintien d'une température stable et très basse (-25°C) pour les échantillons est critique et énergivore"
 building_type = 0
-price = 150
+price = 1080
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 48)

@@ -11,7 +11,7 @@ size = Vector2(95, 31)
 [node name="Bedroom" instance=ExtResource("1_3yoo0")]
 building_name = "Dortoirs"
 building_description = "Des cellules individuelles minimalistes mais personnalisables. Sanctuaires privés essentiels pour le repos et la préservation de l'intimité dans un environnement collectif intense."
-price = 350
+price = 600
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 16)

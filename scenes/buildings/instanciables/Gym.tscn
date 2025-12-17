@@ -11,7 +11,7 @@ size = Vector2(159, 95)
 [node name="Gym" instance=ExtResource("1_3q2pg")]
 building_name = "Salle de sport"
 building_description = "Équipée de vélos, tapis de course et poids. Indispensable pour lutter contre l'atrophie musculaire et la baisse de moral induites par le confinement et le froid."
-price = 800
+price = 4500
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 48)

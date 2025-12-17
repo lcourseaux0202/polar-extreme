@@ -9,13 +9,13 @@ size = Vector2(223, 223)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vngcl"]
 
 [node name="Atmospheric" instance=ExtResource("1_vngcl")]
-science_per_second = 7.5
-nb_scientists_slots = 2
+science_per_second = 25.0
+nb_scientists_slots = 4
 building_name = "Laboratoire de physique de l'atmosphère"
 building_description = "Couronné d'instruments de mesure et d'antennes. Il étudie la composition de l'air, le trou dans la couche d'ozone et les rayonnements cosmiques dans l'un des airs les plus purs de la planète."
 building_type = 1
 pollution_per_second = 0.5
-price = 2467
+price = 12000
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 112)

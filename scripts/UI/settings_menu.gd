@@ -10,24 +10,16 @@ func _ready() -> void:
 	add_resolutions()
 	update_button_values()
 	
-	# Debug - afficher les noms des bus
-	print("Nombre de bus: ", AudioServer.bus_count)
-	for i in AudioServer.bus_count:
-		print("Bus ", i, ": ", AudioServer.get_bus_name(i))
-	
-	# Initialize volume sliders with current bus volumes
 	if master_volume:
 		master_volume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
 	
 	if sfx_volume:
 		var sfx_bus_index = AudioServer.get_bus_index("SFX")
-		print("Index du bus SFX: ", sfx_bus_index)
 		if sfx_bus_index != -1:
 			sfx_volume.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus_index))
 	
 	if music_volume:
 		var music_bus_index = AudioServer.get_bus_index("Music")
-		print("Index du bus Music: ", music_bus_index)
 		if music_bus_index != -1:
 			music_volume.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus_index))
 	
@@ -80,13 +72,13 @@ func _on_fullscreen_toggled(toggled_on: bool) -> void:
 		center_window()
 
 func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	AudioServer.set_bus_volume_db(0, linear_to_db(value/10))
 
 func _on_sfx_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value/10))
 
 func _on_music_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value/10))
 
 func close_menu():
 	hide()

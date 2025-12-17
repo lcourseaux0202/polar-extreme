@@ -12,7 +12,7 @@ size = Vector2(95, 95)
 building_name = "Salle à manger"
 building_description = "Grande table commune, bibliothèque et vue sur l'extérieur. Bien plus qu'un lieu de repas, c'est l'agora de la station où se tissent les liens et où se partagent les informations"
 pollution_per_second = 1.0
-price = 400
+price = 1100
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 47)
