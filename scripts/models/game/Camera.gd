@@ -5,8 +5,8 @@ extends Camera2D
 @export var zoom_speed: float = 0.01
 @export var drag_button: MouseButton = MOUSE_BUTTON_LEFT
 
-@export var world_min: Vector2 = Vector2.ZERO
-@export var world_max: Vector2 = Vector2(2000, 2000)
+@export var world_min: Vector2 = Vector2(-100, -100)
+@export var world_max: Vector2 = Vector2(3750, 2500)
 
 var dragging := false
 var locked := false
