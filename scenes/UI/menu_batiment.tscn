@@ -1,15 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4q2wpp4uf3ys"]
+[gd_scene load_steps=13 format=3 uid="uid://b4q2wpp4uf3ys"]
 
 [ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="4_8pln5"]
 [ext_resource type="PackedScene" uid="uid://6p4mfp5atp" path="res://scenes/UI/popup_desc_buindings.tscn" id="4_qxndm"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="5_ugwoq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_js0e2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7fcw"]
 atlas = ExtResource("1_ymk3k")
 region = Rect2(320, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pln5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu6j1"]
+atlas = ExtResource("4_8pln5")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb2fw"]
+atlas = ExtResource("5_ugwoq")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ythgw"]
 atlas = ExtResource("1_ymk3k")
 region = Rect2(0, 448, 64, 64)
 
@@ -73,11 +83,9 @@ theme_override_constants/separation = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = -4
 alignment = 1
 
 [node name="lblName" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(210, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -87,22 +95,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="btnExpl" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="btnExpl" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-icon = SubResource("AtlasTexture_js0e2")
-flat = true
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_s7fcw")
+texture_pressed = SubResource("AtlasTexture_uu6j1")
+texture_hover = SubResource("AtlasTexture_mb2fw")
 
-[node name="btnQuit" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="btnQuit" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-icon = SubResource("AtlasTexture_8pln5")
-flat = true
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_ythgw")
 
 [node name="lblDesc" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(330, 100)
