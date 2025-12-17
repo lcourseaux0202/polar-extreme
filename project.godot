@@ -20,12 +20,7 @@ config/icon="res://icon.svg"
 Enums="*res://scripts/autoloads/Enums.gd"
 GameController="*res://scripts/autoloads/GameController.gd"
 UiController="*res://scripts/autoloads/UIController.gd"
-Gui="*res://scripts/autoloads/Gui.gd"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+settingsValue="*res://scripts/autoloads/settingsValue.gd"
 
 [rendering]
 

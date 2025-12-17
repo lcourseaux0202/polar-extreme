@@ -85,34 +85,14 @@ text = "Vsync"
 
 [node name="VolumeLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Master"
+text = "Volume"
 label_settings = SubResource("LabelSettings_wswnh")
 horizontal_alignment = 1
 
 [node name="Volume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VolumeSFX" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "SFX"
-label_settings = SubResource("LabelSettings_wswnh")
-horizontal_alignment = 1
-
-[node name="SFXVolume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VolumeMusic" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Music"
-label_settings = SubResource("LabelSettings_wswnh")
-horizontal_alignment = 1
-
-[node name="MusicVolume" type="HSlider" parent="Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
 [connection signal="item_selected" from="Panel/HBoxContainer/VBoxContainer/ResolutionContainer/Resolution" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/VSync" to="." method="_on_v_sync_toggled"]
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
-[connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]

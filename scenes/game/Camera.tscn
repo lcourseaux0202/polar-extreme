@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dybfqr0devca8"]
 
 [ext_resource type="Script" uid="uid://3xginf2n88lc" path="res://scripts/models/game/Camera.gd" id="1_r5jk0"]
-[ext_resource type="AudioStream" uid="uid://dbcc11e6govxw" path="res://assets/sounds/snow-is-coming-427915.mp3" id="2_d8p0v"]
+[ext_resource type="AudioStream" uid="uid://b8mjm5iy2qlre" path="res://assets/sounds/snow-is-coming-427915.mp3" id="2_d8p0v"]
 
 [node name="Camera" type="Camera2D"]
 script = ExtResource("1_r5jk0")
@@ -10,4 +10,5 @@ script = ExtResource("1_r5jk0")
 stream = ExtResource("2_d8p0v")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true

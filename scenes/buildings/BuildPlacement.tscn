@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://cism5ivh6jv6b"]
 
-[ext_resource type="Texture2D" uid="uid://wldownj4btbw" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
+[ext_resource type="Texture2D" uid="uid://c6t3cqsqxuprg" path="res://assets/ground/ground_status.png" id="1_1f3ra"]
 [ext_resource type="Script" uid="uid://c1g1qopd4e4k4" path="res://scripts/models/game/BuildPlacement.gd" id="2_tbs4h"]
-[ext_resource type="AudioStream" uid="uid://cexedo07tvgl" path="res://assets/sounds/snow-step-1-81064.mp3" id="3_pc82g"]
+[ext_resource type="AudioStream" uid="uid://cf8gk5emqkmpq" path="res://assets/sounds/snow-step-1-81064.mp3" id="3_pc82g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1f3ra"]
 texture = ExtResource("1_1f3ra")
@@ -141,5 +141,6 @@ shape = SubResource("RectangleShape2D_wsdil")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = 20.0
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_handle_animation_end"]

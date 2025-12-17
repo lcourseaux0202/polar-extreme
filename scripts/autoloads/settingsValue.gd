@@ -5,21 +5,21 @@ var gui_components = [
 ]
 
 var resolutions = {
-	"1920x1080": Vector2i(1920,1080),
-	"1600x900": Vector2i(1600,900),
-	"1440x900": Vector2i(1440,900),
-	"1366x768": Vector2i(1366,768),
-	"1280x720": Vector2i(1280,720),
-	"1024x600": Vector2i(1024,600),
-	"800x600": Vector2i(800,600)
+	"1920x1080": Vector2i(1920, 1080),
+	"1600x900": Vector2i(1600, 900),
+	"1440x900": Vector2i(1440, 900),
+	"1366x768": Vector2i(1366, 768),
+	"1280x720": Vector2i(1280, 720),
+	"1024x600": Vector2i(1024, 600),
+	"800x600": Vector2i(800, 600)
 }
 
-
-
-
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	layer = 100 
 	for i in gui_components:
 		var new_scene = load(i).instantiate()
+		new_scene.process_mode = Node.PROCESS_MODE_ALWAYS
 		add_child(new_scene)
 		new_scene.hide()
 
@@ -30,5 +30,6 @@ func _input(_event: InputEvent) -> void:
 func open() -> void:
 	var settings_menu = get_node("SettingsMenu")
 	settings_menu.visible = !settings_menu.visible
-	if settings_menu.visible :
+	
+	if settings_menu.visible:
 		settings_menu.update_button_values()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://k5wdqibilpu3"]
+[gd_scene load_steps=10 format=3 uid="uid://cam8g26afpinm"]
 
 [ext_resource type="Script" uid="uid://iyb3kyd823hi" path="res://scripts/models/scientists/Plane.gd" id="1_rkv03"]
 [ext_resource type="Texture2D" uid="uid://m2fkdk6vuj7r" path="res://assets/npc/plane.png" id="2_jkmwb"]
@@ -50,4 +50,5 @@ texture = ExtResource("2_jkmwb")
 stream = ExtResource("5_mdu58")
 autoplay = true
 max_distance = 500.0
+bus = &"SFX"
 parameters/looping = true
