@@ -19,6 +19,8 @@ extends Control
 
 @onready var lbl_buildings_basic_info: Label = $lblBuildingsBasicInfo
 
+
+
 func _ready() -> void:
 	UiController.ui_change_category.connect(_handle_category_changed)
 	UiController.science_changed.connect(_on_science_changed)
@@ -52,11 +54,20 @@ func _on_button_scientists_pressed() -> void:
 		menu_scientists.visible = false
 
 
-
+#k m b
 func _on_science_changed(new_science : float) ->void:
-	var science_int : int = int(new_science)
-	lbl_science.text = str(science_int)
-	lbl_science.add_theme_color_override("font_color", Color.WHITE)
+	if(new_science > 1000000000):
+		new_science = new_science / 1000000000
+		lbl_science.text = str(round(new_science * 10.0) / 10.0) + " B"
+	elif (new_science > 1000000):
+		new_science = new_science / 1000000
+		lbl_science.text = str(round(new_science * 10.0) / 10.0) + " M"
+	elif(new_science > 1000):
+		new_science = new_science / 1000
+		lbl_science.text = str(round(new_science * 10.0) / 10.0) + " K"
+	else :
+		var science_int : int = int(new_science)
+		lbl_science.text = str(science_int)
 
 
 func _on_science_second_changed(new_science) ->void:
