@@ -63,7 +63,7 @@ grow_vertical = 2
 [node name="StartGameBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
+theme_override_colors/font_hover_color = Color(0.263172, 0.478791, 0.999977, 1)
 theme_override_colors/font_color = Color(0.437799, 0.616361, 1, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 90
@@ -73,7 +73,7 @@ flat = true
 [node name="QuitGameBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.71691, 0.810688, 1, 1)
+theme_override_colors/font_hover_color = Color(0.282958, 0.495073, 1, 1)
 theme_override_colors/font_color = Color(0.528762, 0.681711, 1, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 75
