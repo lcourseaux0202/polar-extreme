@@ -13,6 +13,9 @@ extends MarginContainer
 
 var buil : Building
 
+var project_menu_list : Array
+var project_list : Array[Project]
+
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
@@ -35,22 +38,22 @@ func _on_click_on_building(building : Building):
 		for proj in projet_container.get_children() :
 			projet_container.remove_child(proj)
 				
-		var listeBuildings = GameController.building_manager.get_building_list()
+		#var listeBuildings = GameController.building_manager.get_building_list()
 		
-		var liste = building.get_project_list()
+		project_menu_list = building.get_project_list()
 
-		for project in liste :
+		for project in project_menu_list :
 			var proj = projectScene.instantiate()
 			projet_container.add_child(proj)
 			proj.setProject(project)
 			proj.instanciateProject()
 			proj.setVisibility(true)
+			project_list.append(proj)
 
 
 func _on_btn_expl_pressed() -> void:
 	pop_desc_building.visible = true
 	pop_desc_building.setDesc(buil.building_description)
-
 
 
 func _on_btn_add_pressed() -> void:
@@ -59,6 +62,7 @@ func _on_btn_add_pressed() -> void:
 			if buil.add_scientist():
 				UiController.emit_assign_scientist()
 				lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
+
 
 func _on_btn_rem_pressed() -> void:
 	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):

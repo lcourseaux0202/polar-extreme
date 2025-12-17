@@ -40,11 +40,11 @@ func _init(pid: int, pname: String, rew_sci: int, rew_prod: int, rew_sl: int, re
 func set_building(b: Building) -> void:
 	building = b
 	
-func _ready():
-	timer = Timer.new()
-	timer.one_shot = true
-	add_child(timer)
-	timer.timeout.connect(finish)
+#func _ready():
+	#timer = Timer.new()
+	#timer.one_shot = true
+	#add_child(timer)
+	#timer.timeout.connect(finish)
 	
 func console(string: String) -> void:
 	print(building.get_building_name() + ": " + string + " project " + project_name)
@@ -112,3 +112,8 @@ func get_description() -> String:
 
 func get_project_state() -> int:
 	return project_state
+
+
+#testttt
+func set_time(time : int) -> void :
+	project_time = time

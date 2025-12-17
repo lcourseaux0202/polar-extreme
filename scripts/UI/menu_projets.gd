@@ -38,5 +38,6 @@ func _on_start_project(project : Project) -> void:
 	projet_container.add_child(proj)
 	proj.setProject(project)
 	proj.instanciateProject()
+	proj.startProject()
 	proj.setVisibility(true)
 	arrayProjects.append(proj)

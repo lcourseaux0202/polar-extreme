@@ -14,12 +14,11 @@ var project_started : bool = false
 
 func _process(delta: float) -> void:
 	if project_started == true and project.get_project_state() == 1 :
+		progress_bar.value = timer.wait_time - timer.time_left
 		lbl_time_left.text = "%d:%02d" % [floor(timer.time_left / 60), int(timer.time_left) % 60]	# pour afficher au format min:sec
-
-
-func _ready() -> void:
-	if project_started == true and project.get_project_state() == 1 :
-		timer.start(project.get_time_total())	# temps en secondes
+		if timer.time_left == 0:
+			project.finish()
+			setStatus(project.get_project_state())
 
 
 func setProject(proj : Project) -> void:
@@ -30,6 +29,7 @@ func setProject(proj : Project) -> void:
 func instanciateProject() -> void:
 	lbl_name.text = project.get_project_name()
 	setStatus(project.get_project_state())
+	project.set_time(30)		# testttt
 	progress_bar.max_value = project.get_time_total()
 
 
@@ -51,6 +51,9 @@ func setVisibility(vis : bool) -> void:
 func startProject() -> void:
 	project_started = true
 	project.start()
+	setStatus(project.get_project_state())
+	timer.start(project.get_time_total())			# temps en secondes
+	print(project.get_project_state())
 
 
 func _on_button_pressed() -> void:
