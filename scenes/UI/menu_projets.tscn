@@ -66,26 +66,44 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+icon_normal = null
+icon_pressed = null
+icon_hover = null
 
 [node name="Projet2" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
+icon_normal = null
+icon_pressed = null
+icon_hover = null
 
 [node name="Projet3" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
+icon_normal = null
+icon_pressed = null
+icon_hover = null
 
 [node name="Projet4" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
+icon_normal = null
+icon_pressed = null
+icon_hover = null
 
 [node name="Projet5" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
+icon_normal = null
+icon_pressed = null
+icon_hover = null
 
 [node name="Projet6" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
+icon_normal = null
+icon_pressed = null
+icon_hover = null
 
 [node name="Control2" type="Control" parent="ninePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 7)

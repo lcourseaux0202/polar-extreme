@@ -5,7 +5,7 @@ class_name BuildingScience
 @onready var door: Marker2D = $Door
 # whether the building is producing science atm
 
-@export var science_per_second: float = 0		# per scientist
+@export var science_per_second: float		# per scientist
 
 # number of scientist producing science in the building
 var nb_scientists_working = 0
@@ -37,16 +37,18 @@ func set_nbr_scientist_slots(value : int) -> void:
 	
 func add_scientist() -> bool:
 	if nb_scientists_working < nb_scientists_slots:
+		GameController.get_gauges().change_science_per_second(-science_per_second*nb_scientists_working)
 		nb_scientists_working += 1
-		change_science_per_second_production(science_per_second)
+		GameController.get_gauges().change_science_per_second(science_per_second*nb_scientists_working)
 		return true
 	else :
 		return false
 
 func remove_scientist() -> bool:
 	if nb_scientists_working > 0:
+		GameController.get_gauges().change_science_per_second(-science_per_second*nb_scientists_working)
 		nb_scientists_working -= 1
-		change_science_per_second_production(-science_per_second)
+		GameController.get_gauges().change_science_per_second(science_per_second*nb_scientists_working)
 		return true
 	else:
 		return false
@@ -58,9 +60,10 @@ func building_get_type() -> Enums.BUILDING_TYPE:
 	return building_type
 	
 func change_science_per_second_production(value: float) -> void:
+	print(value)
 	science_per_second += value
-	print(science_per_second)
-	GameController.get_gauges().change_science_per_second(value)
+	print(str(science_per_second) + "aaaaaa")
+	GameController.get_gauges().change_science_per_second(value*nb_scientists_working)
 
 func science_production_pause() -> void:
 	producing = false

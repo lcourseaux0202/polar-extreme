@@ -79,8 +79,6 @@ func start_building(building: Building) -> void:
 		door.shape = door_node.shape;
 		door_offset = door_node.position  
 
-		
-
 	var building_zone: CollisionShape2D = building.get_node_or_null("BuildingZone")
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32

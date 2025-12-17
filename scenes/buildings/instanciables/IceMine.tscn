@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf2q1o3ffr4jb"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_aj2hn"]
-[ext_resource type="Texture2D" uid="uid://eg18elqe2uta" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
+[ext_resource type="Texture2D" uid="uid://bhh8vjv5ogdct" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2hn"]
 size = Vector2(95, 95)

@@ -46,6 +46,7 @@ func get_science_per_second() -> float:
 func change_science_per_second(value: float) -> void:
 	science_per_seconds += value
 	print(science_per_seconds)
+	print("bbbbb")
 
 
 ## Pollution

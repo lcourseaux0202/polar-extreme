@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
 [ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
 [ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
-[ext_resource type="PackedScene" uid="uid://b2nl10kd7qpmc" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
-[ext_resource type="PackedScene" uid="uid://bcmr70ltlhs1e" path="res://scenes/UI/gauges.tscn" id="13_t1j05"]
+[ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
+[ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/gauges.tscn" id="13_t1j05"]
 
 [sub_resource type="Animation" id="Animation_t1j05"]
 length = 0.001

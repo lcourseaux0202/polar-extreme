@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbkq81vgo5viw"]
 
-[ext_resource type="PackedScene" uid="uid://6p4mfp5atp" path="res://scenes/UI/popup_desc_buindings.tscn" id="2_c4jj5"]
+[ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/popup_desc_buindings.tscn" id="2_c4jj5"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fk482"]
