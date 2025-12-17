@@ -8,7 +8,7 @@ var project_state: int:
 	set (value):
 		project_state = max(value, 0)	# 0: created, 1: running, 2: paused, 3: finished
 
-var building	# associated building
+var building : BuildingScience	# associated building
 
 var requirement_scientists: int 	# number of scientifics required for the project
 var timer: Timer
@@ -37,15 +37,9 @@ func _init(pid: int, pname: String, rew_sci: int, rew_prod: int, rew_sl: int, re
 	reward_pollution_per_second = rew_poll_ps
 	project_state = 0
 	
-func set_building(b: Building) -> void:
+func set_building(b: BuildingScience) -> void:
 	building = b
-	
-#func _ready():
-	#timer = Timer.new()
-	#timer.one_shot = true
-	#add_child(timer)
-	#timer.timeout.connect(finish)
-	
+
 func console(string: String) -> void:
 	print(building.get_building_name() + ": " + string + " project " + project_name)
 	
@@ -62,7 +56,6 @@ func copy() -> Project:
 	return new_project
 
 func start():
-	#timer.paused = false
 	if project_state == 0:
 		console("starting")
 		project_state = 1
@@ -75,7 +68,6 @@ func start():
 		console("already finished")
 	
 func pause():
-	timer.paused = true
 	if project_state == 1:
 		project_state = 2
 		console("pausing")
@@ -86,7 +78,8 @@ func finish():
 	project_state = 3
 	
 	building.change_pollution(reward_pollution_per_second)
-	building.scientists_add_slots(reward_production)
+	building.change_science_per_second_production(reward_production)
+	building.scientists_add_slots(reward_slots)
 	
 	var gauges = GameController.get_gauges()
 	gauges.change_wellness(reward_wellness)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://w68s7km80fw0"]
 
-[ext_resource type="Script" uid="uid://bn5fv201yp8a6" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="Script" uid="uid://dw6h7tjgbaub8" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
 [ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
-[ext_resource type="AudioStream" uid="uid://l7uu6bkoanwo" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
+[ext_resource type="AudioStream" uid="uid://v4372juvyuxc" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
 
 [sub_resource type="Animation" id="Animation_dojrw"]
 length = 0.001

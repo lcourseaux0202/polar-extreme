@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://crfeo28407j76"]
+[gd_scene load_steps=4 format=3 uid="uid://crfeo28407j76"]
 
 [ext_resource type="Script" uid="uid://b8gi3q1fb0gxj" path="res://scripts/UI/affichage_projet.gd" id="1_2gvgq"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ycggi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gvgq"]
+atlas = ExtResource("1_ycggi")
+region = Rect2(0, 448, 64, 64)
 
 [node name="AffichageProjet" type="MarginContainer"]
 custom_minimum_size = Vector2(500, 500)
@@ -45,13 +49,25 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="lblName" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="lblName" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="btnQuit" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = SubResource("AtlasTexture_2gvgq")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -223,4 +239,5 @@ horizontal_alignment = 2
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/btnQuit" to="." method="_on_btn_quit_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/btnStart" to="." method="_on_btn_start_pressed"]

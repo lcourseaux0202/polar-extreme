@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var lbl_name: Label = $NinePatchRect/MarginContainer/VBoxContainer/lblName
+@onready var lbl_name: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/lblName
 
 @onready var lbl_reward_nbr_sc: Label = $NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer/lblRewardNbrSc
 @onready var lbl_reward_nbr_sc_ps: Label = $NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer2/lblRewardNbrScPS
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_open_project_menu(proj : Project) :
-	
+	setVisibility(true)
 	project = proj
 	
 	lbl_name.text = project.get_project_name()
@@ -68,3 +68,7 @@ func setVisibility(vis : bool) :
 
 func _on_btn_start_pressed() -> void:
 	UiController.emit_start_project(project)
+
+
+func _on_btn_quit_pressed() -> void:
+	setVisibility(false)

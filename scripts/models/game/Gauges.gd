@@ -21,9 +21,9 @@ var wellness := 100.0:
 	set (value):
 		wellness = clamp(value, wellness_min, wellness_max)
 		UiController.emit_wellness_changed(wellness)
-var wellness_max := 2.00
-var wellness_min := 0.01
-var wellness_decrement_factor := 0.005
+var wellness_max := 200
+var wellness_min := 001
+var wellness_decrement_factor := -0.5
 
 ## GAUGES MANAGEMENT
 
