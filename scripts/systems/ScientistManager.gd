@@ -28,6 +28,9 @@ func get_scientist_total() -> int :
 	
 func get_scientist_occupied() -> int :
 	return scientist_occupied
+	
+func get_scientist_non_occupied() -> int:
+	return scientist_total - scientist_occupied
 
 func get_scientist_price() -> float:
 	return scientist_price

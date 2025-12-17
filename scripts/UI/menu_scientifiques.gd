@@ -31,6 +31,8 @@ func _on_button_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		menu_assignation_scientifiques.visible = false
+		nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
+		nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 		_update_recruit_price()
 
 	
@@ -49,14 +51,14 @@ func _on_btn_recruit_pressed() -> void:
 func _on_update_assign_scientist():
 	nbrScientistsAssigned += 1
 	nbrScientistsUnassigned -= 1
-	nbr_assigned.text = str(nbrScientistsAssigned)
-	nbr_unassigned.text = str(nbrScientistsUnassigned)
+	nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
+	nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 
 func _on_update_deassign_scientist():
 	nbrScientistsAssigned -= 1
 	nbrScientistsUnassigned += 1
-	nbr_assigned.text = str(nbrScientistsAssigned)
-	nbr_unassigned.text = str(nbrScientistsUnassigned)
+	nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
+	nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 
 func _update_recruit_price():
 	btn_recruit.text = "Recruter (" + str(int(GameController.scientist_manager.get_scientist_price())) + ")"
