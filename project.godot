@@ -22,6 +22,11 @@ GameController="*res://scripts/autoloads/GameController.gd"
 UiController="*res://scripts/autoloads/UIController.gd"
 settingsValue="*res://scripts/autoloads/settingsValue.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
