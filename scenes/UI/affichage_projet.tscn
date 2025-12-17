@@ -89,6 +89,7 @@ vertical_alignment = 1
 [node name="btnQuit" type="TextureButton" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_iwadq")
 texture_pressed = SubResource("AtlasTexture_4cew7")
 texture_hover = SubResource("AtlasTexture_t4qnv")
@@ -252,6 +253,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)

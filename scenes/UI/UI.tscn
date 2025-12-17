@@ -222,6 +222,7 @@ grow_vertical = 2
 
 [node name="btnProjets" type="TextureButton" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_t1j05")
 texture_pressed = SubResource("AtlasTexture_0odk7")
 texture_hover = SubResource("AtlasTexture_alvv5")
@@ -230,6 +231,7 @@ stretch_mode = 3
 [node name="btnScientists" type="TextureButton" parent="hBoxProjScien/projScienMenu/vBoxBtns"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_uw5bg")
 texture_pressed = SubResource("AtlasTexture_jfcp0")
 texture_hover = SubResource("AtlasTexture_04ait")
@@ -547,6 +549,7 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_ouxww")
 texture_pressed = SubResource("AtlasTexture_ce6m7")
 texture_hover = SubResource("AtlasTexture_ok71f")

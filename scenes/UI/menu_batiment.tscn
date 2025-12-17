@@ -122,6 +122,7 @@ autowrap_mode = 2
 [node name="btnExpl" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_s7fcw")
 texture_pressed = SubResource("AtlasTexture_uu6j1")
 texture_hover = SubResource("AtlasTexture_mb2fw")
@@ -129,6 +130,7 @@ texture_hover = SubResource("AtlasTexture_mb2fw")
 [node name="btnQuit" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_ythgw")
 texture_pressed = SubResource("AtlasTexture_8pln5")
 texture_hover = SubResource("AtlasTexture_ugwoq")
@@ -175,6 +177,7 @@ autowrap_mode = 2
 [node name="btnRem" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_3flx3")
 texture_pressed = SubResource("AtlasTexture_7x4jk")
 texture_hover = SubResource("AtlasTexture_p77ak")
@@ -184,6 +187,7 @@ stretch_mode = 0
 [node name="btnAdd" type="TextureButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_ebc2k")
 texture_pressed = SubResource("AtlasTexture_tsmqy")
 texture_hover = SubResource("AtlasTexture_7v1vn")
