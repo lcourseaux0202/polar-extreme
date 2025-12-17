@@ -163,4 +163,4 @@ func _on_btn_back_pressed() -> void:
 
 
 func _on_parameters_pressed() -> void:
-	settingsValue.open()
+	SettingsValue.open()

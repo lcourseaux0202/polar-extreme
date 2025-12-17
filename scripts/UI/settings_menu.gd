@@ -28,12 +28,12 @@ func _ready() -> void:
 	set_process_input(true)
 	
 func add_resolutions():
-	for r in settingsValue.resolutions:
+	for r in SettingsValue.resolutions:
 		resolution_option_button.add_item(r)
 		
 func update_button_values():
 	var window_size_string = str(get_window().size.x, "x", get_window().size.y)
-	var resolution_keys = settingsValue.resolutions.keys()
+	var resolution_keys = SettingsValue.resolutions.keys()
 	var resolution_index = resolution_keys.find(window_size_string)
 	
 	if resolution_index != -1:
@@ -43,7 +43,7 @@ func update_button_values():
 
 func _on_option_button_item_selected(index: int) -> void:
 	var key = resolution_option_button.get_item_text(index)
-	var new_resolution = settingsValue.resolutions[key]
+	var new_resolution = SettingsValue.resolutions[key]
 	
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
