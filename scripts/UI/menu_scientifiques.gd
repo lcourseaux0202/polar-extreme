@@ -7,11 +7,6 @@ class_name ScientistMenu
 @onready var btn_recruit: Button = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/NinePatchRect/btnRecruit
 @onready var animation: AnimationPlayer = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/NinePatchRect/btnRecruit/AnimationPlayer
 
-
-var nbrScientists := 0
-var nbrScientistsAssigned := 0
-var nbrScientistsUnassigned := 0
-
 signal not_enough_science()
 
 func _ready() -> void:
@@ -31,17 +26,14 @@ func _on_button_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		menu_assignation_scientifiques.visible = false
-		nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
-		nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
+		_update_assign_text()
 		_update_recruit_price()
 
 	
 func _on_btn_recruit_pressed() -> void:
 	if GameController.pay_scientist():
 		UiController.emit_enroll_scientist()
-		nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
-		nbrScientists += 1
-		nbrScientistsUnassigned += 1
+		_update_assign_text()
 		_update_recruit_price()
 	else:
 		if not animation.is_playing():
@@ -49,16 +41,14 @@ func _on_btn_recruit_pressed() -> void:
 			not_enough_science.emit()
 
 func _on_update_assign_scientist():
-	nbrScientistsAssigned += 1
-	nbrScientistsUnassigned -= 1
-	nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
-	nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
+	_update_assign_text()
 
 func _on_update_deassign_scientist():
-	nbrScientistsAssigned -= 1
-	nbrScientistsUnassigned += 1
-	nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
-	nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
+	_update_assign_text()
 
 func _update_recruit_price():
 	btn_recruit.text = "Recruter (" + str(int(GameController.scientist_manager.get_scientist_price())) + ")"
+
+func _update_assign_text():
+	nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
+	nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())

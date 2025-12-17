@@ -59,6 +59,7 @@ func _on_button_mouse_exited() -> void:
 func _on_button_pressed() -> void:
 	set_button_icon_pressed()
 	UiController.emit_change_category(category)
+	UiController.stop_building_path.emit()
 	set_button_icon_nor()
 
 

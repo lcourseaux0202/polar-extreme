@@ -35,6 +35,8 @@ signal click_on_building(building : Building)
 signal open_project_menu(proj : Project)
 signal start_project(proj : Project)
 
+signal stop_building_path()
+
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 

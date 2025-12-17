@@ -33,7 +33,7 @@ func _ready() -> void:
 	UiController.start_building.connect(_on_building_signal)
 	UiController.start_placing_path.connect(_on_path_button_pressed)
 	UiController.start_delete_object.connect(delete_object)
-	
+	UiController.stop_building_path.connect(stop_building_path)
 
 func _input(event: InputEvent) -> void:
 	if animation_playing:

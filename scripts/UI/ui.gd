@@ -48,7 +48,8 @@ func _on_button_scientists_pressed() -> void:
 
 func _on_science_changed(new_science : float) ->void:
 	var science_int : int = int(new_science)
-	lbl_science.text = str(science_int) + " sciences"
+	lbl_science.text = str(science_int)
+	lbl_science.add_theme_color_override("font_color", Color.WHITE)
 
 
 func _on_science_second_changed(new_science) ->void:
