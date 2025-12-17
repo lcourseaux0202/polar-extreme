@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://tw7k06bbbxk2"]
 
-[ext_resource type="Script" uid="uid://clxy3avwab3cl" path="res://scripts/UI/assignation_scientifiques.gd" id="1_fs1uh"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_v4cla"]
-[ext_resource type="AudioStream" uid="uid://decv6sjk825g7" path="res://assets/sounds/cancel-36118.mp3" id="3_8arik"]
+[ext_resource type="Script" uid="uid://cuhmeynu3wwv6" path="res://scripts/UI/assignation_scientifiques.gd" id="1_fs1uh"]
+[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="2_v4cla"]
+[ext_resource type="AudioStream" uid="uid://c5axf30pf6gv2" path="res://assets/sounds/cancel-36118.mp3" id="3_8arik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4cla"]
 atlas = ExtResource("2_v4cla")

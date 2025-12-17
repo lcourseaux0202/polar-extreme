@@ -60,20 +60,16 @@ func _update_build_list(new_building : Building):
 			bat_container.remove_child(build)
 		
 	for build in listBuildings :
-		var Bat := BatScene.instantiate()
-		
-		arrayBats.append(Bat)
-		bat_container.add_child(Bat)
-		
-		Bat.setBuilding(build)
-		Bat.setName(build.building_name)
-		Bat.setVisibility(true)
+		add_bat_to_list(build)
 	if new_building:
-		var Bat := BatScene.instantiate()
+		add_bat_to_list(new_building)
+
+func add_bat_to_list(building : Building):
+	var Bat := BatScene.instantiate()
 		
-		arrayBats.append(Bat)
-		bat_container.add_child(Bat)
-		
-		Bat.setBuilding(new_building)
-		Bat.setName(new_building.building_name)
-		Bat.setVisibility(true)
+	arrayBats.append(Bat)
+	bat_container.add_child(Bat)
+	
+	Bat.setBuilding(building)
+	Bat.setName(building.building_name)
+	Bat.setVisibility(true)

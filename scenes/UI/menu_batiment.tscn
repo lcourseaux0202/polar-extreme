@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4q2wpp4uf3ys"]
 
-[ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
+[ext_resource type="Script" uid="uid://c1cuov3pax63o" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
+[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
 [ext_resource type="PackedScene" uid="uid://6p4mfp5atp" path="res://scenes/UI/popup_desc_buindings.tscn" id="4_qxndm"]
 
