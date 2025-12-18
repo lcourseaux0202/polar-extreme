@@ -1,38 +1,21 @@
 extends MarginContainer
+## displays the different projects started and allows the player to close them once finished
 
 @export var projectScene : PackedScene
 
 @onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projectContainer
 
 
-var arrayProjects : Array
+var arrayProjects : Array		## list of SubMenuProjects
 
 
+## connects the signal
 func _ready() -> void:
 	UiController.start_project.connect(_on_start_project)
 
 
-func _on_visibility_changed() -> void:
-	pass
-	#if visible == true :
-		
-		#for proj in projet_container.get_children() :
-			#projet_container.remove_child(proj)
-			#
-		#var listeBuildings = GameController.building_manager.get_building_list()
-		#
-		#for building : Building in listeBuildings :
-			#if building.has_method("get_project_list") :
-				#var liste = building.get_project_list()
-		#
-				#for project : Project in liste :
-					#var proj = projectScene.instantiate()
-					#projet_container.add_child(proj)
-					#proj.setName(project.get_project_name())
-					#proj.setStatus(project.get_project_state())
-					#proj.setProject(project)
-					#proj.setVisibility(true)
-
+## create a new SubMenuProjects for the project started
+## entry : the project (Project)
 func _on_start_project(project : Project) -> void:
 	var proj := projectScene.instantiate()
 	project_container.add_child(proj)

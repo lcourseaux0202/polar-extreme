@@ -1,4 +1,5 @@
 extends Popup
+## shows the desctription of a building
 
 
 @onready var lbl_desc: Label = $NinePatchRect/MarginContainer/lblDesc
@@ -14,5 +15,6 @@ func _process(delta: float) -> void:
 	pass
 
 
+## sets the text of the popup
 func setDesc(text : String) -> void:
 	lbl_desc.text = text

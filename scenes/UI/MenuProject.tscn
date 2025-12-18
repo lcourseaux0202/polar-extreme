@@ -49,7 +49,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Projets"
+text = "Projets
+
+
+mettre bouton qui enleve les projets au status 3 (pas les enlever automatiquement)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,5 +1,7 @@
 extends MarginContainer
 class_name ScientistMenu
+## displays the numbers of scientists
+## allows to recruit scientists and can oper another menu to add them to the buildings
 
 @onready var menu_add_scientist_to_building: MarginContainer = $HBoxContainer/MenuAddScientistToBuilding
 
@@ -19,12 +21,14 @@ class_name ScientistMenu
 signal not_enough_science()
 
 
+## connects the signals and update the price of the scientists
 func _ready() -> void:
 	UiController.update_assign_scientist.connect(_on_update_assign_scientist)
 	UiController.update_deassign_scientist.connect(_on_update_deassign_scientist)
 	_update_recruit_price()
 
 
+## shows the menu MenuAddScientistToBuilding or hides it
 func _on_button_pressed() -> void:
 	if (!menu_add_scientist_to_building.visible):
 		menu_add_scientist_to_building.visible = true
@@ -33,13 +37,15 @@ func _on_button_pressed() -> void:
 		menu_add_scientist_to_building.visible = false
 
 
+## hides the menu MenuAddScientistToBuilding and update the prices and texts
 func _on_visibility_changed() -> void:
 	if visible:
 		menu_add_scientist_to_building.visible = false
 		_update_assign_text()
 		_update_recruit_price()
 
-	
+
+## recruits a scientist
 func _on_btn_recruit_pressed() -> void:
 	nine_icon.texture = icon_pressed
 	nine_icon.patch_margin_bottom = 10
@@ -56,20 +62,29 @@ func _on_btn_recruit_pressed() -> void:
 			not_enough_science.emit()
 	nine_icon.texture = icon_normal
 
+
+## update the number of scientist displayed
 func _on_update_assign_scientist():
 	_update_assign_text()
 
+
+## update the number of scientist displayed
 func _on_update_deassign_scientist():
 	_update_assign_text()
 
+
+## update the price displayed
 func _update_recruit_price():
 	btn_recruit.text = "Recruter (Coût : " + str(int(GameController.scientist_manager.get_scientist_price())) + ")"
 
+
+## update the number of scientist displayed
 func _update_assign_text():
 	lbl_nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
 	lbl_nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 
 
+## change the icon of the button
 func _on_btn_recruit_mouse_entered() -> void:
 	nine_icon.texture = icon_hover
 	nine_icon.patch_margin_bottom = 10
@@ -78,6 +93,7 @@ func _on_btn_recruit_mouse_entered() -> void:
 	nine_icon.patch_margin_top = 10
 
 
+## change the icon of the button
 func _on_btn_recruit_mouse_exited() -> void:
 	nine_icon.texture = icon_normal
 	nine_icon.patch_margin_bottom = 10

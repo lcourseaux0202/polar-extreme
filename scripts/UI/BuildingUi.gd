@@ -1,4 +1,7 @@
 extends MarginContainer
+## shows the informations of a building
+## displays the name, the description
+## displays the number of scientist, the projects if the building is a sience building
 
 @export var projectScene : PackedScene
 
@@ -16,18 +19,22 @@ extends MarginContainer
 
 var buil : Building
 
-var project_menu_list : Array
-var project_list : Array[Project]
+var project_menu_list : Array		## list of Project
 
 
 # Called when the node enters the scene tree for the first time.
+## coonects the signal
 func _enter_tree():
 	UiController.click_on_building.connect(_on_click_on_building)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
+
+## opens the menu and fills the informations
+## entry : the building (Building)
 func _on_click_on_building(building : Building):
 	menu_batiment.visible = true
 	buil = building
@@ -55,14 +62,15 @@ func _on_click_on_building(building : Building):
 			proj.setProject(project)
 			proj.instanciateProject()
 			proj.setVisibility(true)
-			project_list.append(proj)
 
 
+## displays a popup with the description of the building
 func _on_btn_expl_pressed() -> void:
 	pop_desc_building.visible = true
 	pop_desc_building.setDesc(buil.building_description)
 
 
+## adds a scientist to the building
 func _on_btn_add_pressed() -> void:
 	if GameController.scientist_manager.enough_scientist_for_assignement(1):
 		if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
@@ -71,6 +79,7 @@ func _on_btn_add_pressed() -> void:
 				lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
 
 
+## removes a scientist from the building
 func _on_btn_rem_pressed() -> void:
 	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
 		if buil.remove_scientist() :
@@ -78,5 +87,6 @@ func _on_btn_rem_pressed() -> void:
 			lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
 
 
+## closes the menu
 func _on_btn_quit_pressed() -> void:
 	menu_batiment.visible = false

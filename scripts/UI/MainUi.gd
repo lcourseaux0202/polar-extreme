@@ -1,6 +1,5 @@
 extends Control
-# https://www.kodeco.com/45869762-making-responsive-ui-in-godot/
-# https://kidscancode.org/godot_recipes/4.x/ui/level_select/index.html
+## the main menu of UI
 
 @onready var lbl_science = $hBoxScience/NinePatchRect/lblScience
 @onready var lbl_science_per_sec = $hBoxScience/SciencePerSec/lblSciencePerSec
@@ -20,7 +19,7 @@ extends Control
 @onready var lbl_buildings_basic_info: Label = $lblBuildingsBasicInfo
 
 
-
+## connects the signals and initialises the labels
 func _ready() -> void:
 	UiController.ui_change_category.connect(_handle_category_changed)
 	UiController.science_changed.connect(_on_science_changed)
@@ -34,8 +33,8 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(load("res://assets/cursor/ice_link.png"),Input.CURSOR_POINTING_HAND)
 	Input.set_custom_mouse_cursor(load("res://assets/cursor/Ice-normal.png"),Input.CURSOR_ARROW)
 
-# projScienMenu
 
+## opens the MenuProjects and closes everything else
 func _on_button_projets_pressed() -> void:
 	if (!menu_projects.visible):
 		menu_projects.visible = true
@@ -46,6 +45,7 @@ func _on_button_projets_pressed() -> void:
 		menu_projects.visible = false
 
 
+## opens the MenuScientists and closes everything else
 func _on_button_scientists_pressed() -> void:
 	if (!menu_scientists.visible):
 		menu_scientists.visible = true
@@ -56,7 +56,8 @@ func _on_button_scientists_pressed() -> void:
 		menu_scientists.visible = false
 
 
-#k m b
+## updates the science value in the label
+## entry : science value (float)
 func _on_science_changed(new_science : float) ->void:
 	if(new_science > 1000000000):
 		new_science = new_science / 1000000000
@@ -72,6 +73,8 @@ func _on_science_changed(new_science : float) ->void:
 		lbl_science.text = str(science_int)
 
 
+## updates the science value per second in the label
+## entry : science value (float)
 func _on_science_second_changed(new_science) ->void:
 	if(new_science > 1000000000):
 		new_science = new_science / 1000000000
@@ -86,7 +89,10 @@ func _on_science_second_changed(new_science) ->void:
 		var science_int : int = int(new_science)
 		lbl_science_per_sec.text = str(science_int) + " / sec"
 
-func _on_display_building_basic_info(building: Building):
+
+## displays the buildings basic infos when hovering the buildings
+## entry : the building (Building)
+func _on_display_building_basic_info(building: Building) -> void:
 	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.BLACK)
 	lbl_buildings_basic_info.remove_theme_color_override("font_shadow_color")
 	if building:
@@ -105,13 +111,18 @@ func _on_display_building_basic_info(building: Building):
 	else:
 		lbl_buildings_basic_info.hide()
 
-func _show_keybinds(_building : Building):
+
+## displays the keybinds when placing a building
+## entry : the building (Building) (not used -> _)
+func _show_keybinds(_building : Building) -> void:
 	lbl_buildings_basic_info.remove_theme_color_override("font_shadow_color")
 	lbl_buildings_basic_info.add_theme_color_override("font_color", Color.BLACK)
 	lbl_buildings_basic_info.text = "R pour pivoter     Clic droit pour placer"
 	lbl_buildings_basic_info.show()
 
-func _on_not_enough_science():
+
+## plays an animation when there isn't enough science
+func _on_not_enough_science() -> void:
 	animation.play("not_enough_credit")
 
 func _hide_keybinds(_building : Building):
@@ -123,7 +134,10 @@ func _hide_keybinds(_building : Building):
 #func _on_btn_path_pressed() -> void:
 	#pass # Replace with function body.
 
-func _handle_category_changed(cat_num : int) :
+
+## calls another function that changes the buttons displayed
+## entry : the number of the category to display (int)
+func _handle_category_changed(cat_num : int) -> void:
 	match cat_num:
 		1:
 			btn_cat_1_pressed()
@@ -132,6 +146,8 @@ func _handle_category_changed(cat_num : int) :
 		3:
 			btn_cat_3_pressed()
 
+
+## shows the buttons from the 1st category
 func btn_cat_1_pressed() -> void:
 	h_box_btn_cat_1.visible = true
 	h_box_btn_cat_2.visible = false
@@ -139,6 +155,7 @@ func btn_cat_1_pressed() -> void:
 	h_box_btns.visible = false
 	
 
+## shows the buttons from the 2nd category
 func btn_cat_2_pressed() -> void:
 	h_box_btn_cat_1.visible = false
 	h_box_btn_cat_2.visible = true
@@ -146,6 +163,7 @@ func btn_cat_2_pressed() -> void:
 	h_box_btns.visible = false
 
 
+## shows the buttons from the 3rd category
 func btn_cat_3_pressed() -> void:
 	h_box_btn_cat_1.visible = false
 	h_box_btn_cat_2.visible = false
@@ -153,10 +171,7 @@ func btn_cat_3_pressed() -> void:
 	h_box_btns.visible = false
 
 
-func _on_btn_remove_pressed() -> void:
-	pass # Replace with function body.
-
-
+## shows the buttons from the main category
 func _on_btn_back_pressed() -> void:
 	h_box_btn_cat_1.visible = false
 	h_box_btn_cat_2.visible = false
@@ -164,5 +179,6 @@ func _on_btn_back_pressed() -> void:
 	h_box_btns.visible = true
 
 
+## shows the settings
 func _on_parameters_pressed() -> void:
 	SettingsValue.open()

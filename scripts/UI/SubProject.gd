@@ -1,4 +1,6 @@
 extends MarginContainer
+## displays the project running (name, status, time left)
+
 @onready var lbl_name: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblName
 @onready var lbl_status: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblStatus
 @onready var progress_bar: ProgressBar = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
@@ -18,7 +20,8 @@ var project : Project
 var project_started : bool = false
 
 
-func _process(delta: float) -> void:
+## if the project is started, updates and displays the time left
+func _process(_delta: float) -> void:
 	if project_started == true and project.get_project_state() == 1 :
 		progress_bar.value = timer.wait_time - timer.time_left
 		lbl_time_left.text = "%d:%02d" % [floor(timer.time_left / 60), int(timer.time_left) % 60]	# pour afficher au format min:sec
@@ -27,11 +30,14 @@ func _process(delta: float) -> void:
 			setStatus(project.get_project_state())
 
 
+## sets a project to the menu
+## entry : the project (Project)
 func setProject(proj : Project) -> void:
 	project = proj
 	instanciateProject()
 	
 
+## fills the informations
 func instanciateProject() -> void:
 	lbl_name.text = project.get_project_name()
 	setStatus(project.get_project_state())
@@ -39,6 +45,8 @@ func instanciateProject() -> void:
 	progress_bar.max_value = project.get_time_total()
 
 
+## show the status of the project
+## entry : the status of the project (int)
 func setStatus(statusValue : int) -> void:
 	if statusValue == 0:
 		lbl_status.text = "non commencé"
@@ -50,10 +58,13 @@ func setStatus(statusValue : int) -> void:
 		lbl_status.text = "fini"
 
 
+## change the visibility of the menu
+## entry : the visibility to have (bool)
 func setVisibility(vis : bool) -> void:
 	visible = vis
 
 
+## start the project
 func startProject() -> void:
 	project_started = true
 	project.start()
@@ -62,6 +73,7 @@ func startProject() -> void:
 	print(project.get_project_state())
 
 
+## change the icon of the button and open the SubMenuShowProjectInfos
 func _on_button_pressed() -> void:
 	nine_icon.texture = icon_pressed
 	nine_icon.patch_margin_bottom = 10
@@ -72,6 +84,7 @@ func _on_button_pressed() -> void:
 	nine_icon.texture = icon_normal
 
 
+## change the icon of the button
 func _on_button_mouse_entered() -> void:
 	nine_icon.texture = icon_hover
 	nine_icon.patch_margin_bottom = 10
@@ -80,6 +93,7 @@ func _on_button_mouse_entered() -> void:
 	nine_icon.patch_margin_top = 10
 
 
+## change the icon of the button
 func _on_button_mouse_exited() -> void:
 	nine_icon.texture = icon_normal
 	nine_icon.patch_margin_bottom = 10

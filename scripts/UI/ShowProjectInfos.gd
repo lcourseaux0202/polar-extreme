@@ -1,4 +1,7 @@
 extends MarginContainer
+## opens a menu containing the informations of the project clicked
+## shows the name, the gains, the description, the status and the time of the project
+## the player can launch the project if it hasn't been done already
 
 @onready var lbl_name: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3/lblName
 
@@ -29,7 +32,7 @@ var project : Project
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
-	UiController.open_project_menu.connect(_on_open_project_menu)
+	UiController.open_project_menu.connect(_on_open_project_menu) ## connect the signal to the function
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,8 +44,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-
-func _on_open_project_menu(proj : Project) :
+	
+## opens the menu and fills the informations
+## entry : the project (Project)
+func _on_open_project_menu(proj : Project) -> void:
 	setVisibility(true)
 	project = proj
 	
@@ -62,7 +67,10 @@ func _on_open_project_menu(proj : Project) :
 	if project.get_project_state() != 0 :
 		btn_start.disabled = true
 
-func setStatus(statusValue : int) :
+
+## show the status of the project
+## entry : the status of the project (int)
+func setStatus(statusValue : int) -> void:
 	if statusValue == 0:
 		lbl_status.text = "non commencé"
 	elif statusValue == 1:
@@ -73,10 +81,13 @@ func setStatus(statusValue : int) :
 		lbl_status.text = "fini"
 
 
-func setVisibility(vis : bool) :
+## change the visibility of the menu
+## entry : the visibility to have (bool)
+func setVisibility(vis : bool) -> void:
 	visible = vis
 
 
+## launch the project and close the menu
 func _on_btn_start_pressed() -> void:
 	if (project.get_project_state() == 0):
 		nine_icon.texture = icon_pressed
@@ -86,13 +97,16 @@ func _on_btn_start_pressed() -> void:
 		nine_icon.patch_margin_top = 10
 		UiController.emit_start_project(project)
 		btn_start.disabled = true
-	nine_icon.texture = icon_normal
+		nine_icon.texture = icon_normal
+		setVisibility(false)
 
 
+## close the menu
 func _on_btn_quit_pressed() -> void:
 	setVisibility(false)
 
 
+## change the icon of the button
 func _on_btn_start_mouse_entered() -> void:
 	if project.get_project_state() == 0 :
 		nine_icon.texture = icon_hover
@@ -102,6 +116,7 @@ func _on_btn_start_mouse_entered() -> void:
 		nine_icon.patch_margin_top = 10
 
 
+## change the icon of the button
 func _on_btn_start_mouse_exited() -> void:
 	nine_icon.texture = icon_normal
 	nine_icon.patch_margin_bottom = 10
