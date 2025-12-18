@@ -1,5 +1,11 @@
 extends TileMapLayer
 class_name BuildPlacement
+## Handles building and path placement on a tile-based grid.
+##
+## This class extends TileMapLayer to provide visual feedback and collision detection
+## for placing buildings and paths. It uses the TileMapLayer's internal sparse dictionary
+## structure (only stores occupied cells, not the entire grid) to efficiently display
+## placement previews and validate positions before final placement.
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var preview: Sprite2D = $PreviewSprite
@@ -9,23 +15,46 @@ class_name BuildPlacement
 
 const IGNORED_LAYERS_FOR_BUILDING = [2]
 
+## Indicates whether the system is in building placement mode
 var in_placement: bool = false
-var in_path_placement : bool = false
-var has_to_place_path :bool = false
-var can_be_placed: bool = true
-var building_data: Building
-var path_data : Path
-var animation_playing: bool = false  
-var n_path = 0
-var in_delete_object : bool = false
 
+## Indicates whether the system is in path placement mode
+var in_path_placement: bool = false
+
+## Indicates whether the current placement is valid (no collisions)
+var can_be_placed: bool = true
+
+## Reference to the building currently being placed
+var building_data: Building
+
+## Reference to the path currently being placed
+var path_data: Path
+
+## Indicates whether a placement animation is currently playing
+var animation_playing: bool = false
+
+## Counter for naming created paths
+var n_path: int = 0
+
+## Indicates whether object deletion mode is active
+var in_delete_object: bool = false
+
+## World position of the validated placement
 var placement_position: Vector2
+
+## Array of grid cells affected by the current placement
 var cell_array: Array[Vector2i] = []
 
+## Indicates whether the user is dragging to draw a path
 var is_dragging_path: bool = false
+
+## Starting position of the L-shaped path trace
 var path_start_pos: Vector2i
+
+## Array of cells previewed for the L-shaped path
 var path_preview_cells: Array[Vector2i] = []
 
+## Door offset from the building center
 var door_offset: Vector2 = Vector2.ZERO
 
 
@@ -35,34 +64,36 @@ func _ready() -> void:
 	UiController.start_delete_object.connect(delete_object)
 	UiController.stop_building_path.connect(stop_building_path)
 
+
 func _input(event: InputEvent) -> void:
 	if animation_playing:
 		return
 	
 	_update_mouse_positions()
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	
 	if in_placement:
 		_handle_rotation_input()
 		_handle_placement_preview(event)
 		_handle_building_click(event)
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	elif in_path_placement:
 		_handle_path_drag_input(event)
 		if not is_dragging_path:
 			_handle_placement_preview(event)
-		Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 	elif in_delete_object:
 		_handle_delete_object(event)
-		Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 
-
-func _on_building_signal(building:Building)->void:
+## Signal handler to start or stop building placement.
+## [param building] The building to place
+func _on_building_signal(building: Building) -> void:
 	if !in_placement:
 		start_building(building)
 	else:
 		stop_building()
 
 
+## Starts building placement mode.
+## Configures the preview with the building's texture and data.
+## [param building] The building to place
 func start_building(building: Building) -> void:
 	if animation_playing:
 		return
@@ -75,30 +106,34 @@ func start_building(building: Building) -> void:
 	if sprite_node:
 		preview.texture = sprite_node.texture
 	
-	var door_node : CollisionShape2D = building.get_node_or_null("DoorCollision")
+	var door_node: CollisionShape2D = building.get_node_or_null("DoorCollision")
 	if door_node:
-		door.shape = door_node.shape;
-		door_offset = door_node.position  
+		door.shape = door_node.shape
+		door_offset = door_node.position
 
 	var building_zone: CollisionShape2D = building.get_node_or_null("BuildingZone")
 	if building_zone:
 		effect_size = building_zone.shape.get_rect().size / 32
 
+
+## Stops placement mode and resets all placement variables.
+## Clears the preview.
 func stop_building() -> void:
 	in_placement = false
 	in_path_placement = false
 	building_data = null
 	path_data = null
 	preview.texture = null
-	preview.rotation = 0;
+	preview.rotation = 0
 	is_dragging_path = false
 	path_preview_cells.clear()
 	cell_array.clear()
 	self.clear()
 	door_offset = Vector2.ZERO
-	var cursor_texture = load("res://assets/cursor/Ice-normal.png")
-	Input.set_custom_mouse_cursor(cursor_texture)
-	
+
+
+## Updates the preview and door positions based on mouse position.
+## Converts mouse position to grid coordinates.
 func _update_mouse_positions() -> void:
 	var mouse_pos_glob: Vector2 = get_global_mouse_position()
 	var mouse_pos_grid: Vector2 = to_local(mouse_pos_glob)
@@ -109,12 +144,18 @@ func _update_mouse_positions() -> void:
 	var rotated_offset = door_offset.rotated(preview.rotation)
 	door.position = world_grid_pos + rotated_offset
 
+
+## Handles preview rotation with the R key.
+## Rotates the preview by 90° and swaps dimensions.
 func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
-		
 
+
+## Displays the placement preview on the grid.
+## Checks collisions and placement validity for each cell.
+## [param event] The current input event
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
 		return
@@ -126,11 +167,9 @@ func _handle_placement_preview(event: InputEvent) -> void:
 	var size = effect_size.round()
 	
 	var start_x = -int(size.x / 2)
-	var end_x =int(size.x / 2) + 1
+	var end_x = int(size.x / 2) + 1
 	var start_y = -int(size.y / 2)
 	var end_y = int(size.y / 2) + 1
-	var is_even_x = int(size.x) % 2 == 0
-	var is_even_y = int(size.y) % 2 == 0
 
 	for i in range(start_x, end_x):
 		for j in range(start_y, end_y):
@@ -142,6 +181,7 @@ func _handle_placement_preview(event: InputEvent) -> void:
 			var is_adjacent_to_path = false
 			if in_path_placement:
 				is_adjacent_to_path = _is_adjacent_to_path(cell_world_pos)
+			
 			if in_path_placement:
 				if has_collision or not is_adjacent_to_path:
 					set_cell(pos, 0, Vector2i(1, 0))
@@ -161,9 +201,13 @@ func _handle_placement_preview(event: InputEvent) -> void:
 			can_be_placed = false
 			for cell_pos in cell_array:
 				set_cell(cell_pos, 0, Vector2i(1, 0))
-	
-	
 
+
+## Checks if the building's door touches a path.
+## Uses a physics shape query to detect paths.
+## [param building] The building whose door to check
+## [param cell_world_pos] World position of the cell
+## [return] True if the door touches a path, False otherwise
 func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
 	var shape = door.shape
 	var shape_transform = Transform2D(building.global_rotation, building.global_position + door.position.rotated(building.global_rotation))
@@ -182,6 +226,11 @@ func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
 
 	return false
 
+
+## Checks if a cell is adjacent to an existing path.
+## Tests the 4 cardinal directions around the cell.
+## [param cell_world_pos] World position of the cell to check
+## [return] True if the cell is adjacent to a path, False otherwise
 func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var tile_size = tile_set.tile_size
@@ -208,28 +257,39 @@ func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:
 	
 	return false
 
+
+## Handles mouse clicks to validate or invalidate placement.
+## Plays the appropriate animation depending on placement validity.
+## [param event] The input event to process
 func _handle_building_click(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and can_be_placed:
 		placement_position = preview.position
-		animation_playing = true  
+		animation_playing = true
 		animation.play("placementAnimationLib/goodPlacement")
 		_clear_previous_preview()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and not can_be_placed:
 		animation.play("placementAnimationLib/invalidPlacement")
-		
+
+
+## Clears the previous grid preview.
+## Resets all displayed cells and empties the array.
 func _clear_previous_preview() -> void:
 	for cell_pos in cell_array:
 		set_cell(cell_pos, 0, Vector2i(0, 0))
 	cell_array.clear()
 
+
+## Placement animation end handler.
+## Instantiates the building or path depending on the active mode.
+## [param _anim_name] Name of the finished animation
 func _handle_animation_end(_anim_name: StringName) -> void:
-	if _anim_name == "placementAnimationLib/goodPlacement" :
-		animation_playing = false 
-		if in_placement :
+	if _anim_name == "placementAnimationLib/goodPlacement":
+		animation_playing = false
+		if in_placement:
 			var instance: Building = building_data
 			instance.rotation = preview.rotation
 			instance.position = placement_position
-			instance.name = instance.name + "_"+ str(building_data.get_id())
+			instance.name = instance.name + "_" + str(building_data.get_id())
 			UiController.emit_validate_building_placement(instance)
 			stop_building()
 		elif in_path_placement:
@@ -240,7 +300,12 @@ func _handle_animation_end(_anim_name: StringName) -> void:
 			%PathRegions.add_child(instance)
 			UiController.emit_validate_building_path(instance)
 			build_path()
-	
+
+
+## Checks if a cell collides with physical objects.
+## Uses a RectangleShape2D to test for collisions.
+## [param cell_world_pos] World position of the cell to check
+## [return] True if the cell has a collision, False otherwise
 func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var cell_size = tile_set.tile_size
@@ -259,6 +324,11 @@ func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var result = space_state.intersect_shape(query, 1)
 	return result.size() > 0
 
+
+## Checks if a path already exists at a given position.
+## Uses a physics point query to detect paths.
+## [param cell_world_pos] World position of the cell to check
+## [return] True if a path exists at this position, False otherwise
 func _cell_has_path(cell_world_pos: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	
@@ -275,7 +345,11 @@ func _cell_has_path(cell_world_pos: Vector2) -> bool:
 	
 	return false
 
-func get_collision_layers_mask(ignored_layers : Array):
+
+## Calculates a collision mask excluding certain layers.
+## [param ignored_layers] Array of layer indices to ignore (1-32)
+## [return] Collision mask with ignored layers disabled
+func get_collision_layers_mask(ignored_layers: Array) -> int:
 	var collision_mask := 0xFFFFFFFF
 
 	for layer_index in ignored_layers:
@@ -283,30 +357,37 @@ func get_collision_layers_mask(ignored_layers : Array):
 			collision_mask &= ~(1 << (layer_index - 1))
 			
 	return collision_mask
-	
+
+
+## Path placement button handler.
+## Starts or stops path placement mode.
 func _on_path_button_pressed() -> void:
 	if in_path_placement:
 		stop_building_path()
 	else:
 		start_building_path()
 
+
+## Starts path placement mode.
+## Initializes variables and prepares the first path.
 func start_building_path() -> void:
 	in_path_placement = true
-	has_to_place_path = false
 	build_path()
 
+
+## Stops path placement mode.
+## Resets all path-related variables.
 func stop_building_path() -> void:
 	in_path_placement = false
 	path_data = null
 	preview.texture = null
-	has_to_place_path = false
 	is_dragging_path = false
 	path_preview_cells.clear()
-	var cursor_texture = load("res://assets/cursor/Ice-normal.png")
-	Input.set_custom_mouse_cursor(cursor_texture)
-	return
 
-func build_path():
+
+## Instantiates a new path and configures its preview.
+## Loads the path scene and configures the preview texture.
+func build_path() -> void:
 	path_data = load("res://scenes/buildings/Path.tscn").instantiate()
 	in_path_placement = true
 	preview.texture = path_data.get_preview()
@@ -314,9 +395,14 @@ func build_path():
 	effect_size = Vector2(1.0, 1.0)
 
 
-func delete_object():
+## Toggles object deletion mode.
+func delete_object() -> void:
 	in_delete_object = !in_delete_object
 
+
+## Handles drag-and-drop tracing to place multiple paths in an L-shape.
+## Starts tracing on click, updates in real-time, and places all paths on release.
+## [param event] The input event to process
 func _handle_path_drag_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
@@ -335,6 +421,9 @@ func _handle_path_drag_input(event: InputEvent) -> void:
 	if is_dragging_path and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		_update_path_l_preview()
 
+
+## Updates the L-shaped path preview during tracing.
+## Recalculates path cells between the start point and current mouse position.
 func _update_path_l_preview() -> void:
 	var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
 	
@@ -345,6 +434,12 @@ func _update_path_l_preview() -> void:
 	
 	_draw_path_preview()
 
+
+## Calculates an L-shaped path between two points.
+## The path consists of a horizontal or vertical segment, followed by a perpendicular segment.
+## [param from] Path starting point
+## [param to] Path end point
+## [return] Array of cells forming the L-shaped path
 func _get_l_shaped_path(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
 	var cells: Array[Vector2i] = []
 	
@@ -355,32 +450,27 @@ func _get_l_shaped_path(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
 	var dx = abs(to.x - from.x)
 	var dy = abs(to.y - from.y)
 	
-	# Déterminer quelle direction faire en premier (la plus longue)
 	var do_horizontal_first = dx >= dy
 	
 	var current = from
 	cells.append(current)
 	
 	if do_horizontal_first:
-		# D'abord horizontal
 		var step_x = 1 if to.x > from.x else -1
 		while current.x != to.x:
 			current.x += step_x
 			cells.append(Vector2i(current.x, current.y))
 		
-		# Puis vertical
 		var step_y = 1 if to.y > from.y else -1
 		while current.y != to.y:
 			current.y += step_y
 			cells.append(Vector2i(current.x, current.y))
 	else:
-		# D'abord vertical
 		var step_y = 1 if to.y > from.y else -1
 		while current.y != to.y:
 			current.y += step_y
 			cells.append(Vector2i(current.x, current.y))
 		
-		# Puis horizontal
 		var step_x = 1 if to.x > from.x else -1
 		while current.x != to.x:
 			current.x += step_x
@@ -388,6 +478,9 @@ func _get_l_shaped_path(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
 	
 	return cells
 
+
+## Draws the path preview on the grid.
+## Checks each cell's validity and displays appropriate visual indicators.
 func _draw_path_preview() -> void:
 	_clear_previous_preview()
 	can_be_placed = false
@@ -421,6 +514,9 @@ func _draw_path_preview() -> void:
 		for cell_pos in cell_array:
 			set_cell(cell_pos, 0, Vector2i(1, 0))
 
+
+## Places all previewed paths in the world.
+## Skips cells already occupied by paths and plays the appropriate animation.
 func _place_all_paths() -> void:
 	if not can_be_placed or path_preview_cells.size() == 0:
 		animation.play("placementAnimationLib/invalidPlacement")
@@ -446,9 +542,11 @@ func _place_all_paths() -> void:
 	
 	path_preview_cells.clear()
 	build_path()
-	
-	
-	
+
+
+## Handles object deletion on click.
+## Detects the clicked object and calls appropriate deletion methods.
+## [param event] The input event to process
 func _handle_delete_object(event: InputEvent) -> void:
 	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		return
