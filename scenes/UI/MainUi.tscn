@@ -563,7 +563,7 @@ texture_pressed = SubResource("AtlasTexture_ce6m7")
 texture_hover = SubResource("AtlasTexture_ok71f")
 stretch_mode = 0
 
-[node name="Control" parent="." instance=ExtResource("11_75w5a")]
+[node name="GaugesUi" parent="." instance=ExtResource("11_75w5a")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

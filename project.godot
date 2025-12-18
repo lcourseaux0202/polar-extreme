@@ -20,18 +20,17 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-Enums="*res://scripts/autoloads/Enums.gd"
 GameController="*res://scripts/autoloads/GameController.gd"
+Enums="*res://scripts/autoloads/Enums.gd"
+SettingsValue="*res://scripts/autoloads/settingsValue.gd"
 UiController="*res://scripts/autoloads/UIController.gd"
 settingsValue="*res://scripts/autoloads/settingsValue.gd"
-SettingsValue="*res://scripts/autoloads/settingsValue.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
-window/size/borderless=true
 mouse_cursor/custom_image="uid://d1bib7ohyur5k"
 
 [filesystem]

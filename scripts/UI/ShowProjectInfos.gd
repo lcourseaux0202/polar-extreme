@@ -18,6 +18,7 @@ extends MarginContainer
 @onready var timer: Timer = $Timer
 
 @onready var nine_icon: NinePatchRect = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/nineIcon
+@onready var btn_start: Button = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/nineIcon/btnStart
 
 @export var icon_normal: Texture2D
 @export var icon_pressed: Texture2D
@@ -56,7 +57,10 @@ func _on_open_project_menu(proj : Project) :
 	lbl_reward_nbr_poll_ps.text = str(project.reward_pollution_per_second)
 	lbl_reward_nbr_wb.text = str(project.reward_wellness)
 	
-	#lbl_time_left.text = str(project.get_time_left())
+	#lbl_time_left.text = str(project.get_time_total())
+	
+	if project.get_project_state() != 0 :
+		btn_start.disabled = true
 
 func setStatus(statusValue : int) :
 	if statusValue == 0:
@@ -74,12 +78,14 @@ func setVisibility(vis : bool) :
 
 
 func _on_btn_start_pressed() -> void:
-	nine_icon.texture = icon_pressed
-	nine_icon.patch_margin_bottom = 10
-	nine_icon.patch_margin_left = 10
-	nine_icon.patch_margin_right = 10
-	nine_icon.patch_margin_top = 10
-	UiController.emit_start_project(project)
+	if (project.get_project_state() == 0):
+		nine_icon.texture = icon_pressed
+		nine_icon.patch_margin_bottom = 10
+		nine_icon.patch_margin_left = 10
+		nine_icon.patch_margin_right = 10
+		nine_icon.patch_margin_top = 10
+		UiController.emit_start_project(project)
+		btn_start.disabled = true
 	nine_icon.texture = icon_normal
 
 
@@ -88,11 +94,12 @@ func _on_btn_quit_pressed() -> void:
 
 
 func _on_btn_start_mouse_entered() -> void:
-	nine_icon.texture = icon_hover
-	nine_icon.patch_margin_bottom = 10
-	nine_icon.patch_margin_left = 10
-	nine_icon.patch_margin_right = 10
-	nine_icon.patch_margin_top = 10
+	if project.get_project_state() == 0 :
+		nine_icon.texture = icon_hover
+		nine_icon.patch_margin_bottom = 10
+		nine_icon.patch_margin_left = 10
+		nine_icon.patch_margin_right = 10
+		nine_icon.patch_margin_top = 10
 
 
 func _on_btn_start_mouse_exited() -> void:
