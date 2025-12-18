@@ -61,6 +61,7 @@ func _on_btn_recruit_pressed() -> void:
 		audio_recruit.play()
 		_update_assign_text()
 		_update_recruit_price()
+		_update_free_spaces()
 	else:
 		if not animation.is_playing():
 			if status == 1:
@@ -75,11 +76,13 @@ func _on_btn_recruit_pressed() -> void:
 ## update the number of scientist displayed
 func _on_update_assign_scientist():
 	_update_assign_text()
+	_update_free_spaces()
 
 
 ## update the number of scientist displayed
 func _on_update_deassign_scientist():
 	_update_assign_text()
+	_update_free_spaces()
 
 ## update the price displayed
 func _update_recruit_price():
@@ -92,7 +95,7 @@ func _update_assign_text():
 	lbl_nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 
 func _update_free_spaces():
-	lbl_nbr_spaces.text = str(GameController.building_manager.get_free_spaces())
+	lbl_nbr_spaces.text = str(GameController.building_manager.get_free_spaces() - GameController.scientist_manager.get_scientist_total())
 
 ## change the icon of the button
 func _on_btn_recruit_mouse_entered() -> void:

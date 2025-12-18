@@ -27,9 +27,9 @@ func _on_wellness_changed(wellness : float) ->void :
 func _on_pollution_changed(pollution : float) ->void :
 	label.text = str(round(pollution * 10.0 )/ 10.0)
 
-
-func _on_nine_patch_rect_mouse_entered() -> void:
+func _on_progress_bar_mouse_entered() -> void:
 	progress_bar.show_percentage = true
 
-func _on_nine_patch_rect_mouse_exited() -> void:
+
+func _on_progress_bar_mouse_exited() -> void:
 	progress_bar.show_percentage = false

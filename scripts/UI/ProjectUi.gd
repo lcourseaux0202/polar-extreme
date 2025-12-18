@@ -5,12 +5,21 @@ extends MarginContainer
 
 @onready var notif : NotificationIndicator = $"../projScienMenu/vBoxBtns/btnProjets/NotifProject"
 @onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/MarginContainer/ScrollContainer/projectContainer
+@onready var nine_icon: NinePatchRect = $ninePatchRect/VBoxContainer/nineIcon
 
 var arrayProjects : Array		## list of SubMenuProjects
 
+@export var icon_normal: Texture2D
+@export var icon_pressed: Texture2D
+@export var icon_hover: Texture2D
 
 ## connects the signal
 func _ready() -> void:
+	nine_icon.texture = icon_normal
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
 	notif.setVisible(false);
 	UiController.start_project.connect(_on_start_project)
 
@@ -46,6 +55,11 @@ func _process(delta: float) -> void:
 
 ## closes projects that have ended
 func _on_btn_close_projects_pressed() -> void:
+	nine_icon.texture = icon_pressed
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
 	var arrayTemp : Array
 	for proj in arrayProjects :
 		var project : Project = proj.getProject()
@@ -55,4 +69,22 @@ func _on_btn_close_projects_pressed() -> void:
 			arrayTemp.append(proj)
 	for proj in arrayTemp :
 		arrayProjects.erase(proj)
-	print(arrayProjects)
+	#print(arrayProjects)
+	nine_icon.texture = icon_normal
+
+
+## change the icon of the button
+func _on_btn_close_projects_mouse_entered() -> void:
+	nine_icon.texture = icon_hover
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
+
+## change the icon of the button
+func _on_btn_close_projects_mouse_exited() -> void:
+	nine_icon.texture = icon_normal
+	nine_icon.patch_margin_bottom = 10
+	nine_icon.patch_margin_left = 10
+	nine_icon.patch_margin_right = 10
+	nine_icon.patch_margin_top = 10
