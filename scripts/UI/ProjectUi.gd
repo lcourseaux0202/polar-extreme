@@ -46,9 +46,11 @@ func _process(delta: float) -> void:
 		if project.get_project_state() == 3 :
 			i += 1
 	if(i>0):
+		nine_icon.visible = true
 		notif.set_text(str(i))
 		notif.setVisible(true)
 	else:
+		nine_icon.visible = false
 		notif.set_text(str(0))
 		notif.setVisible(false)
 
