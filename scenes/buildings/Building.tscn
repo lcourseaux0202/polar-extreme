@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvccgvdeejgkb"]
 
 [ext_resource type="Script" uid="uid://b2au1ftq4ob63" path="res://scripts/models/buildings/Building.gd" id="1_l1dv4"]
-[ext_resource type="Shader" uid="uid://bx2nlcn4y65lx" path="res://assets/path/pathmain.gdshader" id="2_vnrv4"]
-[ext_resource type="Texture2D" uid="uid://b2wsorphlug3g" path="res://icon.svg" id="3_h30so"]
+[ext_resource type="Shader" uid="uid://buxy7eo238svj" path="res://assets/path/pathmain.gdshader" id="2_vnrv4"]
+[ext_resource type="Texture2D" uid="uid://dx7ebr1icfo6p" path="res://icon.svg" id="3_h30so"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_afunb"]
 shader = ExtResource("2_vnrv4")

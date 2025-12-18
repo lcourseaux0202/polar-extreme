@@ -16,8 +16,6 @@ extends MarginContainer
 
 @onready var lbl_status: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/lblStatus
 
-@onready var progress_bar: ProgressBar = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
-@onready var lbl_time_left: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
 @onready var timer: Timer = $Timer
 
 @onready var nine_icon: NinePatchRect = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/nineIcon
@@ -48,6 +46,7 @@ func _process(delta: float) -> void:
 ## opens the menu and fills the informations
 ## entry : the project (Project)
 func _on_open_project_menu(proj : Project) -> void:
+	btn_start.disabled = false
 	setVisibility(true)
 	project = proj
 	

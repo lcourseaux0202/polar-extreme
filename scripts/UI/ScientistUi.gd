@@ -5,8 +5,8 @@ class_name ScientistMenu
 
 @onready var menu_add_scientist_to_building: MarginContainer = $HBoxContainer/MenuAddScientistToBuilding
 
-@onready var lbl_nbr_unassigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/lblNbrUnassigned
-
+@onready var lbl_nbr_spaces: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/lblNbrSpaces
+@onready var lbl_nbr_unassigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4/lblNbrUnassigned
 @onready var lbl_nbr_assigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/lblNbrAssigned
 
 @onready var btn_recruit: Button = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit
@@ -43,6 +43,8 @@ func _on_visibility_changed() -> void:
 		menu_add_scientist_to_building.visible = false
 		_update_assign_text()
 		_update_recruit_price()
+		_update_free_spaces()
+		
 
 
 ## recruits a scientist
@@ -59,7 +61,7 @@ func _on_btn_recruit_pressed() -> void:
 	else:
 		if not animation.is_playing():
 			animation.play("not_enough_credit")
-			not_enough_science.emit()
+			#not_enough_science.emit()
 	nine_icon.texture = icon_normal
 
 
@@ -72,7 +74,6 @@ func _on_update_assign_scientist():
 func _on_update_deassign_scientist():
 	_update_assign_text()
 
-
 ## update the price displayed
 func _update_recruit_price():
 	btn_recruit.text = "Recruter (Coût : " + str(int(GameController.scientist_manager.get_scientist_price())) + ")"
@@ -83,6 +84,8 @@ func _update_assign_text():
 	lbl_nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
 	lbl_nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 
+func _update_free_spaces():
+	lbl_nbr_spaces.text = str(GameController.building_manager.get_free_spaces())
 
 ## change the icon of the button
 func _on_btn_recruit_mouse_entered() -> void:

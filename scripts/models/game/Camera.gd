@@ -3,7 +3,6 @@ extends Camera2D
 @export var min_zoom: float = 1.0
 @export var max_zoom: float = 4.0
 @export var zoom_speed: float = 0.01
-@export var drag_button: MouseButton = MOUSE_BUTTON_LEFT
 
 @export var world_min: Vector2 = Vector2(-100, -100)
 @export var world_max: Vector2 = Vector2(3700, 2500)
@@ -17,7 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventMouseButton:
-		if event.button_index == drag_button:
+		if event.button_index == SettingsValue.Moove:
 			dragging = event.pressed
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:

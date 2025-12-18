@@ -35,6 +35,12 @@ func _process(_delta: float) -> void:
 func setProject(proj : Project) -> void:
 	project = proj
 	instanciateProject()
+
+
+## returns the project
+## return : the project (Project)
+func getProject() -> Project:
+	return project
 	
 
 ## fills the informations

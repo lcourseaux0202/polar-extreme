@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmplrmtisrhmp"]
 
-[ext_resource type="Script" uid="uid://5jc1ng50u2dy" path="res://scripts/UI/Settings.gd" id="1_05p07"]
-[ext_resource type="FontFile" uid="uid://dkpxuth1jl368" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
+[ext_resource type="Script" uid="uid://bel0vbis0d3fx" path="res://scripts/UI/Settings.gd" id="1_05p07"]
+[ext_resource type="FontFile" uid="uid://b5byf38x5xkml" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
 
 [sub_resource type="Theme" id="Theme_05p07"]
 default_font_size = 0
@@ -88,6 +88,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Synchronisation verticale"
 
+[node name="MouseSetting" type="CheckBox" parent="Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Inverser les cliques de la souris"
+
 [node name="VolumeLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Master"
@@ -137,6 +143,7 @@ text = "Quitter le jeu"
 [connection signal="item_selected" from="Panel/HBoxContainer/VBoxContainer/ResolutionContainer/Resolution" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="toggled" from="Panel/HBoxContainer/VBoxContainer/MouseSetting" to="." method="_on_mousse_toggled"]
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="value_changed" from="Panel/HBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]

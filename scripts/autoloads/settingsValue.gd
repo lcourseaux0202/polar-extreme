@@ -4,6 +4,9 @@ var gui_components = [
 	"res://scenes/UI/MenuSettings.tscn"
 ]
 
+var Moove: MouseButton = MOUSE_BUTTON_RIGHT
+var Pos: MouseButton = MOUSE_BUTTON_LEFT
+
 var main_menu = preload("res://scenes/UI/MainMenu.tscn")
 
 var resolutions = {

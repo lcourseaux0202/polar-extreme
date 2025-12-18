@@ -9,6 +9,7 @@ size = Vector2(95, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjibq"]
 
 [node name="Bedroom" instance=ExtResource("1_3yoo0")]
+scientist_places = 10
 building_name = "Dortoirs"
 building_description = "Les conditions de vie sont extrêmes, avec des vents pouvant dépasser 100 km/h et une nuit polaire prolongée,mais la station est équipée de systèmes de chauffage, de communication et de production d’eau pour assurer la survie et le confort des scientifiques."
 building_genre = 1

@@ -10,6 +10,7 @@ class_name Building
 @onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var building_zone: CollisionShape2D = $BuildingZone
 
+@export var scientist_places:int
 ## Unique identifier for this building instance
 @export var id: int
 

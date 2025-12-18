@@ -3,8 +3,9 @@ extends MarginContainer
 
 @export var projectScene : PackedScene
 
-@onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projectContainer
 @onready var notif : NotificationIndicator = $"../projScienMenu/vBoxBtns/btnProjets/NotifProject"
+@onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/MarginContainer/ScrollContainer/projectContainer
+
 
 var arrayProjects : Array		## list of SubMenuProjects
 
@@ -39,3 +40,16 @@ func _process(delta: float) -> void:
 		notif.set_text(str(finished_count))
 	else:
 		notif.setVisible(false)
+## closes projects that have ended
+func _on_btn_close_projects_pressed() -> void:
+	var i := 0
+	var arrayIndex : Array[int]
+	for proj in arrayProjects :
+		var project : Project = proj.getProject()
+		if project.get_project_state() == 3 :
+			proj.setVisibility(false)
+			project_container.remove_child(proj)
+			arrayIndex.append(proj)
+		i += 1
+	for proj in arrayIndex :
+		arrayProjects.erase(proj)

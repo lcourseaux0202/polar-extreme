@@ -66,6 +66,14 @@ func _on_v_sync_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		
+func _on_mousse_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		SettingsValue.Pos = MOUSE_BUTTON_RIGHT
+		SettingsValue.Moove = MOUSE_BUTTON_LEFT
+	else:
+		SettingsValue.Pos = MOUSE_BUTTON_LEFT
+		SettingsValue.Moove = MOUSE_BUTTON_RIGHT
 
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
 	if toggled_on:

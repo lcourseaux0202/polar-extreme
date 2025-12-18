@@ -73,3 +73,9 @@ func get_building_description(btype : Enums.BUILDING_TYPE) -> String :
 	#var key = buildings_positions.keys().pick_random()
 	#return buildings_positions[key].pick_random()
 	
+func get_free_spaces() -> int:
+	var spaces = 0
+	print(buildings_list)
+	for b in buildings_list:
+		spaces += b.scientist_places
+	return spaces

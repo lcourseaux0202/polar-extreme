@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://w68s7km80fw0"]
 
-[ext_resource type="Script" uid="uid://dw6h7tjgbaub8" path="res://scripts/UI/ScientistUi.gd" id="1_2bolv"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="Script" uid="uid://bqpk2fif4hn1w" path="res://scripts/UI/ScientistUi.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://sycu47s5jcv8" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
 [ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/MenuAddScientistToBuilding.tscn" id="2_y5bk0"]
-[ext_resource type="AudioStream" uid="uid://v4372juvyuxc" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
+[ext_resource type="AudioStream" uid="uid://ry0cse6nxf1e" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
+[ext_resource type="Texture2D" uid="uid://okias8w4m6ao" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
+[ext_resource type="Texture2D" uid="uid://b3x6wj85cdsbr" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gqah"]
 atlas = ExtResource("2_54jhy")
@@ -217,12 +217,26 @@ theme_override_constants/separation = 20
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="lblTxtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="lblTxtSpaces" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Places disponibles"
+
+[node name="lblNbrSpaces" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="lblTxtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Scientifiques libres"
 
-[node name="lblNbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="lblNbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)

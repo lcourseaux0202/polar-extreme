@@ -262,12 +262,12 @@ func _is_adjacent_to_path(cell_world_pos: Vector2) -> bool:
 ## Plays the appropriate animation depending on placement validity.
 ## [param event] The input event to process
 func _handle_building_click(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and can_be_placed:
+	if event is InputEventMouseButton and event.button_index == SettingsValue.Pos and event.pressed and can_be_placed:
 		placement_position = preview.position
 		animation_playing = true
 		animation.play("placementAnimationLib/goodPlacement")
 		_clear_previous_preview()
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and not can_be_placed:
+	if event is InputEventMouseButton and event.button_index == SettingsValue.Pos and event.pressed and not can_be_placed:
 		animation.play("placementAnimationLib/invalidPlacement")
 
 
@@ -404,7 +404,7 @@ func delete_object() -> void:
 ## Starts tracing on click, updates in real-time, and places all paths on release.
 ## [param event] The input event to process
 func _handle_path_drag_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.button_index ==SettingsValue.Pos:
 		if event.pressed:
 			var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
 			path_start_pos = tile_under_mouse
@@ -418,7 +418,7 @@ func _handle_path_drag_input(event: InputEvent) -> void:
 			path_preview_cells.clear()
 			_clear_previous_preview()
 	
-	if is_dragging_path and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if is_dragging_path and Input.is_mouse_button_pressed(SettingsValue.Pos):
 		_update_path_l_preview()
 
 
@@ -548,7 +548,7 @@ func _place_all_paths() -> void:
 ## Detects the clicked object and calls appropriate deletion methods.
 ## [param event] The input event to process
 func _handle_delete_object(event: InputEvent) -> void:
-	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+	if not (event is InputEventMouseButton and event.pressed and event.button_index == SettingsValue.Pos):
 		return
 
 	var mouse_pos = get_global_mouse_position()
