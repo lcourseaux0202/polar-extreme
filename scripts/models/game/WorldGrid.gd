@@ -7,6 +7,7 @@ class_name WorldGrid
 @onready var plane: ScientistPlane = $Plane
 
 var scientists_to_place : Array[Scientist]
+var plane_spawn = 4000
 
 func _ready() -> void:
 	plane.make_scientist.connect(_on_make_scientist)
@@ -18,7 +19,7 @@ func get_scientist_spawn_position() -> Vector2:
 func add_scientist(scientist_scene : Scientist) :
 	scientists_to_place.append(scientist_scene)
 	if not plane.anim :
-		plane.start_animation(Vector2(2000,scientist_spawn_position.global_position.y), scientist_spawn_position.global_position)
+		plane.start_animation(Vector2(plane_spawn,scientist_spawn_position.global_position.y), scientist_spawn_position.global_position)
 	
 	
 func _on_make_scientist():
@@ -36,4 +37,4 @@ func add_building(building_scene : Building):
 	
 func _restart_animation():
 	if not scientists_to_place.is_empty() and not plane.anim:
-		plane.start_animation(Vector2(2000,scientist_spawn_position.global_position.y), scientist_spawn_position.global_position)
+		plane.start_animation(Vector2(plane_spawn,scientist_spawn_position.global_position.y), scientist_spawn_position.global_position)
