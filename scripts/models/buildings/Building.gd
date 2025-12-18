@@ -136,3 +136,13 @@ func emit_particles() -> void:
 ## Removes the particle system from the scene tree.
 func _on_gpu_particles_2d_finished() -> void:
 	particles.queue_free()
+
+func get_infos() -> String:
+	var text = ""
+	if scientist_places > 0:
+		text += "Capacité de scientifiques : +" + str(int(scientist_places)) + "\n"
+	if pollution_per_second > 0:
+		text += "Pollution par seconde : " + str(int(pollution_per_second)) + "\n"
+	if wellness_value > 0:
+		text += "Augmentation du bien être : " + str(int(wellness_value))
+	return text

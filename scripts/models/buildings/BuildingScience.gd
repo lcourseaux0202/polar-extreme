@@ -119,3 +119,15 @@ func get_science_production_ratio() -> float:
 	if nb_scientists_slots == 0:
 		return 0.0
 	return float(nb_scientists_working) / float(nb_scientists_slots)
+	
+func get_infos() -> String:
+	var text = ""
+	if science_per_second > 0:
+		text += "Science produite chaque seconde : " + str(int(science_per_second)) + "\n"
+	if scientist_places > 0:
+		text += "Capacité de scientifiques : +" + str(int(scientist_places)) + "\n"
+	if pollution_per_second > 0:
+		text += "Pollution par seconde :" + str(int(pollution_per_second)) + "\n"
+	if wellness_value > 0:
+		text += "Augmentation du bien être : " + str(int(wellness_value))
+	return text

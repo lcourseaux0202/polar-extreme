@@ -43,7 +43,7 @@ func _on_click_on_building(building : Building):
 	buil = building
 	
 	lbl_name.text = building.get_building_name()
-	lbl_desc.text = GameController.get_building_description(building.building_type)
+	lbl_desc.text = building.get_infos()
 	assignement_container.visible = (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE)
 	lbl_project.visible = (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE)
 	projet_container.visible = (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE)
