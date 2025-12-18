@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8fxodu5ccwv8"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_3q2pg"]
-[ext_resource type="Texture2D" uid="uid://bc6tk8n81wxna" path="res://assets/buildings/life/sport.png" id="2_2a82l"]
+[ext_resource type="Texture2D" uid="uid://6dvurlsyub58" path="res://assets/buildings/life/sport.png" id="2_2a82l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4fxu"]
 size = Vector2(159, 95)
@@ -10,7 +10,7 @@ size = Vector2(159, 95)
 
 [node name="Gym" instance=ExtResource("1_3q2pg")]
 building_name = "Salle de sport"
-building_description = "Équipée de vélos, tapis de course et poids. Indispensable pour lutter contre l'atrophie musculaire et la baisse de moral induites par le confinement et le froid."
+building_description = "Équipée de vélos, tapis de course et poids. Indispensable pour lutter contre l'atrophie musculaire et la baisse de moral induites par le confinement et le froid"
 building_genre = 1
 building_type = 11
 price = 4500

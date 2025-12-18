@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgj52y5sr8fw3"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_8nb83"]
-[ext_resource type="Texture2D" uid="uid://del0q5houad2s" path="res://assets/buildings/labo/sismology.png" id="2_cjfu4"]
+[ext_resource type="Texture2D" uid="uid://btvrbybx8evkg" path="res://assets/buildings/labo/sismology.png" id="2_cjfu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1aak"]
 size = Vector2(223, 159)
