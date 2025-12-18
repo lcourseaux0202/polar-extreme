@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 ## updates the wellness
 ## entry : the wellness (float)
 func _on_wellness_changed(wellness : float) ->void :
-	wellness_bar.value = wellness
+	wellness_bar.value = 200 - wellness
 
 
 ## updates the pollution
