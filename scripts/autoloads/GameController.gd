@@ -116,3 +116,20 @@ func pay_scientist() ->bool:
 		return true
 	else:
 		return false
+		
+func init_default(world_grid):
+	var defaultBedRoom = building_manager.create_building(Enums.BUILDING_TYPE.DORMITORY)
+	var mouse_pos_glob: Vector2 = Vector2(1000,560)
+	var mouse_pos_grid: Vector2 = to_local(mouse_pos_glob)
+	var tile_under_mouse: Vector2i = world_grid.local_to_map(mouse_pos_grid)
+	var world_grid_pos: Vector2 = world_grid.map_to_local(tile_under_mouse)
+	defaultBedRoom.position = world_grid_pos
+	UiController.emit_validate_building_placement(defaultBedRoom)
+	var defaultScience = building_manager.create_building(Enums.BUILDING_TYPE.LABORATORY_GLACIOLOGY)
+	mouse_pos_glob = Vector2(850,520)
+	mouse_pos_grid = to_local(mouse_pos_glob)
+	tile_under_mouse = world_grid.local_to_map(mouse_pos_grid)
+	world_grid_pos = world_grid.map_to_local(tile_under_mouse)
+	defaultScience.position = world_grid_pos
+	UiController.emit_validate_building_placement(defaultScience)
+	UiController.emit_enroll_scientist()

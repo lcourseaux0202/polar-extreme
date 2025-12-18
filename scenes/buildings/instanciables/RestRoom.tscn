@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd4f8pb2yquvu"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_1hgbn"]
-[ext_resource type="Texture2D" uid="uid://btb0xad717y81" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
+[ext_resource type="Texture2D" uid="uid://bao2oe5m368d4" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ef3"]
 size = Vector2(95, 95)
@@ -10,7 +10,7 @@ size = Vector2(95, 95)
 
 [node name="RestRoom" instance=ExtResource("1_1hgbn")]
 building_name = "Salle de repos"
-building_description = " Espace convivial avec canapés, jeux, musique et films. Dédié au divertissement et à la déconnexion, loin des laboratoires et des écrans de travail.Contraintes polaires : Renouveler les distractions (livres, films) pour lutter contre l'ennui et la lassitude du groupe."
+building_description = "Cette sale est essentielle pour le bien être des scientifiques,on peut y retrouver une bibiliothéque,une Tv ,des handSpinners ,un billard, un babyfoot,une prostituéeun bar a salade polonaise,un bon pc pour jouer a cyberpunk 2077.Sert de lieu de rassemblement pour les membres de l'équipe, notamment lors des briefings hebdomadaires"
 building_genre = 1
 building_type = 10
 price = 555

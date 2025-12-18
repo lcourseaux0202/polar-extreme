@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmx71iw15xqpj"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_mj3y0"]
-[ext_resource type="Texture2D" uid="uid://cf6ujqof3omr3" path="res://assets/buildings/life/toilets.png" id="2_mj3y0"]
+[ext_resource type="Texture2D" uid="uid://dquybil04tx7l" path="res://assets/buildings/life/toilets.png" id="2_mj3y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rafc"]
 size = Vector2(31, 31)
@@ -10,7 +10,7 @@ size = Vector2(31, 31)
 
 [node name="Toilet" instance=ExtResource("1_mj3y0")]
 building_name = "Toilettes"
-building_description = "Installations sanitaires basiques mais essentielles. Conçues pour un usage économe en eau et un traitement séparé des déchets solides et liquides."
+building_description = "En Antarctique, les installations sanitaires varient selon le type d'activité, que ce soit pour des expéditions personnelles, des stations de recherche ou des croisières.Les besoins sont gérés en creusant un trou à l'entrée de la tente, qui gèle rapidement, ou en utilisant une « gourde pipi » pour éviter de sortir la nuit."
 building_genre = 1
 building_type = 9
 price = 210

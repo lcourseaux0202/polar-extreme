@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyqplkquxyduf"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_2st8v"]
-[ext_resource type="Texture2D" uid="uid://c5h7pafvtvs6x" path="res://assets/buildings/labo/glaciology.png" id="2_wi6qq"]
+[ext_resource type="Texture2D" uid="uid://c7fw0wlgs6w3g" path="res://assets/buildings/labo/glaciology.png" id="2_wi6qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3lo"]
 size = Vector2(159, 95)
@@ -12,7 +12,7 @@ size = Vector2(159, 95)
 science_per_second = 3.0
 nb_scientists_slots = 3
 building_name = "Laboratoire de glaciologie"
-building_description = "Bâtiment aux parois blanches et aux surfaces ultra-propres. Ici, les carottes de glace, archives du climat terrestre, sont analysées. Ce cœur scientifique décrypte l'histoire du climat sur des centaines de milliers d'années.Contraintes polaires : Le maintien d'une température stable et très basse (-25°C) pour les échantillons est critique et énergivore"
+building_description = "La tranchée « froide » est un bâtiment séparé en deux espaces.La première zone sert à stocker temporairement des carottes de glace.Les espaces plus en arrière servaient à scier, échantillonner et réaliser une première spectrométrie des carottes."
 building_type = 0
 price = 1080
 

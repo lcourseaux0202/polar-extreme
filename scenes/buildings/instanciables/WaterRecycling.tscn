@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw4ka37hokrdx"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_s6tpw"]
-[ext_resource type="Texture2D" uid="uid://3oyutexfssi5" path="res://assets/buildings/utils/water.png" id="2_uips4"]
+[ext_resource type="Texture2D" uid="uid://lm4w2051bxp8" path="res://assets/buildings/utils/water.png" id="2_uips4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75e2j"]
 size = Vector2(95, 159)
@@ -10,7 +10,7 @@ size = Vector2(95, 159)
 
 [node name="WaterRecycling" instance=ExtResource("1_s6tpw")]
 building_name = "Recyclage de l'eau"
-building_description = "Unité de traitement technique et vitale. Elle transforme toutes les eaux usées (douches, lavabos, cuisines) en eau pure pour être réutilisée, souvent pour les toilettes ou les labos."
+building_description = "La station est pourvue de deux systèmes d’approvisionnement en eau. Une eau « fraîche » est produite par fonte de glace(4 conteneurs/cuves de 20m)de cette eau sont stockés : filtrée, traitée par osmose et rayons UV, elle est potable et sert à la cuisine, à l’eau de boisson."
 building_genre = 1
 building_type = 13
 pollution_per_second = 2.0

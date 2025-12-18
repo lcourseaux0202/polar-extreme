@@ -46,11 +46,14 @@ func _input(event: InputEvent) -> void:
 
 func _on_mouse_entered() -> void:
 	mouse_hover = true
+	var cursor_texture = load("res://assets/cursor/Ice-move.png")
+	Input.set_custom_mouse_cursor(cursor_texture)
 	UiController.display_building_basic_info.emit(self)
 	
-
 func _on_mouse_exited() -> void:
 	mouse_hover = false
+	var cursor_texture = load("res://assets/cursor/Ice-normal.png")
+	Input.set_custom_mouse_cursor(cursor_texture)
 	UiController.display_building_basic_info.emit(null)
 
 func get_door_position():

@@ -48,7 +48,8 @@ func _input(event: InputEvent) -> void:
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	elif in_path_placement:
 		_handle_path_drag_input(event)
-		_handle_placement_preview(event)
+		if not is_dragging_path:
+			_handle_placement_preview(event)
 		Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 	elif in_delete_object:
 		_handle_delete_object(event)
@@ -95,6 +96,8 @@ func stop_building() -> void:
 	cell_array.clear()
 	self.clear()
 	door_offset = Vector2.ZERO
+	var cursor_texture = load("res://assets/cursor/Ice-normal.png")
+	Input.set_custom_mouse_cursor(cursor_texture)
 	
 func _update_mouse_positions() -> void:
 	var mouse_pos_glob: Vector2 = get_global_mouse_position()
@@ -110,6 +113,7 @@ func _handle_rotation_input() -> void:
 	if Input.is_key_pressed(KEY_R):
 		preview.rotate(PI / 2)
 		effect_size = Vector2(effect_size.y, effect_size.x)
+		
 
 func _handle_placement_preview(event: InputEvent) -> void:
 	if is_dragging_path:
@@ -157,9 +161,8 @@ func _handle_placement_preview(event: InputEvent) -> void:
 			can_be_placed = false
 			for cell_pos in cell_array:
 				set_cell(cell_pos, 0, Vector2i(1, 0))
-
-		
-				set_cell(cell_pos, 0, Vector2i(1, 0))
+	
+	
 
 func _door_touches_path(building: Building, cell_world_pos: Vector2) -> bool:
 	var shape = door.shape
@@ -256,6 +259,22 @@ func _cell_collides(cell_world_pos: Vector2) -> bool:
 	var result = space_state.intersect_shape(query, 1)
 	return result.size() > 0
 
+func _cell_has_path(cell_world_pos: Vector2) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = cell_world_pos
+	query.collide_with_areas = true
+	query.collision_mask = 0xFFFFFFFF
+	
+	var result = space_state.intersect_point(query, 8)
+	
+	for hit in result:
+		if hit.collider is Path:
+			return true
+	
+	return false
+
 func get_collision_layers_mask(ignored_layers : Array):
 	var collision_mask := 0xFFFFFFFF
 
@@ -283,6 +302,8 @@ func stop_building_path() -> void:
 	has_to_place_path = false
 	is_dragging_path = false
 	path_preview_cells.clear()
+	var cursor_texture = load("res://assets/cursor/Ice-normal.png")
+	Input.set_custom_mouse_cursor(cursor_texture)
 	return
 
 func build_path():
@@ -311,77 +332,119 @@ func _handle_path_drag_input(event: InputEvent) -> void:
 			path_preview_cells.clear()
 			_clear_previous_preview()
 	
-	elif is_dragging_path:
-		_update_path_preview()
+	if is_dragging_path and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		_update_path_l_preview()
 
-func _update_path_preview() -> void:
-	_clear_previous_preview()
-	path_preview_cells.clear()
-	can_be_placed = true
-	
+func _update_path_l_preview() -> void:
 	var tile_under_mouse: Vector2i = local_to_map(to_local(get_global_mouse_position()))
 	
-	var cells_in_line = _get_line_cells(path_start_pos, tile_under_mouse)
+	path_preview_cells.clear()
 	
-	var at_least_one_connected = false
+	var cells_in_l = _get_l_shaped_path(path_start_pos, tile_under_mouse)
+	path_preview_cells = cells_in_l
 	
-	for cell_pos in cells_in_line:
-		path_preview_cells.append(cell_pos)
-		cell_array.append(cell_pos)
-		var cell_world_pos: Vector2 = map_to_local(cell_pos)
-		
-		var has_collision = _cell_collides(cell_world_pos)
-		var is_adjacent_to_path = _is_adjacent_to_path(cell_world_pos)
-		
-		if is_adjacent_to_path:
-			at_least_one_connected = true
-		
-		if has_collision:
-			set_cell(cell_pos, 0, Vector2i(1, 0))
-			can_be_placed = false
-		elif not at_least_one_connected and cell_pos != cells_in_line[cells_in_line.size() - 1]:
-			set_cell(cell_pos, 0, Vector2i(2, 0))
-		else:
-			set_cell(cell_pos, 0, Vector2i(2, 0))
-	
-	if not at_least_one_connected:
-		can_be_placed = false
-		for cell_pos in cell_array:
-			set_cell(cell_pos, 0, Vector2i(1, 0))
+	_draw_path_preview()
 
-func _get_line_cells(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
+func _get_l_shaped_path(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
 	var cells: Array[Vector2i] = []
+	
+	if from == to:
+		cells.append(from)
+		return cells
+	
+	var dx = abs(to.x - from.x)
+	var dy = abs(to.y - from.y)
+	
+	# Déterminer quelle direction faire en premier (la plus longue)
+	var do_horizontal_first = dx >= dy
+	
 	var current = from
+	cells.append(current)
 	
-	while current.x != to.x:
-		cells.append(current)
-		if current.x < to.x:
-			current.x += 1
-		else:
-			current.x -= 1
-	
-	while current.y != to.y:
-		cells.append(current)
-		if current.y < to.y:
-			current.y += 1
-		else:
-			current.y -= 1
-	
-	cells.append(to)
+	if do_horizontal_first:
+		# D'abord horizontal
+		var step_x = 1 if to.x > from.x else -1
+		while current.x != to.x:
+			current.x += step_x
+			cells.append(Vector2i(current.x, current.y))
+		
+		# Puis vertical
+		var step_y = 1 if to.y > from.y else -1
+		while current.y != to.y:
+			current.y += step_y
+			cells.append(Vector2i(current.x, current.y))
+	else:
+		# D'abord vertical
+		var step_y = 1 if to.y > from.y else -1
+		while current.y != to.y:
+			current.y += step_y
+			cells.append(Vector2i(current.x, current.y))
+		
+		# Puis horizontal
+		var step_x = 1 if to.x > from.x else -1
+		while current.x != to.x:
+			current.x += step_x
+			cells.append(Vector2i(current.x, current.y))
 	
 	return cells
 
+func _draw_path_preview() -> void:
+	_clear_previous_preview()
+	can_be_placed = false
+	
+	var has_connection = false
+	var all_valid = true
+	
+	for cell_pos in path_preview_cells:
+		cell_array.append(cell_pos)
+		var cell_world_pos = map_to_local(cell_pos)
+		
+		var is_existing_path = _cell_has_path(cell_world_pos)
+		
+		if is_existing_path:
+			has_connection = true
+			set_cell(cell_pos, 0, Vector2i(2, 0))
+		else:
+			var has_obstacle = _cell_collides(cell_world_pos)
+			
+			if has_obstacle:
+				set_cell(cell_pos, 0, Vector2i(1, 0))
+				all_valid = false
+			else:
+				if _is_adjacent_to_path(cell_world_pos):
+					has_connection = true
+				set_cell(cell_pos, 0, Vector2i(2, 0))
+	
+	can_be_placed = has_connection and all_valid
+	
+	if not can_be_placed:
+		for cell_pos in cell_array:
+			set_cell(cell_pos, 0, Vector2i(1, 0))
+
 func _place_all_paths() -> void:
+	if not can_be_placed or path_preview_cells.size() == 0:
+		animation.play("placementAnimationLib/invalidPlacement")
+		return
+	
+	var placed_count = 0
 	for cell_pos in path_preview_cells:
 		var cell_world_pos = map_to_local(cell_pos)
+		
+		if _cell_has_path(cell_world_pos):
+			continue
+		
 		var instance: Path = load("res://scenes/buildings/Path.tscn").instantiate()
 		instance.position = cell_world_pos
 		instance.name = "Path" + str(n_path)
 		n_path += 1
 		%PathRegions.add_child(instance)
 		UiController.emit_validate_building_path(instance)
+		placed_count += 1
 	
-	animation.play("placementAnimationLib/goodPathPlacement")
+	if placed_count > 0:
+		animation.play("placementAnimationLib/goodPathPlacement")
+	
+	path_preview_cells.clear()
 	build_path()
 	
 	
