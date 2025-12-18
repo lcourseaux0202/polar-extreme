@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbkq81vgo5viw"]
+[gd_scene load_steps=5 format=3 uid="uid://cbkq81vgo5viw"]
 
 [ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/PopupBuildingDesc.tscn" id="2_c4jj5"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
+[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
+[ext_resource type="PackedScene" uid="uid://b8xnd4wuguu2m" path="res://scenes/UI/NotificationIndicator.tscn" id="3_sjmpd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fk482"]
 atlas = ExtResource("2_fk482")
@@ -87,6 +88,16 @@ icon_alignment = 1
 
 [node name="Popup" parent="." instance=ExtResource("2_c4jj5")]
 visible = false
+
+[node name="NotificationIndicator" parent="." instance=ExtResource("3_sjmpd")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 160.0
+offset_bottom = 7.0
 
 [connection signal="mouse_entered" from="VBoxContainer/btnCreaBuilding" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/btnCreaBuilding" to="." method="_on_button_mouse_exited"]

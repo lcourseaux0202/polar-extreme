@@ -13,6 +13,7 @@ class_name buttonPath
 
 @onready var nine_patch_rect: NinePatchRect = $VBoxContainer/Control/NinePatchRect
 @onready var popup: Popup = $Popup
+@onready var notif :NotificationIndicator = $NotificationIndicator
 
 var alreadyCliked := false
 
@@ -42,6 +43,7 @@ func set_button_icon_hovered() -> void:
 func _ready() -> void:
 	btn_crea_building.toggle_mode = true
 	lbl_desc.text = textBuildingName
+	notif.setVisible(false)
 	set_button_icon_nor()
 
 
@@ -68,3 +70,5 @@ func _on_button_pressed() -> void:
 func afficherPopup() -> void :
 	popup.visible = true
 	popup.setDesc(textPopup)
+
+	

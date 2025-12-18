@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8xnd4wuguu2m"]
+
+[ext_resource type="Texture2D" uid="uid://dasefarj08f6c" path="res://assets/cursor/Ice-move.png" id="1_buocr"]
+[ext_resource type="Script" uid="uid://cu02ixp3cmo0u" path="res://scenes/UI/notification_indicator.gd" id="1_exut0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_buocr"]
+line_spacing = 0.0
+font_size = 32
+font_color = Color(1, 0, 0, 1)
+
+[node name="NotificationIndicator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_exut0")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("1_buocr")
+
+[node name="NumberLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -27.0
+offset_right = 4.0
+offset_bottom = 18.0
+scale = Vector2(1, 1.04)
+text = "!"
+label_settings = SubResource("LabelSettings_buocr")

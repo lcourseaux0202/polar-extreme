@@ -13,10 +13,12 @@ class_name buttonBuildings
 
 @onready var btn_crea_building: Button = $VBoxContainer/btnCreaBuilding
 @onready var lbl_desc: Label = $VBoxContainer/Control/NinePatchRect/MarginContainer/lblDesc
+@onready var notif : NotificationIndicator = $NotificationIndicator
 
 @export var building_path : String
 var building_scene
 var building_instance
+var is_buyable:bool
 
 
 # methodes
@@ -42,7 +44,9 @@ func set_button_icon_hovered() -> void:
 	
 func _process(delta: float) -> void:
 	if building_scene:
-		btn_crea_building.disabled = building_instance.price > GameController.get_gauges().science
+		is_buyable = building_instance.price <= GameController.get_gauges().science
+		btn_crea_building.disabled = !is_buyable
+		notif.setVisible(is_buyable)
 
 func _ready() -> void:
 	set_button_icon_nor()

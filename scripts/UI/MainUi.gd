@@ -31,6 +31,8 @@ func _ready() -> void:
 	menu_scientists.not_enough_science.connect(_on_not_enough_science)
 	lbl_science.text = "0"
 	lbl_science_per_sec.text = "0 / sec"
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/ice_link.png"),Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/Ice-normal.png"),Input.CURSOR_ARROW)
 
 # projScienMenu
 
