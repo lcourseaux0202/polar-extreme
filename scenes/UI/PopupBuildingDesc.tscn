@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8nnuxedv5wlo"]
 
-[ext_resource type="Script" path="res://scripts/UI/popup_desc_buindings.gd" id="1_5s46u"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_l3534"]
+[ext_resource type="Script" path="res://scripts/UI/popup_desc_buindings.gd" id="1_mdjxw"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_t40qm"]
 
-[node name="popDescBuilding" type="Popup"]
+[node name="PopupBuildingDesc" type="Popup"]
 transparent_bg = true
 initial_position = 2
 size = Vector2i(500, 200)
 visible = true
 transparent = true
-script = ExtResource("1_5s46u")
+script = ExtResource("1_mdjxw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchors_preset = 15
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_l3534")
+texture = ExtResource("2_t40qm")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 15
 patch_margin_top = 15

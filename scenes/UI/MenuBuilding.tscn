@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://b4q2wpp4uf3ys"]
 
-[ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/menu_batiment.gd" id="1_al7u3"]
+[ext_resource type="Script" uid="uid://8j55h6nlx8uw" path="res://scripts/UI/BuildingUi.gd" id="1_al7u3"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ymk3k"]
-[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="3_qxndm"]
-[ext_resource type="Texture2D" uid="uid://bmvyfsf5ftlhg" path="res://assets/UI/tilesetT3_pressed.png" id="4_8pln5"]
-[ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/popup_desc_buindings.tscn" id="4_qxndm"]
-[ext_resource type="Texture2D" uid="uid://ddioolhpqigaw" path="res://assets/UI/tilesetT3_hovered.png" id="5_ugwoq"]
+[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/SubMenuProject.tscn" id="3_qxndm"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="4_8pln5"]
+[ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/PopupBuildingDesc.tscn" id="4_qxndm"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="5_ugwoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7fcw"]
 atlas = ExtResource("1_ymk3k")
@@ -55,7 +55,7 @@ region = Rect2(256, 128, 64, 64)
 atlas = ExtResource("5_ugwoq")
 region = Rect2(256, 128, 64, 64)
 
-[node name="menu_batiment" type="MarginContainer"]
+[node name="MenuBuilding" type="MarginContainer"]
 custom_minimum_size = Vector2(350, 700)
 offset_right = 350.0
 offset_bottom = 700.0
@@ -71,20 +71,6 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
-
-[node name="gyfesuifqmoE" type="Label" parent="NinePatchRect"]
-visible = false
-layout_mode = 2
-offset_left = 332.0
-offset_top = 123.0
-offset_right = 841.0
-offset_bottom = 276.0
-text = "- nom
-- bouton explication bat
-- slot scientif (genre trois ccarre vide ou pas et bouton moins plus)
-- liste projets
-- demarer projet
-- bouton fermer"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 layout_mode = 1

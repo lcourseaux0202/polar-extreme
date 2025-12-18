@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var gui_components = [
-	"res://scenes/UI/settings_menu.tscn"
+	"res://scenes/UI/MenuSettings.tscn"
 ]
 
 var resolutions = {

@@ -14,8 +14,8 @@ extends Control
 @onready var h_box_btn_cat_2: HBoxContainer = $buildingsMenu/hBoxBtnCat2
 @onready var h_box_btn_cat_3: HBoxContainer = $buildingsMenu/hBoxBtnCat3
 
-@onready var menu_batiment: MarginContainer = $menu_batiment
-@onready var affichage_projet: MarginContainer = $AffichageProjet
+@onready var menu_building: MarginContainer = $MenuBuilding
+@onready var sub_menu_show_project_infos: MarginContainer = $SubMenuShowProjectInfos
 
 @onready var lbl_buildings_basic_info: Label = $lblBuildingsBasicInfo
 
@@ -38,8 +38,8 @@ func _on_button_projets_pressed() -> void:
 	if (!menu_projects.visible):
 		menu_projects.visible = true
 		menu_scientists.visible = false
-		menu_batiment.visible = false
-		affichage_projet.visible = false
+		menu_building.visible = false
+		sub_menu_show_project_infos.visible = false
 	else:
 		menu_projects.visible = false
 
@@ -48,8 +48,8 @@ func _on_button_scientists_pressed() -> void:
 	if (!menu_scientists.visible):
 		menu_scientists.visible = true
 		menu_projects.visible = false
-		menu_batiment.visible = false
-		affichage_projet.visible = false
+		menu_building.visible = false
+		sub_menu_show_project_infos.visible = false
 	else:
 		menu_scientists.visible = false
 

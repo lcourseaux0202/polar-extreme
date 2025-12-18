@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbkq81vgo5viw"]
 
-[ext_resource type="PackedScene" uid="uid://6p4mfp5atp" path="res://scenes/UI/popup_desc_buindings.tscn" id="2_c4jj5"]
-[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
+[ext_resource type="PackedScene" uid="uid://c8nnuxedv5wlo" path="res://scenes/UI/PopupBuildingDesc.tscn" id="2_c4jj5"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_fk482"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fk482"]
 atlas = ExtResource("2_fk482")
 region = Rect2(320, 448, 64, 64)
 
-[node name="buttonBuildings" type="Control"]
+[node name="BtnCreationBuildings" type="Control"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 8
@@ -67,7 +67,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/Control/NinePatchRect/MarginContainer"]
+[node name="lblDesc" type="Label" parent="VBoxContainer/Control/NinePatchRect/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -75,7 +75,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="btnCreaBuilding" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -88,6 +88,6 @@ icon_alignment = 1
 [node name="Popup" parent="." instance=ExtResource("2_c4jj5")]
 visible = false
 
-[connection signal="mouse_entered" from="VBoxContainer/Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Button" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/btnCreaBuilding" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/btnCreaBuilding" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/btnCreaBuilding" to="." method="_on_button_pressed"]

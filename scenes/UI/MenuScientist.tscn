@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://w68s7km80fw0"]
 
-[ext_resource type="Script" uid="uid://bn5fv201yp8a6" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
-[ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/menu_assignation_scientifiques.tscn" id="2_y5bk0"]
-[ext_resource type="AudioStream" uid="uid://l7uu6bkoanwo" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
-[ext_resource type="Texture2D" uid="uid://bmvyfsf5ftlhg" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
-[ext_resource type="Texture2D" uid="uid://ddioolhpqigaw" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
+[ext_resource type="Script" uid="uid://dw6h7tjgbaub8" path="res://scripts/UI/menu_scientifiques.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/MenuAddScientistToBuilding.tscn" id="2_y5bk0"]
+[ext_resource type="AudioStream" uid="uid://v4372juvyuxc" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gqah"]
 atlas = ExtResource("2_54jhy")
@@ -119,7 +119,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("4_ifbg4")
 region = Rect2(0, 0, 64, 64)
 
-[node name="menu_scientifiques" type="MarginContainer"]
+[node name="MenuScientist" type="MarginContainer"]
 custom_minimum_size = Vector2(300, 530)
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,7 +166,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2"]
+[node name="lblTitle" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Gestion des scientifiques"
@@ -217,12 +217,12 @@ theme_override_constants/separation = 20
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="txtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="lblTxtUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Scientifiques libres"
 
-[node name="nbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="lblNbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -231,12 +231,12 @@ text = "0"
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="txtAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="lblTxtAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Scientifiques assignés"
 
-[node name="nbrAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="lblNbrAssigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -245,7 +245,7 @@ text = "0"
 [node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="nbrUnassigned" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+[node name="lblAssignScientist" type="Label" parent="HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -260,7 +260,7 @@ texture_normal = SubResource("AtlasTexture_2vklx")
 texture_pressed = SubResource("AtlasTexture_hd8gv")
 texture_hover = SubResource("AtlasTexture_vadht")
 
-[node name="MenuAssignationScientifiques" parent="HBoxContainer" instance=ExtResource("2_y5bk0")]
+[node name="MenuAddScientistToBuilding" parent="HBoxContainer" instance=ExtResource("2_y5bk0")]
 visible = false
 layout_mode = 2
 

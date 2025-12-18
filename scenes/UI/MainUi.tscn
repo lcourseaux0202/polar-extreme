@@ -1,18 +1,18 @@
 [gd_scene load_steps=30 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://cfglvx6t7ul1r" path="res://scripts/UI/ui.gd" id="1_5en4g"]
-[ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/menu_projets.tscn" id="3_ua6yw"]
-[ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/menu_scientifiques.tscn" id="4_ua6yw"]
-[ext_resource type="Texture2D" uid="uid://b3kxt3v47p0pc" path="res://assets/UI/tilesetT3.png" id="5_75u2n"]
-[ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/button_buildings.tscn" id="6_84lt7"]
-[ext_resource type="Script" uid="uid://d0ltfahl0385u" path="res://scripts/UI/buttonBuildPath.gd" id="7_84lt7"]
-[ext_resource type="Script" uid="uid://belta2lfpl277" path="res://scripts/UI/buttonCategory.gd" id="8_2ttv2"]
-[ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/menu_batiment.tscn" id="9_e6oqk"]
-[ext_resource type="Texture2D" uid="uid://ddioolhpqigaw" path="res://assets/UI/tilesetT3_hovered.png" id="9_ob0dx"]
-[ext_resource type="Script" uid="uid://rvw3dbm3viha" path="res://scripts/UI/buttonBuildings.gd" id="9_u6q2i"]
-[ext_resource type="Texture2D" uid="uid://bmvyfsf5ftlhg" path="res://assets/UI/tilesetT3_pressed.png" id="10_81vvl"]
-[ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/affichage_projet.tscn" id="12_81vvl"]
-[ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/gauges.tscn" id="13_t1j05"]
+[ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/MainUi.gd" id="1_qp303"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_tqwy0"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_xnj7m"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_aummo"]
+[ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/MenuProject.tscn" id="5_y6x1c"]
+[ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/MenuScientist.tscn" id="6_wilqy"]
+[ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/BtnCreationBuildings.tscn" id="7_gyyq1"]
+[ext_resource type="Script" uid="uid://b23jf8at13mhg" path="res://scripts/UI/CreationPath.gd" id="8_x51tq"]
+[ext_resource type="Script" uid="uid://d23ke5o0ph3ws" path="res://scripts/UI/CreationCategory.gd" id="9_18d2x"]
+[ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/CreationBuildings.gd" id="10_5owsx"]
+[ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/SubMenuGauges.tscn" id="11_75w5a"]
+[ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/MenuBuilding.tscn" id="12_fnckq"]
+[ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/SubMenuShowProjectInfos.tscn" id="13_v1boy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_alvv5"]
 font_size = 19
@@ -56,54 +56,54 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1j05"]
-atlas = ExtResource("5_75u2n")
+atlas = ExtResource("2_tqwy0")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0odk7"]
-atlas = ExtResource("10_81vvl")
+atlas = ExtResource("3_xnj7m")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_alvv5"]
-atlas = ExtResource("9_ob0dx")
+atlas = ExtResource("4_aummo")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uw5bg"]
-atlas = ExtResource("5_75u2n")
+atlas = ExtResource("2_tqwy0")
 region = Rect2(256, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfcp0"]
-atlas = ExtResource("10_81vvl")
+atlas = ExtResource("3_xnj7m")
 region = Rect2(256, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04ait"]
-atlas = ExtResource("9_ob0dx")
+atlas = ExtResource("4_aummo")
 region = Rect2(256, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrqhp"]
-atlas = ExtResource("5_75u2n")
+atlas = ExtResource("2_tqwy0")
 region = Rect2(0, 448, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppsko"]
-atlas = ExtResource("10_81vvl")
+atlas = ExtResource("3_xnj7m")
 region = Rect2(0, 448, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5wdm"]
-atlas = ExtResource("9_ob0dx")
+atlas = ExtResource("4_aummo")
 region = Rect2(0, 448, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ouxww"]
-atlas = ExtResource("5_75u2n")
+atlas = ExtResource("2_tqwy0")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce6m7"]
-atlas = ExtResource("10_81vvl")
+atlas = ExtResource("3_xnj7m")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ok71f"]
-atlas = ExtResource("9_ob0dx")
+atlas = ExtResource("4_aummo")
 region = Rect2(320, 0, 64, 64)
 
-[node name="GameUI" type="Control"]
+[node name="MainUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +114,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
-script = ExtResource("1_5en4g")
+script = ExtResource("1_qp303")
 
 [node name="hBoxScience" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -128,7 +128,7 @@ mouse_force_pass_scroll_events = false
 [node name="NinePatchRect" type="NinePatchRect" parent="hBoxScience"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("5_75u2n")
+texture = ExtResource("2_tqwy0")
 region_rect = Rect2(320, 192, 64, 64)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -162,7 +162,7 @@ custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("5_75u2n")
+texture = ExtResource("2_tqwy0")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -204,7 +204,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 mouse_filter = 0
-texture = ExtResource("5_75u2n")
+texture = ExtResource("2_tqwy0")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -241,12 +241,12 @@ texture_normal = SubResource("AtlasTexture_uw5bg")
 texture_pressed = SubResource("AtlasTexture_jfcp0")
 texture_hover = SubResource("AtlasTexture_04ait")
 
-[node name="MenuProjects" parent="hBoxProjScien" instance=ExtResource("3_ua6yw")]
+[node name="MenuProjects" parent="hBoxProjScien" instance=ExtResource("5_y6x1c")]
 visible = false
 layout_mode = 2
 mouse_filter = 0
 
-[node name="menuScientifics" parent="hBoxProjScien" instance=ExtResource("4_ua6yw")]
+[node name="menuScientifics" parent="hBoxProjScien" instance=ExtResource("6_wilqy")]
 visible = false
 layout_mode = 2
 mouse_filter = 0
@@ -268,7 +268,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
-texture = ExtResource("5_75u2n")
+texture = ExtResource("2_tqwy0")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -294,31 +294,31 @@ mouse_filter = 0
 mouse_force_pass_scroll_events = false
 theme_override_constants/separation = 10
 
-[node name="btnPath" parent="buildingsMenu/hBoxBtns" instance=ExtResource("6_84lt7")]
+[node name="btnPath" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("7_84lt7")
+script = ExtResource("8_x51tq")
 textBuildingName = "Ajouter des chemins"
 textPopup = "Les chemins servent à ne pas mourir de froid"
 icon_pos = Vector2(3, 0)
 
-[node name="btnCat1" parent="buildingsMenu/hBoxBtns" instance=ExtResource("6_84lt7")]
+[node name="btnCat1" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("8_2ttv2")
+script = ExtResource("9_18d2x")
 textBuildingName = "Créer un bâtiment de recherche"
 textPopup = "Les bâtiments de recherche"
 category = 1
 
-[node name="btnCat2" parent="buildingsMenu/hBoxBtns" instance=ExtResource("6_84lt7")]
+[node name="btnCat2" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("8_2ttv2")
+script = ExtResource("9_18d2x")
 textBuildingName = "Créer un bâtiment de vie commune"
 textPopup = "Les bâtiments de vie commune"
 icon_pos = Vector2(1, 0)
 category = 2
 
-[node name="btnCat3" parent="buildingsMenu/hBoxBtns" instance=ExtResource("6_84lt7")]
+[node name="btnCat3" parent="buildingsMenu/hBoxBtns" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("8_2ttv2")
+script = ExtResource("9_18d2x")
 textBuildingName = "Créer un bâtiment technique"
 textPopup = "Les bâtiments d'énergie"
 icon_pos = Vector2(2, 0)
@@ -342,60 +342,60 @@ mouse_filter = 0
 mouse_force_pass_scroll_events = false
 theme_override_constants/separation = 10
 
-[node name="btnLabGlaciology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
+[node name="btnLabGlaciology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Laboratoire de glaciologie"
 icon_pos = Vector2(0, 1)
 building_path = "res://scenes/buildings/instanciables/LabGlaciology.tscn"
 
-[node name="btnLabPhysicAtmo" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
+[node name="btnLabPhysicAtmo" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Laboratoire de physique de l'atmosphère"
 icon_pos = Vector2(0, 2)
 btype = 1
 building_path = "res://scenes/buildings/instanciables/LabAtmosphere.tscn"
 
-[node name="btnLabMagne" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
+[node name="btnLabMagne" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Laboratoire de magnétisme & sismologie"
 icon_pos = Vector2(0, 3)
 btype = 2
 building_path = "res://scenes/buildings/instanciables/LabMagnetism.tscn"
 
-[node name="btnLabBiology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
+[node name="btnLabBiology" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Laboratoire de biologie humaine"
 icon_pos = Vector2(0, 4)
 btype = 3
 building_path = "res://scenes/buildings/instanciables/LabBiology.tscn"
 
-[node name="btnIcemine" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
+[node name="btnIcemine" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Mine de glace"
 icon_pos = Vector2(0, 5)
 btype = 4
 building_path = "res://scenes/buildings/instanciables/IceMine.tscn"
 
-[node name="btnSerre" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("6_84lt7")]
+[node name="btnSerre" parent="buildingsMenu/hBoxBtnCat1" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Serre"
 icon_pos = Vector2(0, 6)
 btype = 5
@@ -406,6 +406,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_mrqhp")
 texture_pressed = SubResource("AtlasTexture_ppsko")
 texture_hover = SubResource("AtlasTexture_y5wdm")
@@ -426,49 +427,49 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="btnDormitory" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
+[node name="btnDormitory" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Chambres"
 icon_pos = Vector2(1, 1)
 btype = 6
 building_path = "res://scenes/buildings/instanciables/Bedroom.tscn"
 
-[node name="btnKitchen" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
+[node name="btnKitchen" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Cuisines"
 icon_pos = Vector2(1, 2)
 btype = 7
 building_path = "res://scenes/buildings/instanciables/DiningRoom.tscn"
 
-[node name="btnToilets" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
+[node name="btnToilets" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Toilettes"
 icon_pos = Vector2(1, 4)
 btype = 9
 building_path = "res://scenes/buildings/instanciables/Toilet.tscn"
 
-[node name="btnShower" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
+[node name="btnShower" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Douches"
 icon_pos = Vector2(1, 5)
 btype = 8
 building_path = "res://scenes/buildings/instanciables/Shower.tscn"
 
-[node name="btnRest" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
+[node name="btnRest" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Salle de repos"
 icon_pos = Vector2(1, 6)
 btype = 10
 building_path = "res://scenes/buildings/instanciables/RestRoom.tscn"
 
-[node name="btnSport" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("6_84lt7")]
+[node name="btnSport" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Salle de sport"
 icon_pos = Vector2(1, 7)
 btype = 11
@@ -479,6 +480,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_mrqhp")
 texture_pressed = SubResource("AtlasTexture_ppsko")
 texture_hover = SubResource("AtlasTexture_y5wdm")
@@ -499,24 +501,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="btnRecycle" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("6_84lt7")]
+[node name="btnRecycle" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Tri des déchets"
 icon_pos = Vector2(2, 1)
 btype = 12
 
-[node name="btnWater" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("6_84lt7")]
+[node name="btnWater" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Recyclage de l'eau"
 icon_pos = Vector2(2, 2)
 btype = 13
 building_path = "res://scenes/buildings/instanciables/WaterRecycling.tscn"
 
-[node name="btnElec" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("6_84lt7")]
+[node name="btnElec" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
-script = ExtResource("9_u6q2i")
+script = ExtResource("10_5owsx")
 textBuildingName = "Centrale électrique"
 icon_pos = Vector2(2, 3)
 btype = 14
@@ -527,6 +529,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 texture_normal = SubResource("AtlasTexture_mrqhp")
 texture_pressed = SubResource("AtlasTexture_ppsko")
 texture_hover = SubResource("AtlasTexture_y5wdm")
@@ -560,7 +563,7 @@ texture_pressed = SubResource("AtlasTexture_ce6m7")
 texture_hover = SubResource("AtlasTexture_ok71f")
 stretch_mode = 0
 
-[node name="Control" parent="." instance=ExtResource("13_t1j05")]
+[node name="Control" parent="." instance=ExtResource("11_75w5a")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -569,7 +572,7 @@ offset_left = -150.0
 offset_bottom = 250.0
 grow_horizontal = 0
 
-[node name="menu_batiment" parent="." instance=ExtResource("9_e6oqk")]
+[node name="MenuBuilding" parent="." instance=ExtResource("12_fnckq")]
 visible = false
 layout_mode = 1
 anchors_preset = 6
@@ -586,21 +589,11 @@ grow_vertical = 2
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 
-[node name="AffichageProjet" parent="." instance=ExtResource("12_81vvl")]
+[node name="SubMenuShowProjectInfos" parent="." instance=ExtResource("13_v1boy")]
 visible = false
 layout_mode = 1
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
-
-[node name="Control2" parent="." instance=ExtResource("13_t1j05")]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -150.0
-offset_bottom = 250.0
-grow_horizontal = 0
 
 [node name="lblBuildingsBasicInfo" type="Label" parent="."]
 layout_mode = 1

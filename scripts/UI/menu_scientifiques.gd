@@ -1,10 +1,14 @@
 extends MarginContainer
 class_name ScientistMenu
 
-@onready var menu_assignation_scientifiques: MarginContainer = $HBoxContainer/MenuAssignationScientifiques
-@onready var nbr_assigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/nbrAssigned
-@onready var nbr_unassigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/nbrUnassigned
+@onready var menu_add_scientist_to_building: MarginContainer = $HBoxContainer/MenuAddScientistToBuilding
+
+@onready var lbl_nbr_unassigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/lblNbrUnassigned
+
+@onready var lbl_nbr_assigned: Label = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/lblNbrAssigned
+
 @onready var btn_recruit: Button = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit
+
 @onready var animation: AnimationPlayer = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon/btnRecruit/AnimationPlayer
 @onready var nine_icon: NinePatchRect = $HBoxContainer/MarginContainer/ninePatchRect/MarginContainer/VBoxContainer2/nineIcon
 
@@ -22,16 +26,16 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	if (!menu_assignation_scientifiques.visible):
-		menu_assignation_scientifiques.visible = true
+	if (!menu_add_scientist_to_building.visible):
+		menu_add_scientist_to_building.visible = true
 		_update_recruit_price()
 	else:
-		menu_assignation_scientifiques.visible = false
+		menu_add_scientist_to_building.visible = false
 
 
 func _on_visibility_changed() -> void:
 	if visible:
-		menu_assignation_scientifiques.visible = false
+		menu_add_scientist_to_building.visible = false
 		_update_assign_text()
 		_update_recruit_price()
 
@@ -62,8 +66,8 @@ func _update_recruit_price():
 	btn_recruit.text = "Recruter (Coût : " + str(int(GameController.scientist_manager.get_scientist_price())) + ")"
 
 func _update_assign_text():
-	nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
-	nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
+	lbl_nbr_assigned.text = str(GameController.scientist_manager.get_scientist_occupied())
+	lbl_nbr_unassigned.text = str(GameController.scientist_manager.get_scientist_non_occupied())
 
 
 func _on_btn_recruit_mouse_entered() -> void:

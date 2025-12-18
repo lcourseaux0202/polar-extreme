@@ -1,26 +1,26 @@
 [gd_scene load_steps=8 format=3 uid="uid://biyp1uwmfu6u4"]
 
-[ext_resource type="Script" uid="uid://dirtohj8dh3m3" path="res://scripts/UI/projet.gd" id="1_cg0em"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_h6gdv"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_a64ui"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_788yn"]
+[ext_resource type="Script" uid="uid://dirtohj8dh3m3" path="res://scripts/UI/SubProject.gd" id="1_q0y6d"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_32int"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_u7rw4"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_nidt7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvfha"]
-atlas = ExtResource("2_h6gdv")
+atlas = ExtResource("2_32int")
 region = Rect2(320, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g04lm"]
-atlas = ExtResource("3_a64ui")
+atlas = ExtResource("3_u7rw4")
 region = Rect2(320, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4td17"]
-atlas = ExtResource("4_788yn")
+atlas = ExtResource("4_nidt7")
 region = Rect2(320, 384, 64, 64)
 
-[node name="Projet" type="MarginContainer"]
+[node name="SubMenuProject" type="MarginContainer"]
 offset_right = 340.0
 offset_bottom = 100.0
-script = ExtResource("1_cg0em")
+script = ExtResource("1_q0y6d")
 icon_normal = SubResource("AtlasTexture_gvfha")
 icon_pressed = SubResource("AtlasTexture_g04lm")
 icon_hover = SubResource("AtlasTexture_4td17")
@@ -37,14 +37,14 @@ theme_override_constants/margin_bottom = 3
 
 [node name="ninIcon" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_h6gdv")
+texture = ExtResource("2_32int")
 region_rect = Rect2(320, 384, 64, 64)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="Button" type="Button" parent="MarginContainer/ninIcon"]
+[node name="btnOpenInfos" type="Button" parent="MarginContainer/ninIcon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +54,7 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ninIcon/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ninIcon/btnOpenInfos"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,22 +66,22 @@ theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 7
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ninIcon/Button/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="lblName" type="Label" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="lblName" type="Label" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -91,7 +91,7 @@ text = "Nom"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="lblStatus" type="Label" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="lblStatus" type="Label" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -101,16 +101,16 @@ horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(250, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 show_percentage = false
 
-[node name="lblTimeLeft" type="Label" parent="MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="lblTimeLeft" type="Label" parent="MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -128,6 +128,6 @@ ignore_time_scale = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="MarginContainer/ninIcon/Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/ninIcon/Button" to="." method="_on_button_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/ninIcon/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/ninIcon/btnOpenInfos" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ninIcon/btnOpenInfos" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/ninIcon/btnOpenInfos" to="." method="_on_button_pressed"]

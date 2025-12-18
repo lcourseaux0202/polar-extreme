@@ -2,7 +2,7 @@ extends MarginContainer
 
 @export var projectScene : PackedScene
 
-@onready var projet_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projetContainer
+@onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/ScrollContainer/projectContainer
 
 
 var arrayProjects : Array
@@ -35,7 +35,7 @@ func _on_visibility_changed() -> void:
 
 func _on_start_project(project : Project) -> void:
 	var proj := projectScene.instantiate()
-	projet_container.add_child(proj)
+	project_container.add_child(proj)
 	proj.setProject(project)
 	proj.instanciateProject()
 	proj.startProject()

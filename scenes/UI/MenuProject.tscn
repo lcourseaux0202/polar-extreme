@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://28bld6ebjyy6"]
 
-[ext_resource type="Script" uid="uid://cql3t2trrtxm8" path="res://scripts/UI/menu_projets.gd" id="1_loijj"]
-[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/projet.tscn" id="2_n1p1n"]
+[ext_resource type="Script" uid="uid://cql3t2trrtxm8" path="res://scripts/UI/ProjectUi.gd" id="1_loijj"]
+[ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/SubMenuProject.tscn" id="2_n1p1n"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="3_gypk2"]
 
-[node name="MenuProjets" type="MarginContainer"]
+[node name="MenuProject" type="MarginContainer"]
 custom_minimum_size = Vector2(350, 530)
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,7 +45,7 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ninePatchRect/VBoxContainer"]
+[node name="lblTitle" type="Label" parent="ninePatchRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -57,11 +57,11 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(293, 488)
 layout_mode = 2
 
-[node name="projetContainer" type="VBoxContainer" parent="ninePatchRect/VBoxContainer/ScrollContainer"]
+[node name="projectContainer" type="VBoxContainer" parent="ninePatchRect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="Projet" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+[node name="Projet" parent="ninePatchRect/VBoxContainer/ScrollContainer/projectContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -70,35 +70,35 @@ icon_normal = null
 icon_pressed = null
 icon_hover = null
 
-[node name="Projet2" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+[node name="Projet2" parent="ninePatchRect/VBoxContainer/ScrollContainer/projectContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
 icon_normal = null
 icon_pressed = null
 icon_hover = null
 
-[node name="Projet3" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+[node name="Projet3" parent="ninePatchRect/VBoxContainer/ScrollContainer/projectContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
 icon_normal = null
 icon_pressed = null
 icon_hover = null
 
-[node name="Projet4" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+[node name="Projet4" parent="ninePatchRect/VBoxContainer/ScrollContainer/projectContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
 icon_normal = null
 icon_pressed = null
 icon_hover = null
 
-[node name="Projet5" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+[node name="Projet5" parent="ninePatchRect/VBoxContainer/ScrollContainer/projectContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
 icon_normal = null
 icon_pressed = null
 icon_hover = null
 
-[node name="Projet6" parent="ninePatchRect/VBoxContainer/ScrollContainer/projetContainer" instance=ExtResource("2_n1p1n")]
+[node name="Projet6" parent="ninePatchRect/VBoxContainer/ScrollContainer/projectContainer" instance=ExtResource("2_n1p1n")]
 visible = false
 layout_mode = 2
 icon_normal = null

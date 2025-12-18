@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cism5ivh6jv6b" path="res://scenes/buildings/BuildPlacement.tscn" id="2_pbgo2"]
 [ext_resource type="PackedScene" uid="uid://dybfqr0devca8" path="res://scenes/game/Camera.tscn" id="2_puwje"]
 [ext_resource type="PackedScene" uid="uid://1np065kd0d37" path="res://scenes/game/WorldGrid.tscn" id="3_pbgo2"]
-[ext_resource type="PackedScene" uid="uid://on73whrfey7o" path="res://scenes/UI/UI.tscn" id="5_wnrko"]
+[ext_resource type="PackedScene" uid="uid://on73whrfey7o" path="res://scenes/UI/MainUi.tscn" id="5_wnrko"]
 [ext_resource type="PackedScene" uid="uid://c6eb3xgrqgvie" path="res://scenes/buildings/Path.tscn" id="6_365ku"]
 
 [node name="Game" type="Node2D"]

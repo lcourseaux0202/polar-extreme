@@ -1,8 +1,8 @@
 extends MarginContainer
-@onready var lbl_name: Label = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblName
-@onready var lbl_status: Label = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblStatus
-@onready var progress_bar: ProgressBar = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
-@onready var lbl_time_left: Label = $MarginContainer/ninIcon/Button/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
+@onready var lbl_name: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblName
+@onready var lbl_status: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblStatus
+@onready var progress_bar: ProgressBar = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
+@onready var lbl_time_left: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
 
 @onready var timer: Timer = $Timer
 @onready var nine_icon: NinePatchRect = $MarginContainer/ninIcon

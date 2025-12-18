@@ -1,6 +1,6 @@
 extends Control
 
-class_name buttonPath
+class_name buttonCategory
 
 
 # exports (permet de modifier pour chaque bouton) et autres vars
@@ -8,10 +8,12 @@ class_name buttonPath
 @export var textPopup : String
 @export var icon_pos : Vector2		# commence à (0,0)
 
-@onready var button: Button = $VBoxContainer/Button
-@onready var label: Label = $VBoxContainer/Control/NinePatchRect/MarginContainer/Label
+@onready var btn_crea_building: Button = $VBoxContainer/btnCreaBuilding
+@onready var lbl_desc: Label = $VBoxContainer/Control/NinePatchRect/MarginContainer/lblDesc
 @onready var nine_patch_rect: NinePatchRect = $VBoxContainer/Control/NinePatchRect
 @onready var popup: Popup = $Popup
+
+@export_range(1,3) var category : int
 
 var alreadyCliked := false
 
@@ -21,26 +23,26 @@ func set_button_icon_nor() -> void:
 	atlas.atlas = preload("res://assets/UI/tilesetT3.png")
 	atlas.region = Rect2(icon_pos * Vector2(64, 64), Vector2(64, 64))
 
-	button.icon = atlas
+	btn_crea_building.icon = atlas
 	
 func set_button_icon_pressed() -> void:
 	var atlas := AtlasTexture.new()
 	atlas.atlas = preload("res://assets/UI/tilesetT3_pressed.png")
 	atlas.region = Rect2(icon_pos * Vector2(64, 64), Vector2(64, 64))
 
-	button.icon = atlas
+	btn_crea_building.icon = atlas
 
 func set_button_icon_hovered() -> void:
 	var atlas := AtlasTexture.new()
 	atlas.atlas = preload("res://assets/UI/tilesetT3_hovered.png")
 	atlas.region = Rect2(icon_pos * Vector2(64, 64), Vector2(64, 64))
 
-	button.icon = atlas
+	btn_crea_building.icon = atlas
 	
 
+
 func _ready() -> void:
-	button.toggle_mode = true
-	label.text = textBuildingName
+	lbl_desc.text = textBuildingName
 	set_button_icon_nor()
 
 
@@ -56,12 +58,9 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	set_button_icon_pressed()
-	if !alreadyCliked :
-		alreadyCliked = true
-		afficherPopup()
-		_on_button_pressed()
-	else :
-		UiController.emit_start_building_path()
+	UiController.emit_change_category(category)
+	UiController.stop_building_path.emit()
+	set_button_icon_nor()
 
 
 func afficherPopup() -> void :

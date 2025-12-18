@@ -1,40 +1,40 @@
 [gd_scene load_steps=12 format=3 uid="uid://tw7k06bbbxk2"]
 
-[ext_resource type="Script" uid="uid://clxy3avwab3cl" path="res://scripts/UI/assignation_scientifiques.gd" id="1_fs1uh"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_v4cla"]
-[ext_resource type="AudioStream" uid="uid://decv6sjk825g7" path="res://assets/sounds/cancel-36118.mp3" id="3_8arik"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_j0pj8"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_qu5ql"]
+[ext_resource type="Script" uid="uid://clxy3avwab3cl" path="res://scripts/UI/SubAddScientistToBuilding.gd" id="1_ryox7"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_v7gxl"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_4kioe"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_jupd2"]
+[ext_resource type="AudioStream" uid="uid://decv6sjk825g7" path="res://assets/sounds/cancel-36118.mp3" id="5_okx5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhqeg"]
-atlas = ExtResource("2_v4cla")
+atlas = ExtResource("2_v7gxl")
 region = Rect2(256, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wluu2"]
-atlas = ExtResource("3_j0pj8")
+atlas = ExtResource("3_4kioe")
 region = Rect2(256, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktwyy"]
-atlas = ExtResource("4_qu5ql")
+atlas = ExtResource("4_jupd2")
 region = Rect2(256, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bcub3"]
-atlas = ExtResource("2_v4cla")
+atlas = ExtResource("2_v7gxl")
 region = Rect2(256, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6ws4"]
-atlas = ExtResource("3_j0pj8")
+atlas = ExtResource("3_4kioe")
 region = Rect2(256, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6tne"]
-atlas = ExtResource("4_qu5ql")
+atlas = ExtResource("4_jupd2")
 region = Rect2(256, 128, 64, 64)
 
-[node name="AssignationScientifiques" type="MarginContainer"]
+[node name="SubMenuAddScientistToBuilding" type="MarginContainer"]
 custom_minimum_size = Vector2(290, 100)
 offset_right = 250.0
 offset_bottom = 75.0
-script = ExtResource("1_fs1uh")
+script = ExtResource("1_ryox7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(250, 100)
@@ -47,7 +47,7 @@ theme_override_constants/margin_bottom = 3
 
 [node name="nine" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_v4cla")
+texture = ExtResource("2_v7gxl")
 region_rect = Rect2(320, 448, 63, 64)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -115,7 +115,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/nine/MarginContainer/HBoxContainer/assignation"]
-stream = ExtResource("3_8arik")
+stream = ExtResource("5_okx5y")
 volume_db = 10.0
 bus = &"SFX"
 

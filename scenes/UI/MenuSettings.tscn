@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmplrmtisrhmp"]
 
-[ext_resource type="Script" uid="uid://csn62h8i0vf0k" path="res://scripts/UI/settings_menu.gd" id="1_05p07"]
-[ext_resource type="FontFile" uid="uid://x7clyu6xw4hq" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
+[ext_resource type="Script" uid="uid://w73wxjqw2bnw" path="res://scripts/UI/Settings.gd" id="1_05p07"]
+[ext_resource type="FontFile" uid="uid://cynsbqsx4x2na" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
 
 [sub_resource type="Theme" id="Theme_05p07"]
 default_font_size = 0

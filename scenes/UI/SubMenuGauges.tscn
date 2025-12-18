@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cws5sxnaq0d7j"]
 
-[ext_resource type="Script" path="res://scripts/UI/gauges.gd" id="1_c22h1"]
+[ext_resource type="Script" uid="uid://cdvmem18l372e" path="res://scripts/UI/GaugesUi.gd" id="1_c22h1"]
 [ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_gcob8"]
 
 [node name="Control" type="Control"]
