@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxu3w7sl8f7sh"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_3yoo0"]
-[ext_resource type="Texture2D" uid="uid://cetx343vbeaae" path="res://assets/buildings/life/dormitory.png" id="2_418p8"]
+[ext_resource type="Texture2D" uid="uid://bsyqdy5qvd0h1" path="res://assets/buildings/life/dormitory.png" id="2_418p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_418p8"]
 size = Vector2(95, 31)
@@ -9,12 +9,12 @@ size = Vector2(95, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjibq"]
 
 [node name="Bedroom" instance=ExtResource("1_3yoo0")]
+scientist_places = 10
 building_name = "Dortoirs"
 building_description = "Les conditions de vie sont extrêmes, avec des vents pouvant dépasser 100 km/h et une nuit polaire prolongée,mais la station est équipée de systèmes de chauffage, de communication et de production d’eau pour assurer la survie et le confort des scientifiques."
 building_genre = 1
 building_type = 6
 price = 600
-scientist_places = 10
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 16)
