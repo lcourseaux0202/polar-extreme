@@ -8,7 +8,7 @@ extends Node2D
 @onready var projects_manager : ProjectsManager = load("res://scripts/models/projects/ProjectsManager.gd").new()
 @onready var game_started := false
 
-const START_SCIENCE : int = 1
+const START_SCIENCE : int = 500
 var update_time := 0.1
 
 func _ready():
