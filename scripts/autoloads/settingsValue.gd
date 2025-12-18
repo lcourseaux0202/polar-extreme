@@ -4,6 +4,8 @@ var gui_components = [
 	"res://scenes/UI/MenuSettings.tscn"
 ]
 
+var main_menu = preload("res://scenes/UI/MainMenu.tscn")
+
 var resolutions = {
 	"1920x1080": Vector2i(1920, 1080),
 	"1600x900": Vector2i(1600, 900),

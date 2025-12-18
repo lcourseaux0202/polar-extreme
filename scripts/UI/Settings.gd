@@ -90,3 +90,7 @@ func close_menu():
 
 func _on_back_to_game_btn_pressed() -> void:
 	close_menu()
+
+
+func _on_quit_game_btn_pressed() -> void:
+	get_tree().quit()
