@@ -14,7 +14,7 @@ config/name="PolarExtreme"
 run/main_scene="uid://cbw8pm71h04je"
 config/features=PackedStringArray("4.4")
 boot_splash/fullsize=false
-boot_splash/image="uid://c3f56w633rure"
+boot_splash/image="uid://cf0fhpoki4xsv"
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1000
 
