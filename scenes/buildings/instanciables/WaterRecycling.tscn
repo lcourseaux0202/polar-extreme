@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw4ka37hokrdx"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_s6tpw"]
-[ext_resource type="Texture2D" uid="uid://ojhnsxwbs73b" path="res://assets/buildings/utils/water.png" id="2_uips4"]
+[ext_resource type="Texture2D" uid="uid://dwudhauf65eio" path="res://assets/buildings/utils/water.png" id="2_uips4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75e2j"]
 size = Vector2(95, 159)

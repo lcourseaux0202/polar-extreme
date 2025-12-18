@@ -31,7 +31,6 @@ settingsValue="*res://scripts/autoloads/settingsValue.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
-window/size/borderless=true
 mouse_cursor/custom_image="uid://d1bib7ohyur5k"
 
 [filesystem]

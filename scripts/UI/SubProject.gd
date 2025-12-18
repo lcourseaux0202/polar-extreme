@@ -5,6 +5,7 @@ extends MarginContainer
 @onready var lbl_status: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/lblStatus
 @onready var progress_bar: ProgressBar = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2/ProgressBar
 @onready var lbl_time_left: Label = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2/lblTimeLeft
+@onready var container_timer = $MarginContainer/ninIcon/btnOpenInfos/MarginContainer/VBoxContainer/HBoxContainer2
 
 @onready var timer: Timer = $Timer
 @onready var nine_icon: NinePatchRect = $MarginContainer/ninIcon
@@ -65,9 +66,10 @@ func setStatus(statusValue : int) -> void:
 
 
 ## change the visibility of the menu
-## entry : the visibility to have (bool)
-func setVisibility(vis : bool) -> void:
+## entry : the visibility to have (bool), if timer is displayed (bool)
+func setVisibility(vis : bool, timer_displayed : bool) -> void:
 	visible = vis
+	container_timer.visible = timer_displayed
 
 
 ## start the project

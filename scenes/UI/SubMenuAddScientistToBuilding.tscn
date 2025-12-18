@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://tw7k06bbbxk2"]
 
-[ext_resource type="Script" uid="uid://clxy3avwab3cl" path="res://scripts/UI/SubAddScientistToBuilding.gd" id="1_ryox7"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_v7gxl"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_4kioe"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_jupd2"]
-[ext_resource type="AudioStream" uid="uid://decv6sjk825g7" path="res://assets/sounds/cancel-36118.mp3" id="5_okx5y"]
+[ext_resource type="Script" uid="uid://ccreh7jfjl5dy" path="res://scripts/UI/SubAddScientistToBuilding.gd" id="1_ryox7"]
+[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="2_v7gxl"]
+[ext_resource type="Texture2D" uid="uid://bwpqmipypl4c0" path="res://assets/UI/tilesetT3_pressed.png" id="3_4kioe"]
+[ext_resource type="Texture2D" uid="uid://itfh1debj6h" path="res://assets/UI/tilesetT3_hovered.png" id="4_jupd2"]
+[ext_resource type="AudioStream" uid="uid://mcjpq3q11dvh" path="res://assets/sounds/cancel-36118.mp3" id="5_okx5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhqeg"]
 atlas = ExtResource("2_v7gxl")
@@ -116,7 +116,6 @@ stretch_mode = 0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarginContainer/nine/MarginContainer/HBoxContainer/assignation"]
 stream = ExtResource("5_okx5y")
-volume_db = 10.0
 bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/nine/MarginContainer/HBoxContainer/desassignation" to="." method="_on_desassignation_pressed"]

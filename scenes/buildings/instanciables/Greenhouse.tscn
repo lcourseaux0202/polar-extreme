@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chv6wvteu06gi"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_wxps8"]
-[ext_resource type="Texture2D" uid="uid://cpn23r2ig32ul" path="res://assets/buildings/labo/greenhouse.png" id="2_fhjap"]
+[ext_resource type="Texture2D" uid="uid://cj8nbyaoebgj0" path="res://assets/buildings/labo/greenhouse.png" id="2_fhjap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw7a"]
 size = Vector2(63, 159)

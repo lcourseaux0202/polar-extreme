@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd4f8pb2yquvu"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_1hgbn"]
-[ext_resource type="Texture2D" uid="uid://bg5toibpoe8u2" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
+[ext_resource type="Texture2D" uid="uid://bw217340l6dhi" path="res://assets/buildings/life/restroom.png" id="2_ycalw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ef3"]
 size = Vector2(95, 95)

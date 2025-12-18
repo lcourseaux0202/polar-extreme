@@ -16,6 +16,8 @@ extends MarginContainer
 @onready var pop_desc_building: Popup = $popDescBuilding
 @onready var lbl_nbr: Label = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/lblNbr
 
+@onready var audio = $NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/btnAdd/AudioStreamPlayer2D
+
 
 var buil : Building
 
@@ -61,7 +63,7 @@ func _on_click_on_building(building : Building):
 			projet_container.add_child(proj)
 			proj.setProject(project)
 			proj.instanciateProject()
-			proj.setVisibility(true)
+			proj.setVisibility(true, false)
 
 
 ## displays a popup with the description of the building
@@ -77,6 +79,10 @@ func _on_btn_add_pressed() -> void:
 			if buil.add_scientist():
 				UiController.emit_assign_scientist()
 				lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
+			else :
+				audio.play()
+		else :
+			audio.play()
 
 
 ## removes a scientist from the building

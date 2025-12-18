@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://w68s7km80fw0"]
 
-[ext_resource type="Script" uid="uid://bqpk2fif4hn1w" path="res://scripts/UI/ScientistUi.gd" id="1_2bolv"]
-[ext_resource type="Texture2D" uid="uid://sycu47s5jcv8" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
+[ext_resource type="Script" uid="uid://do5xbqfc0b8x4" path="res://scripts/UI/ScientistUi.gd" id="1_2bolv"]
+[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="2_54jhy"]
 [ext_resource type="PackedScene" uid="uid://gjn1jddnes48" path="res://scenes/UI/MenuAddScientistToBuilding.tscn" id="2_y5bk0"]
-[ext_resource type="AudioStream" uid="uid://ry0cse6nxf1e" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
-[ext_resource type="Texture2D" uid="uid://okias8w4m6ao" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
-[ext_resource type="Texture2D" uid="uid://b3x6wj85cdsbr" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
-[ext_resource type="AudioStream" uid="uid://dtpvf1gk0uke1" path="res://assets/sounds/enrollment.mp3" id="6_ajg8h"]
+[ext_resource type="AudioStream" uid="uid://dxvoqtdcos0vh" path="res://assets/sounds/cancel_short.mp3" id="3_dojrw"]
+[ext_resource type="Texture2D" uid="uid://bwpqmipypl4c0" path="res://assets/UI/tilesetT3_pressed.png" id="3_qrnpo"]
+[ext_resource type="Texture2D" uid="uid://itfh1debj6h" path="res://assets/UI/tilesetT3_hovered.png" id="4_ifbg4"]
+[ext_resource type="AudioStream" uid="uid://do0ape8f5u1dx" path="res://assets/sounds/enrollment.mp3" id="6_ajg8h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gqah"]
 atlas = ExtResource("2_54jhy")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8nnuxedv5wlo"]
 
-[ext_resource type="Script" uid="uid://d00ni4wqovqsf" path="res://scripts/UI/popup_desc_buindings.gd" id="1_mdjxw"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_t40qm"]
+[ext_resource type="Script" uid="uid://cg1jurpmv5w7r" path="res://scripts/UI/popup_desc_buindings.gd" id="1_mdjxw"]
+[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="2_t40qm"]
 
 [node name="PopupBuildingDesc" type="Popup"]
 transparent_bg = true

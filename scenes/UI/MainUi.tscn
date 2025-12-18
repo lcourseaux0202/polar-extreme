@@ -512,7 +512,7 @@ script = ExtResource("10_5owsx")
 textBuildingName = "Tri des déchets"
 icon_pos = Vector2(2, 1)
 btype = 12
-building_path = "res://scenes/buildings/instanciables/WaterRecycling.tscn"
+building_path = "res://scenes/buildings/instanciables/WasteSorting.tscn"
 
 [node name="btnWater" parent="buildingsMenu/hBoxBtnCat3" instance=ExtResource("7_gyyq1")]
 layout_mode = 2

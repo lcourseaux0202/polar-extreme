@@ -29,7 +29,13 @@ func _on_pollution_changed(pollution : float) ->void :
 
 func _on_progress_bar_mouse_entered() -> void:
 	wellness_bar.show_percentage = true
-
-
+	
 func _on_progress_bar_mouse_exited() -> void:
 	wellness_bar.show_percentage = false
+
+
+func _on_pollution_bar_mouse_entered():
+	pollution_bar.show_percentage = true
+
+func _on_pollution_bar_mouse_exited():
+	pollution_bar.show_percentage = false

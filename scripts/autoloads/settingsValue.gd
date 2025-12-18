@@ -14,12 +14,10 @@ var resolutions = {
 	"1600x900": Vector2i(1600, 900),
 	"1440x900": Vector2i(1440, 900),
 	"1366x768": Vector2i(1366, 768),
-	"1280x720": Vector2i(1280, 720),
-	"1024x600": Vector2i(1024, 600),
-	"800x600": Vector2i(800, 600)
 }
 
 func _ready() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 100 
 	for i in gui_components:

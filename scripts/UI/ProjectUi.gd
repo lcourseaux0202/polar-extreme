@@ -32,7 +32,7 @@ func _on_start_project(project : Project) -> void:
 	proj.setProject(project)
 	proj.instanciateProject()
 	proj.startProject()
-	proj.setVisibility(true)
+	proj.setVisibility(true,true)
 	arrayProjects.append(proj)
 
 
@@ -65,7 +65,7 @@ func _on_btn_close_projects_pressed() -> void:
 	for proj in arrayProjects :
 		var project : Project = proj.getProject()
 		if project.get_project_state() == 3 :
-			proj.setVisibility(false)
+			proj.setVisibility(false, false)
 			project_container.remove_child(proj)
 			arrayTemp.append(proj)
 	for proj in arrayTemp :
