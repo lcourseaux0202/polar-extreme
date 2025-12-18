@@ -6,12 +6,14 @@ extends MarginContainer
 @onready var notif : NotificationIndicator = $"../projScienMenu/vBoxBtns/btnProjets/NotifProject"
 @onready var project_container: VBoxContainer = $ninePatchRect/VBoxContainer/MarginContainer/ScrollContainer/projectContainer
 @onready var nine_icon: NinePatchRect = $ninePatchRect/VBoxContainer/nineIcon
+@onready var lbl_explanation = $lblExplanation
 
 var arrayProjects : Array		## list of SubMenuProjects
 
 @export var icon_normal: Texture2D
 @export var icon_pressed: Texture2D
 @export var icon_hover: Texture2D
+@onready var animation = $AnimationPlayer
 
 ## connects the signal
 func _ready() -> void:
@@ -52,6 +54,8 @@ func _process(delta: float) -> void:
 		nine_icon.visible = false
 		notif.set_text(str(0))
 		notif.setVisible(false)
+		
+	lbl_explanation.visible = (arrayProjects.size() == 0)
 
 
 ## closes projects that have ended
@@ -89,3 +93,9 @@ func _on_btn_close_projects_mouse_exited() -> void:
 	nine_icon.patch_margin_left = 10
 	nine_icon.patch_margin_right = 10
 	nine_icon.patch_margin_top = 10
+
+
+
+func _on_visibility_changed():
+	if animation:
+		animation.play("show_g/show")

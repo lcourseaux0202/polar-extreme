@@ -5,6 +5,7 @@ class_name SettingsMenu
 @onready var master_volume: HSlider = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/Volume
 @onready var sfx_volume: HSlider = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/SFXVolume
 @onready var music_volume: HSlider = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/MusicVolume
+@onready var fullscreen_chk = $HBoxContainer/Panel/VBoxContainer/VBoxContainer/Fullscreen
 
 const VOLUME_MODIFIFACTOR := 50
 
@@ -46,6 +47,8 @@ func _on_option_button_item_selected(index: int) -> void:
 	var new_resolution = SettingsValue.resolutions[key]
 	
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
+	fullscreen_chk.button_pressed = false
 	
 	get_window().content_scale_size = new_resolution
 	

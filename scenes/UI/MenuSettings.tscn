@@ -110,12 +110,14 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+button_pressed = true
 text = "Plein écran"
 
 [node name="VSync" type="CheckBox" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+button_pressed = true
 text = "Synchronisation verticale"
 
 [node name="MouseSetting" type="CheckBox" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
