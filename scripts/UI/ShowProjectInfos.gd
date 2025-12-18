@@ -12,14 +12,15 @@ extends MarginContainer
 @onready var lbl_reward_nbr_poll_ps: Label = $NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer5/lblRewardNbrPollPS
 @onready var lbl_reward_nbr_wb: Label = $NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/GridContainer/HBoxContainer6/lblRewardNbrWB
 
-@onready var lbl_desc: Label = $NinePatchRect/MarginContainer/VBoxContainer/lblDesc
+@onready var lbl_nb_scientist: Label = $NinePatchRect/MarginContainer/VBoxContainer/lblNbScientist
 
 @onready var lbl_status: Label = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/lblStatus
 
 @onready var timer: Timer = $Timer
 
-@onready var nine_icon: NinePatchRect = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/nineIcon
-@onready var btn_start: Button = $NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/nineIcon/btnStart
+@onready var nine_icon = $NinePatchRect/MarginContainer/VBoxContainer/nineIcon
+@onready var btn_start = $NinePatchRect/MarginContainer/VBoxContainer/nineIcon/btnStart
+@onready var btn_animation = $NinePatchRect/MarginContainer/VBoxContainer/nineIcon/btnStart/AnimationPlayer
 
 @export var icon_normal: Texture2D
 @export var icon_pressed: Texture2D
@@ -52,7 +53,7 @@ func _on_open_project_menu(proj : Project) -> void:
 	
 	lbl_name.text = project.get_project_name()
 	setStatus(project.get_project_state())
-	lbl_desc.text = project.get_description()
+	lbl_nb_scientist.text = "Scientifiques nécessaires pour lancer le projet : " + str(project.requirement_scientists) 
 	
 	lbl_reward_nbr_sc.text = str(project.reward_science)
 	lbl_reward_nbr_sc_ps.text = str(project.reward_production)
@@ -88,7 +89,7 @@ func setVisibility(vis : bool) -> void:
 
 ## launch the project and close the menu
 func _on_btn_start_pressed() -> void:
-	if (project.get_project_state() == 0):
+	if project.get_project_state() == 0 and GameController.enough_scientist_for_assignement(project.requirement_scientists):
 		nine_icon.texture = icon_pressed
 		nine_icon.patch_margin_bottom = 10
 		nine_icon.patch_margin_left = 10
@@ -98,6 +99,8 @@ func _on_btn_start_pressed() -> void:
 		btn_start.disabled = true
 		nine_icon.texture = icon_normal
 		setVisibility(false)
+	else :
+		btn_animation.play("not_enough_scientist")
 
 
 ## close the menu

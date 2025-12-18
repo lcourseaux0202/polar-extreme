@@ -27,14 +27,13 @@ func _ready() -> void:
 ## create a new SubMenuProjects for the project started
 ## entry : the project (Project)
 func _on_start_project(project : Project) -> void:
-	if GameController.enough_scientist_for_assignement(project.requirement_scientists):
-		var proj := projectScene.instantiate()
-		project_container.add_child(proj)
-		proj.setProject(project)
-		proj.instanciateProject()
-		proj.startProject()
-		proj.setVisibility(true)
-		arrayProjects.append(proj)	
+	var proj := projectScene.instantiate()
+	project_container.add_child(proj)
+	proj.setProject(project)
+	proj.instanciateProject()
+	proj.startProject()
+	proj.setVisibility(true)
+	arrayProjects.append(proj)
 
 
 ##

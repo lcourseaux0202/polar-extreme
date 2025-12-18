@@ -198,7 +198,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 45
+theme_override_constants/separation = 15
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -227,7 +227,7 @@ theme_override_constants/separation = 5
 [node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 14
 text = "Gains :"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -339,11 +339,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "0"
 
-[node name="lblNbScientist" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="lblDesc" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
-text = "Scientifiques nécessaires pour lancer le projet : 0"
+text = "Desc"
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
@@ -395,11 +395,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 text = "Commencer"
 flat = true
