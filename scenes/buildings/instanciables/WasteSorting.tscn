@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://6vo1b3sxmhba"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_4tvit"]
-[ext_resource type="Texture2D" uid="uid://cf86621ul5fl" path="res://assets/buildings/utils/waste.png" id="2_3uma6"]
+[ext_resource type="Texture2D" uid="uid://cl4rc7kd352qx" path="res://assets/buildings/utils/waste.png" id="2_3uma6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co0sx"]
 size = Vector2(95, 95)
@@ -13,7 +13,7 @@ building_name = "Tri des déchets"
 building_description = "Salle technique stricte avec des bacs de couleurs. Chaque type de déchet (organique, plastique, métal, dangereux) y est scrupuleusement séparé pour un traitement adapté"
 building_genre = 1
 building_type = 12
-pollution_per_second = 3.0
+pollution_per_second = -16.0
 price = 1500
 
 [node name="Door" parent="." index="0"]

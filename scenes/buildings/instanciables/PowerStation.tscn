@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ibme4fulau2m"]
 
 [ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_g4h51"]
-[ext_resource type="Texture2D" uid="uid://cyvtctgavq2tr" path="res://assets/buildings/utils/generator.png" id="2_4unl8"]
+[ext_resource type="Texture2D" uid="uid://d135ia4u2ax14" path="res://assets/buildings/utils/generator.png" id="2_4unl8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qshrs"]
 size = Vector2(95, 95)
@@ -13,8 +13,8 @@ building_name = "Centrale électrique"
 building_description = "Le battement de cœur bruyant et chaud de la base. Abritant les générateurs, c'est la source d'énergie pour la chaleur, la lumière, la science et la communication"
 building_genre = 1
 building_type = 14
-pollution_per_second = 3.0
-price = 980
+pollution_per_second = -250.0
+price = 20000
 
 [node name="Door" parent="." index="0"]
 position = Vector2(0, 48)

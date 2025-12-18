@@ -7,6 +7,7 @@ class_name Building
 ## emit signals when clicked. All specific building types (science, production, etc.) inherit
 ## from this base class.
 
+# infos
 @onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var building_zone: CollisionShape2D = $BuildingZone
 
@@ -27,16 +28,16 @@ class_name Building
 @export var building_type: Enums.BUILDING_TYPE
 
 ## Pollution generated per second by this building
-@export var pollution_per_second: int = 0
+@export var pollution_per_second: float = 0:
+	set(value):
+		GameController.gauges.change_pollution_per_second(value - pollution_per_second)
+		pollution_per_second = value
 
 ## Cost to construct this building
 @export var price: int
 
 ## Tracks whether the mouse cursor is currently over this building
 var mouse_hover: bool = false
-
-## Emitted when the building is clicked by the player
-signal building_clicked(building: Building)
 
 
 ## Gets the unique identifier of this building.
@@ -74,7 +75,6 @@ func get_pollution() -> float:
 ## [param value] Amount to add to pollution_per_second (can be negative)
 func change_pollution(value: float) -> void:
 	pollution_per_second += value
-	GameController.get_gauges().change_pollution_per_second(value)
 
 
 ## Marks this building for deletion and removes it from the scene tree.

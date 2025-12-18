@@ -13,13 +13,19 @@ class_name BuildingScience
 @export var producing: bool
 
 ## Science points generated per second per scientist
-@export var science_per_second: float
+@export var science_per_second: float:		# per scientist
+	set(value):
+		GameController.gauges.change_science_per_second((value - science_per_second) * nb_scientists_working)
+		science_per_second = value
 
-## Maximum number of scientists that can work in this building
+## Number of scientists currently working in this building
+var nb_scientists_working = 0:
+	set(value):
+		GameController.gauges.change_science_per_second((value - nb_scientists_working) * science_per_second)
+		nb_scientists_working = value
+
+## Max number of scientifics working in the building
 @export var nb_scientists_slots: int
-
-## Number of scientists currently working in the building
-var nb_scientists_working: int = 0
 
 ## Array of research projects available in this building
 var projects_list: Array[Project] = []
@@ -34,7 +40,7 @@ func _init() -> void:
 ## [param plist] Array of Project objects to assign to this building
 func set_projects(plist: Array[Project]) -> void:
 	projects_list = plist
-
+	
 
 ## Sets the maximum number of scientist slots available.
 ## Only updates if the new value would result in more than 1 slot.
@@ -42,18 +48,17 @@ func set_projects(plist: Array[Project]) -> void:
 func set_nbr_scientist_slots(value: int) -> void:
 	if nb_scientists_slots + value > 1:
 		nb_scientists_slots = value
-
+	else :
+		nb_scientists_slots = 1
 
 ## Adds a scientist to the building if space is available.
 ## Updates the global science production rate accordingly.
 ## [return] True if scientist was successfully added, False if building is at capacity
 func add_scientist() -> bool:
 	if nb_scientists_working < nb_scientists_slots:
-		GameController.get_gauges().change_science_per_second(-science_per_second * nb_scientists_working)
 		nb_scientists_working += 1
-		GameController.get_gauges().change_science_per_second(science_per_second * nb_scientists_working)
 		return true
-	else:
+	else :
 		return false
 
 
@@ -62,9 +67,7 @@ func add_scientist() -> bool:
 ## [return] True if scientist was successfully removed, False if building has no scientists
 func remove_scientist() -> bool:
 	if nb_scientists_working > 0:
-		GameController.get_gauges().change_science_per_second(-science_per_second * nb_scientists_working)
 		nb_scientists_working -= 1
-		GameController.get_gauges().change_science_per_second(science_per_second * nb_scientists_working)
 		return true
 	else:
 		return false
@@ -87,7 +90,6 @@ func building_get_type() -> Enums.BUILDING_TYPE:
 ## [param value] Amount to add to science_per_second (can be negative)
 func change_science_per_second_production(value: float) -> void:
 	science_per_second += value
-	GameController.get_gauges().change_science_per_second(value * nb_scientists_working)
 
 
 ## Pauses science production and updates global science generation.

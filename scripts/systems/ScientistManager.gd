@@ -14,7 +14,10 @@ var scientist_factory: ScientistFactory = load("res://scripts/factories/Scientis
 var scientist_total: int = 0
 
 ## Number of scientists currently assigned to buildings
-var scientist_occupied: int = 0
+var scientist_occupied: int = 0:
+	set(value):
+		scientist_occupied = value
+		UiController.update_assign_scientist.emit()
 
 ## Base starting price for hiring the first scientist
 const SCIENTIST_START_PRICE: float = 1.0
@@ -55,6 +58,9 @@ func assign_scientist() -> void:
 ## Decrements the occupied scientist counter.
 func deassign_scientist() -> void:
 	scientist_occupied -= 1
+	
+func change_scientists_assigned(n: int) :
+	scientist_occupied += n
 
 
 ## Checks if there are enough idle scientists available for assignment.

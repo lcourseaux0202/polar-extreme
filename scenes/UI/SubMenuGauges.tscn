@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cws5sxnaq0d7j"]
+[gd_scene load_steps=5 format=3 uid="uid://cws5sxnaq0d7j"]
 
-[ext_resource type="Script" uid="uid://cdvmem18l372e" path="res://scripts/UI/GaugesUi.gd" id="1_c22h1"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_gcob8"]
+[ext_resource type="Script" uid="uid://b7itk0w4h2nvs" path="res://scripts/UI/GaugesUi.gd" id="1_c22h1"]
+[ext_resource type="Texture2D" uid="uid://sycu47s5jcv8" path="res://assets/UI/tilesetT3.png" id="2_gcob8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yuiy1"]
+bg_color = Color(0.862745, 0.94902, 0.956863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6776a"]
+bg_color = Color(0.419608, 0.917647, 0.964706, 1)
+border_width_top = 4
+border_color = Color(0.260573, 0.858219, 0.910774, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(150, 220)
@@ -16,7 +32,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_gcob8")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -45,9 +60,38 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0.0"
 
-[node name="ProgressBar" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 220)
+layout_mode = 2
+texture = ExtResource("2_gcob8")
+region_rect = Rect2(320, 448, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/HBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/NinePatchRect/MarginContainer"]
 custom_minimum_size = Vector2(30, 200)
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_yuiy1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6776a")
 max_value = 200.0
+value = 100.0
 fill_mode = 3
 show_percentage = false
+
+[connection signal="mouse_entered" from="NinePatchRect/MarginContainer/HBoxContainer/NinePatchRect" to="." method="_on_nine_patch_rect_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/MarginContainer/HBoxContainer/NinePatchRect" to="." method="_on_nine_patch_rect_mouse_exited"]

@@ -10,7 +10,7 @@ var project_state: int:
 
 var building : BuildingScience	# associated building
 
-var requirement_scientists: int 	# number of scientifics required for the project
+var requirement_scientists: int = 3 	# number of scientifics required for the project
 var timer: Timer
 var project_time: int:
 	set(value):
@@ -27,7 +27,7 @@ var reward_pollution				# one time flat amount of pollution
 var reward_pollution_per_second		# per second pollution increase
 var reward_wellness := 0.05			# one time flat amount of wellness
 
-func _init(pid: int, pname: String, rew_sci: int, rew_prod: int, rew_sl: int, rew_poll: int, rew_poll_ps) -> void:
+func _init(pid: int, pname: String, rew_sci: int, rew_prod: int, rew_sl: int, rew_poll: int, rew_poll_ps: int) -> void:
 	project_id = pid
 	project_name = pname
 	reward_science = rew_sci
@@ -55,29 +55,31 @@ func copy() -> Project:
 	)
 	return new_project
 
-func are_conditions_filled() -> bool:
-	return GameController.scientist_manager.get_scientist_non_occupied() >= requirement_scientists
-
 func start():
 	if project_state == 0:
-		console("starting")
+		GameController.scientist_manager.change_scientists_assigned(requirement_scientists)
 		project_state = 1
-	elif project_state == 1:
-		console("already running")
 	elif project_state == 2:
-		console("resuming")
 		project_state = 1
-	elif project_state >= 3:
-		console("already finished")
+		
+	#if project_state == 0:
+		#console("starting")
+		#project_state = 1
+	#elif project_state == 1:
+		#console("already running")
+	#elif project_state == 2:
+		#console("resuming")
+		#project_state = 1
+	#elif project_state >= 3:
+		#console("already finished")
+
 	
 func pause():
 	if project_state == 1:
 		project_state = 2
-		console("pausing")
-	else:
-		console("not running")
 	
 func finish():
+	GameController.scientist_manager.change_scientists_assigned(-requirement_scientists)
 	project_state = 3
 	
 	building.change_pollution(reward_pollution_per_second)
@@ -87,9 +89,7 @@ func finish():
 	var gauges = GameController.get_gauges()
 	gauges.change_wellness(reward_wellness)
 	gauges.change_pollution(reward_pollution)
-	gauges.change_science(reward_science)
-	
-	console("project finished")
+
 	
 func get_time_left() -> int:
 	return int(timer.time_left)

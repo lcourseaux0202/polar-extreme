@@ -72,8 +72,8 @@ func _on_btn_expl_pressed() -> void:
 
 ## adds a scientist to the building
 func _on_btn_add_pressed() -> void:
-	if GameController.scientist_manager.enough_scientist_for_assignement(1):
-		if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
+	if (buil.building_genre == Enums.BUILDING_GENRE.SCIENCE):
+		if GameController.scientist_manager.enough_scientist_for_assignement(1):
 			if buil.add_scientist():
 				UiController.emit_assign_scientist()
 				lbl_nbr.text = str(buil.get_nbr_scientist()) + "/" + str(buil.get_nbr_scientist_max())
