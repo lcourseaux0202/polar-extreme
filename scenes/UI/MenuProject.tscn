@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://28bld6ebjyy6"]
+[gd_scene load_steps=9 format=3 uid="uid://28bld6ebjyy6"]
 
-[ext_resource type="Script" uid="uid://g4m6o3ipcik0" path="res://scripts/UI/ProjectUi.gd" id="1_loijj"]
+[ext_resource type="Script" uid="uid://cql3t2trrtxm8" path="res://scripts/UI/ProjectUi.gd" id="1_loijj"]
 [ext_resource type="PackedScene" uid="uid://biyp1uwmfu6u4" path="res://scenes/UI/SubMenuProject.tscn" id="2_n1p1n"]
-[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="3_gypk2"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="3_gypk2"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="4_wx3wc"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="5_3l04l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoxx6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo44v"]
 atlas = ExtResource("3_gypk2")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eafyp"]
+atlas = ExtResource("4_wx3wc")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv5wx"]
+atlas = ExtResource("5_3l04l")
 region = Rect2(320, 384, 64, 64)
 
 [node name="MenuProjects" type="MarginContainer"]
@@ -25,6 +35,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_loijj")
 projectScene = ExtResource("2_n1p1n")
+icon_normal = SubResource("AtlasTexture_xo44v")
+icon_pressed = SubResource("AtlasTexture_eafyp")
+icon_hover = SubResource("AtlasTexture_qv5wx")
 metadata/_edit_use_anchors_ = true
 
 [node name="ninePatchRect" type="NinePatchRect" parent="."]
@@ -119,7 +132,6 @@ icon_hover = null
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = SubResource("AtlasTexture_eoxx6")
 
 [node name="btnCloseProjects" type="Button" parent="ninePatchRect/VBoxContainer/nineIcon"]
 custom_minimum_size = Vector2(150, 50)
@@ -146,4 +158,6 @@ custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="ninePatchRect/VBoxContainer/nineIcon/btnCloseProjects" to="." method="_on_btn_close_projects_mouse_entered"]
+[connection signal="mouse_exited" from="ninePatchRect/VBoxContainer/nineIcon/btnCloseProjects" to="." method="_on_btn_close_projects_mouse_exited"]
 [connection signal="pressed" from="ninePatchRect/VBoxContainer/nineIcon/btnCloseProjects" to="." method="_on_btn_close_projects_pressed"]
