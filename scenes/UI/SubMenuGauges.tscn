@@ -43,10 +43,18 @@ grow_vertical = 2
 pivot_offset = Vector2(329.5, -0.5)
 script = ExtResource("1_c22h1")
 
+[node name="lblPollution" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pollution"
+
 [node name="PollutionBar" type="NinePatchRect" parent="."]
 layout_mode = 2
+offset_top = 21.0
 offset_right = 319.0
-offset_bottom = 40.0
+offset_bottom = 61.0
 size_flags_vertical = 8
 texture = ExtResource("2_gcob8")
 region_rect = Rect2(320, 448, 64, 64)
@@ -78,12 +86,20 @@ max_value = 10000.0
 value = 100.0
 show_percentage = false
 
+[node name="lblWellness" type="Label" parent="."]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 72.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bien-être"
+
 [node name="WellnessBar" type="NinePatchRect" parent="."]
 layout_mode = 2
 offset_left = 0.5
-offset_top = 51.0
+offset_top = 82.0
 offset_right = 319.5
-offset_bottom = 91.0
+offset_bottom = 122.0
 texture = ExtResource("2_gcob8")
 region_rect = Rect2(320, 448, 64, 64)
 patch_margin_left = 10
