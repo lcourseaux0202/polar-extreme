@@ -63,36 +63,42 @@ func _on_open_project_menu(proj : Project) -> void:
 	lbl_reward_nbr_sc.text = str(project.reward_science)
 	if project.reward_science > 0:
 		lbl_reward_nbr_sc.text = "+" + str(lbl_reward_nbr_sc.text)
+		lbl_reward_nbr_sc.add_theme_color_override("font_color", Color.BLACK)
 	if project.reward_science == 0:
 		lbl_reward_nbr_sc.add_theme_color_override("font_color", Color.GRAY)
 
 	lbl_reward_nbr_sc_ps.text = str(project.reward_production)
 	if project.reward_production > 0:
 		lbl_reward_nbr_sc_ps.text = "+" + str(project.reward_production) + " / scientifique"
+		lbl_reward_nbr_sc_ps.add_theme_color_override("font_color", Color.BLACK)
 	if project.reward_production == 0:
 		lbl_reward_nbr_sc_ps.add_theme_color_override("font_color", Color.GRAY)
 
 	lbl_reward_nbr_slots.text = str(project.reward_slots)
 	if project.reward_slots > 0:
 		lbl_reward_nbr_slots.text = "+" + str(lbl_reward_nbr_slots.text)
+		lbl_reward_nbr_slots.add_theme_color_override("font_color", Color.BLACK)
 	if project.reward_slots == 0:
 		lbl_reward_nbr_slots.add_theme_color_override("font_color", Color.GRAY)
 
 	lbl_reward_nbr_poll.text = str(project.reward_pollution)
 	if project.reward_pollution > 0:
 		lbl_reward_nbr_poll.text = "+" + str(lbl_reward_nbr_poll.text)
+		lbl_reward_nbr_poll.add_theme_color_override("font_color", Color.BLACK)
 	if project.reward_pollution == 0:
 		lbl_reward_nbr_poll.add_theme_color_override("font_color", Color.GRAY)
 
 	lbl_reward_nbr_poll_ps.text = str(project.reward_pollution_per_second)
 	if project.reward_pollution_per_second > 0:
 		lbl_reward_nbr_poll_ps.text = "+" + str(lbl_reward_nbr_poll_ps.text)
+		lbl_reward_nbr_poll_ps.add_theme_color_override("font_color", Color.BLACK)
 	if project.reward_pollution_per_second == 0:
 		lbl_reward_nbr_poll_ps.add_theme_color_override("font_color", Color.GRAY)
 
 	lbl_reward_nbr_wb.text = str(project.reward_wellness)
 	if project.reward_wellness > 0:
 		lbl_reward_nbr_wb.text = "+" + str(lbl_reward_nbr_wb.text)
+		lbl_reward_nbr_wb.add_theme_color_override("font_color", Color.BLACK)
 	if project.reward_wellness == 0:
 		lbl_reward_nbr_wb.add_theme_color_override("font_color", Color.GRAY)
 
