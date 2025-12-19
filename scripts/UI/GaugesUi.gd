@@ -3,6 +3,7 @@ extends Control
 
 @onready var wellness_bar: ProgressBar = $WellnessBar/MarginContainer/ProgressBar
 @onready var pollution_bar: ProgressBar = $PollutionBar/MarginContainer/ProgressBar
+@onready var label: Label = $WellnessBar/MarginContainer/ProgressBar/Label
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,10 +28,12 @@ func _on_pollution_changed(pollution : float) ->void :
 	pollution_bar.value = int(pollution)
 
 func _on_progress_bar_mouse_entered() -> void:
-	wellness_bar.show_percentage = true
+	#wellness_bar.show_percentage = true
+	label.text = str(int(wellness_bar.value))
 	
 func _on_progress_bar_mouse_exited() -> void:
-	wellness_bar.show_percentage = false
+	#wellness_bar.show_percentage = false
+	label.text = ""
 
 
 func _on_pollution_bar_mouse_entered():
