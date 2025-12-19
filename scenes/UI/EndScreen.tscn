@@ -1,4 +1,24 @@
-[gd_scene format=3 uid="uid://b07a6w5k6rx55"]
+[gd_scene load_steps=6 format=3 uid="uid://b07a6w5k6rx55"]
+
+[ext_resource type="Script" uid="uid://b04hc4b2sdbni" path="res://scenes/UI/end_screen.gd" id="1_4lg8v"]
+[ext_resource type="Shader" uid="uid://bvvh78avbhbvu" path="res://assets/shader/Camera.gdshader" id="1_tckt1"]
+[ext_resource type="FontFile" uid="uid://dkpxuth1jl368" path="res://assets/font/Jersey10-Regular.ttf" id="2_4lg8v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixapc"]
+shader = ExtResource("1_tckt1")
+shader_parameter/rain_amount = 1000.0
+shader_parameter/near_rain_length = 0.01
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(1, 1, 1, 1)
+shader_parameter/base_rain_speed = 0.1
+shader_parameter/additional_rain_speed = 0.1
+shader_parameter/slant = 0.261
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tckt1"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -7,18 +27,54 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4lg8v")
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ixapc")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -11.5
-offset_right = 102.5
-offset_bottom = 11.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Bahaha tu es mauvais ! 🫵"
+color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tckt1")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4lg8v")
+theme_override_font_sizes/font_size = 100
+text = "Game Over !
+Raison : trop de pollution"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tckt1")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4lg8v")
+theme_override_font_sizes/font_size = 80
+text = "Quitter"
+flat = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tckt1")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
