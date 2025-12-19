@@ -63,6 +63,7 @@ func _ready() -> void:
 	UiController.start_placing_path.connect(_on_path_button_pressed)
 	UiController.start_delete_object.connect(delete_object)
 	UiController.stop_building_path.connect(stop_building_path)
+	UiController.stop_building_bat.connect(stop_building)
 
 
 func _input(event: InputEvent) -> void:

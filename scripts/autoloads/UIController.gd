@@ -36,12 +36,16 @@ signal open_project_menu(proj : Project)
 signal start_project(proj : Project)
 
 signal stop_building_path()
+signal stop_building_bat()
 
 func emit_build_batiment(bname : Enums.BUILDING_TYPE):
 	build_batiment.emit(bname)
 
 func emit_start_building(building:Building):
 	start_building.emit(building)
+	
+func emit_stop_building_bat():
+	stop_building_bat.emit()
 	
 func emit_validate_building_placement(building:Building):
 	validate_building_placement.emit(building)

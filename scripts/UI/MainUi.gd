@@ -138,7 +138,8 @@ func _on_btn_back_pressed() -> void:
 	h_box_btn_cat_2.visible = false
 	h_box_btn_cat_3.visible = false
 	h_box_btns.visible = true
-
+	UiController.emit_stop_building_bat()
+	
 
 ## shows the settings
 func _on_parameters_pressed() -> void:
