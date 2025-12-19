@@ -85,6 +85,7 @@ color = Color(1, 1, 1, 0)
 [node name="GameUI" parent="Camera/CanvasLayer" instance=ExtResource("5_wnrko")]
 
 [node name="PlacementGrid" parent="." instance=ExtResource("2_pbgo2")]
+effect_size = Vector2(3, 3)
 
 [node name="WorldGrid" parent="." instance=ExtResource("3_pbgo2")]
 unique_name_in_owner = true

@@ -383,6 +383,7 @@ func stop_building_path() -> void:
 	preview.texture = null
 	is_dragging_path = false
 	path_preview_cells.clear()
+	self.clear()
 
 
 ## Instantiates a new path and configures its preview.
