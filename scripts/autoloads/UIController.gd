@@ -34,6 +34,7 @@ signal click_on_building(building : Building)
 
 signal open_project_menu(proj : Project)
 signal start_project(proj : Project)
+signal project_change_state(proj : Project)
 
 signal stop_building_path()
 signal stop_building_bat()

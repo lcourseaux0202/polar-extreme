@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 		lbl_time_left.text = "%d:%02d" % [floor(timer.time_left / 60), int(timer.time_left) % 60]	# pour afficher au format min:sec
 		if timer.time_left == 0:
 			project.finish()
+			UiController.project_change_state.emit(project)
 			setStatus(project.get_project_state())
 
 
@@ -80,6 +81,7 @@ func setVisibility(vis : bool, timer_displayed : bool) -> void:
 func startProject() -> void:
 	project_started = true
 	project.start()
+	UiController.project_change_state.emit(project)
 	setStatus(project.get_project_state())
 	timer.start(project.get_time_total())			# temps en secondes
 	print(project.get_project_state())

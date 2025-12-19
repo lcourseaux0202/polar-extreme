@@ -23,12 +23,14 @@ extends MarginContainer
 var buil : Building
 
 var project_menu_list : Array		## list of Project
+var project_ui_list : Array		##list of SubMenuProject
 
 
 # Called when the node enters the scene tree for the first time.
 ## coonects the signal
 func _enter_tree():
 	UiController.click_on_building.connect(_on_click_on_building)
+	UiController.project_change_state.connect(_on_project_change_state)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -65,8 +67,15 @@ func _on_click_on_building(building : Building):
 			proj.setProject(project)
 			proj.instanciateProject()
 			proj.setVisibility(true, false)
+			project_ui_list.append(proj)
 			
 	animation.play("show")
+
+
+func _on_project_change_state(proj : Project) -> void:
+	for project in project_ui_list :
+		if proj == project.getProject() :
+			project.setStatus(proj.get_project_state())
 
 
 ## displays a popup with the description of the building
