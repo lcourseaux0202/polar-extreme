@@ -1,6 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://on73whrfey7o"]
+[gd_scene load_steps=31 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://bqq8b5qkts8wc" path="res://scripts/UI/MainUi.gd" id="1_qp303"]
+[ext_resource type="Script" uid="uid://dhucihrw22c41" path="res://scripts/UI/MainUi.gd" id="1_qp303"]
 [ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_tqwy0"]
 [ext_resource type="Texture2D" uid="uid://cg7tukcrc8n4s" path="res://assets/UI/tilesetT3_pressed.png" id="3_xnj7m"]
 [ext_resource type="Texture2D" uid="uid://wrb14d8klmxe" path="res://assets/UI/tilesetT3_hovered.png" id="4_aummo"]
@@ -8,13 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/MenuProject.tscn" id="5_y6x1c"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/MenuScientist.tscn" id="6_wilqy"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/BtnCreationBuildings.tscn" id="7_gyyq1"]
-[ext_resource type="Script" uid="uid://s8fpydvn1851" path="res://scripts/UI/CreationPath.gd" id="8_x51tq"]
-[ext_resource type="Script" uid="uid://6wklwjb04ll8" path="res://scripts/UI/CreationCategory.gd" id="9_18d2x"]
-[ext_resource type="Script" uid="uid://tkkcbet6b42" path="res://scripts/UI/CreationBuildings.gd" id="10_5owsx"]
+[ext_resource type="Script" uid="uid://feiggfpj2jhl" path="res://scripts/UI/CreationPath.gd" id="8_x51tq"]
+[ext_resource type="Script" uid="uid://dskigrvtktlqy" path="res://scripts/UI/CreationCategory.gd" id="9_18d2x"]
+[ext_resource type="Script" uid="uid://dtqbebp0gm3gx" path="res://scripts/UI/CreationBuildings.gd" id="10_5owsx"]
 [ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/SubMenuGauges.tscn" id="11_75w5a"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/MenuBuilding.tscn" id="12_fnckq"]
 [ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/SubMenuShowProjectInfos.tscn" id="13_v1boy"]
-[ext_resource type="PackedScene" uid="uid://3m482h11bach" path="res://scenes/UI/Tutorial.tscn" id="15_xnj7m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_alvv5"]
 font_size = 19
@@ -104,18 +103,6 @@ region = Rect2(320, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ok71f"]
 atlas = ExtResource("4_aummo")
 region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqwy0"]
-atlas = ExtResource("2_tqwy0")
-region = Rect2(320, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnj7m"]
-atlas = ExtResource("3_xnj7m")
-region = Rect2(320, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aummo"]
-atlas = ExtResource("4_aummo")
-region = Rect2(320, 64, 64, 64)
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -582,35 +569,6 @@ texture_pressed = SubResource("AtlasTexture_ce6m7")
 texture_hover = SubResource("AtlasTexture_ok71f")
 stretch_mode = 0
 
-[node name="HelpMargin" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1904.0
-offset_top = -85.0
-offset_right = -1819.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-mouse_filter = 0
-mouse_force_pass_scroll_events = false
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Help" type="TextureButton" parent="HelpMargin"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-mouse_default_cursor_shape = 2
-texture_normal = SubResource("AtlasTexture_tqwy0")
-texture_pressed = SubResource("AtlasTexture_xnj7m")
-texture_hover = SubResource("AtlasTexture_aummo")
-
 [node name="GaugesUi" parent="." instance=ExtResource("11_75w5a")]
 layout_mode = 1
 anchors_preset = 1
@@ -648,13 +606,9 @@ layout_mode = 1
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 
-[node name="Tutorial" parent="." instance=ExtResource("15_xnj7m")]
-layout_mode = 1
-
 [connection signal="pressed" from="hBoxProjScien/projScienMenu/vBoxBtns/btnProjets" to="." method="_on_button_projets_pressed"]
 [connection signal="pressed" from="hBoxProjScien/projScienMenu/vBoxBtns/btnScientists" to="." method="_on_button_scientists_pressed"]
 [connection signal="pressed" from="buildingsMenu/hBoxBtnCat1/btnBack" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="buildingsMenu/hBoxBtnCat2/btnBack" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="buildingsMenu/hBoxBtnCat3/btnBack" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="ParametersMargin/Parameters" to="." method="_on_parameters_pressed"]
-[connection signal="pressed" from="HelpMargin/Help" to="." method="_on_help_pressed"]

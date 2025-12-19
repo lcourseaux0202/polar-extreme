@@ -144,7 +144,3 @@ func _on_btn_back_pressed() -> void:
 ## shows the settings
 func _on_parameters_pressed() -> void:
 	SettingsValue.open()
-
-
-func _on_help_pressed() -> void:
-	tutorial.visible=true
