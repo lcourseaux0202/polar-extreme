@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgj52y5sr8fw3"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_8nb83"]
-[ext_resource type="Texture2D" uid="uid://btvrbybx8evkg" path="res://assets/buildings/labo/sismology.png" id="2_cjfu4"]
+[ext_resource type="Texture2D" uid="uid://ccmhpx1wc86cb" path="res://assets/buildings/labo/sismology.png" id="2_cjfu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1aak"]
 size = Vector2(223, 159)
@@ -12,7 +12,7 @@ size = Vector2(223, 159)
 science_per_second = 15.0
 nb_scientists_slots = 2
 building_name = "Laboratoire de magnétisme & sismologie"
-building_description = "Une structure isolée, sans métal, souvent enterrée. Il enregistre les plus infimes vibrations de la Terre et les variations du champ magnétique, loin du bruit humain"
+building_description = "Ce laboratoire observe les vibrations du sol et les variations du champ magnétique terrestre. Grâce à des instruments très sensibles, les scientifiques peuvent détecter des séismes très lointains. Ces données sont essentielles pour comprendre la structure interne de la Terre et les mouvements des plaques tectoniques."
 building_type = 2
 pollution_per_second = 1.5
 price = 3600

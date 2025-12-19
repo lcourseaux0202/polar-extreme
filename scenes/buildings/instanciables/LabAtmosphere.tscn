@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c41cttyipdd8w"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_vngcl"]
-[ext_resource type="Texture2D" uid="uid://kjdvbkjfjr8j" path="res://assets/buildings/labo/atmospheric.png" id="2_vngcl"]
+[ext_resource type="Texture2D" uid="uid://b2is51fgrvl8q" path="res://assets/buildings/labo/atmospheric.png" id="2_vngcl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ods"]
 size = Vector2(223, 223)
@@ -12,7 +12,7 @@ size = Vector2(223, 223)
 science_per_second = 25.0
 nb_scientists_slots = 4
 building_name = "Laboratoire de physique de l'atmosphère"
-building_description = "Il est composé d’un shelter en bois qui abrite les espaces de travail des scientifiques, un espace avec le matériel nécessaire pour bricoler les télescopes, des ordinateurs, un serveur de stockage et de transfert des données acquises par les télescopes.Il y a également des dômes accueillant les télescopes et un petit shelter de contrôle des instruments installés."
+building_description = "Dans ce bâtiment, les chercheurs étudient l’atmosphère, les nuages et les vents. Ils utilisent des capteurs et des instruments pour mesurer la température, l’humidité et la pollution. Ces recherches aident à mieux comprendre le changement climatique et à améliorer les prévisions météorologiques."
 building_type = 1
 pollution_per_second = 0.5
 price = 12000

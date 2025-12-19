@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://6vo1b3sxmhba"]
 
-[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_4tvit"]
-[ext_resource type="Texture2D" uid="uid://db03082pj37q4" path="res://assets/buildings/utils/waste.png" id="2_3uma6"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/BuildingUtility.tscn" id="1_4tvit"]
+[ext_resource type="Texture2D" uid="uid://ff281ssuyfcy" path="res://assets/buildings/utils/waste.png" id="2_3uma6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co0sx"]
 size = Vector2(95, 95)
@@ -10,7 +10,7 @@ size = Vector2(95, 95)
 
 [node name="WasteSorting" instance=ExtResource("1_4tvit")]
 building_name = "Tri des déchets"
-building_description = "Salle technique stricte avec des bacs de couleurs. Chaque type de déchet (organique, plastique, métal, dangereux) y est scrupuleusement séparé pour un traitement adapté"
+building_description = "Dans cette zone, tous les déchets sont soigneusement triés. Les matériaux recyclables sont séparés des déchets dangereux. Ce système permet de réduire fortement l’impact environnemental de la base."
 building_genre = 1
 building_type = 12
 pollution_per_second = -30.0

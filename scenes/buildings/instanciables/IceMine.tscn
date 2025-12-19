@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf2q1o3ffr4jb"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_aj2hn"]
-[ext_resource type="Texture2D" uid="uid://c207lo85enp2u" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
+[ext_resource type="Texture2D" uid="uid://bhh8vjv5ogdct" path="res://assets/buildings/labo/ice_mine.png" id="2_aj2hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2hn"]
 size = Vector2(95, 95)
@@ -13,7 +13,7 @@ texture_filter = 1
 science_per_second = 1.0
 nb_scientists_slots = 5
 building_name = "Mine de glace"
-building_description = "Une importante campagne de forage en Antarctique a permis d'atteindre une carotte de glace datant d'au moins 1,2 million d'années, marquant un progrès majeur dans l'étude du climat passé"
+building_description = "La mine de glace permet d’extraire des blocs et des échantillons de glace très ancienne. Cette glace peut avoir plusieurs milliers d’années et contient des informations précieuses sur l’histoire du climat. L’environnement souterrain protège aussi les échantillons de la contamination extérieure."
 pollution_per_second = 1.0
 price = 250
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8wskbvlktw4d"]
 
-[ext_resource type="PackedScene" uid="uid://b6y08a0igq27q" path="res://scenes/buildings/BuildingUtility.tscn" id="1_x7ujq"]
-[ext_resource type="Texture2D" uid="uid://dlv8t3ix3kjgy" path="res://assets/buildings/life/canteen.png" id="2_xy5ji"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/BuildingUtility.tscn" id="1_x7ujq"]
+[ext_resource type="Texture2D" uid="uid://caq2dj4hxn4u8" path="res://assets/buildings/life/canteen.png" id="2_xy5ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjlrj"]
 size = Vector2(95, 95)
@@ -9,8 +9,8 @@ size = Vector2(95, 95)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3c8v"]
 
 [node name="DiningRoom" instance=ExtResource("1_x7ujq")]
-building_name = "Salle à manger"
-building_description = "Les conditions de vie sont extrêmes, avec des vents pouvant dépasser 100 km/h et une nuit polaire prolongée,mais la station est équipée de systèmes de chauffage, de communication et de production d’eau pour assurer la survie et le confort des scientifiques"
+building_name = "Cantine"
+building_description = "La cantine est le lieu où le personnel se retrouve pour les repas. Les menus sont riches en énergie afin de répondre aux besoins physiques élevés liés au froid. C’est aussi un espace social important qui favorise la cohésion du groupe."
 building_genre = 1
 building_type = 7
 pollution_per_second = 1.0

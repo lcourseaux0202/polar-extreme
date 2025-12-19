@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chv6wvteu06gi"]
 
 [ext_resource type="PackedScene" uid="uid://b775j25eugfm1" path="res://scenes/buildings/BuildingScience.tscn" id="1_wxps8"]
-[ext_resource type="Texture2D" uid="uid://cj8nbyaoebgj0" path="res://assets/buildings/labo/greenhouse.png" id="2_fhjap"]
+[ext_resource type="Texture2D" uid="uid://duccnjj1is1kv" path="res://assets/buildings/labo/greenhouse.png" id="2_fhjap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw7a"]
 size = Vector2(63, 159)
@@ -13,7 +13,7 @@ size = Vector2(20, 12)
 science_per_second = 10.0
 nb_scientists_slots = 4
 building_name = "Serre"
-building_description = "Une serre est actuellement en cours d'installation à proximité du pôle Sud en Antarctique,marquant la première infrastructure de ce type sur le continent. Ce projet, mené par l'Université d'Arizona, vise à cultiver des légumes comme la laitue, les épinards et les fraises pour les chercheurs isolés à la Station de recherche Amundsen Scott"
+building_description = "La serre est un espace contrôlé où l’on cultive des plantes malgré le climat hostile. Grâce à la lumière artificielle et à une température stable, elle fournit des légumes frais toute l’année. Elle joue aussi un rôle important pour le bien-être psychologique des habitants."
 pollution_per_second = 1.0
 price = 400
 
