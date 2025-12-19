@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://3m482h11bach"]
+[gd_scene load_steps=17 format=3 uid="uid://3m482h11bach"]
 
 [ext_resource type="Script" uid="uid://b0nyhvf0n35gu" path="res://scripts/UI/Tutorial.gd" id="1_kdxk5"]
 [ext_resource type="Texture2D" uid="uid://vo6ef63oumhc" path="res://assets/tutorial/menu_bat.png" id="2_kdxk5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://sycu47s5jcv8" path="res://assets/UI/tilesetT3.png" id="3_lny7e"]
 [ext_resource type="Texture2D" uid="uid://okias8w4m6ao" path="res://assets/UI/tilesetT3_pressed.png" id="4_hb2s0"]
 [ext_resource type="Texture2D" uid="uid://b3x6wj85cdsbr" path="res://assets/UI/tilesetT3_hovered.png" id="5_b8l4k"]
+[ext_resource type="AudioStream" uid="uid://ct8ou1yq0wrgg" path="res://assets/sounds/snow-is-coming-427915.mp3" id="7_hb2s0"]
 
 [sub_resource type="Gradient" id="Gradient_0i4v1"]
 offsets = PackedFloat32Array(0.0119048, 1)
@@ -151,6 +152,12 @@ theme_override_fonts/font = ExtResource("3_emcbx")
 theme_override_font_sizes/font_size = 37
 text = "Passer le tutoriel"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hb2s0")
+pitch_scale = 0.6
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="NextBtn" to="." method="_on_next_btn_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]

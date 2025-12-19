@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmplrmtisrhmp"]
 
-[ext_resource type="Script" uid="uid://j414twamiby7" path="res://scripts/UI/Settings.gd" id="1_05p07"]
-[ext_resource type="FontFile" uid="uid://bme4qpb5271lg" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
+[ext_resource type="Script" uid="uid://5jc1ng50u2dy" path="res://scripts/UI/Settings.gd" id="1_05p07"]
+[ext_resource type="FontFile" uid="uid://dkpxuth1jl368" path="res://assets/font/Jersey10-Regular.ttf" id="2_yk8t3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l116f"]
 bg_color = Color(0.592157, 0.694118, 1, 0.639216)
@@ -163,14 +163,33 @@ value = 100.0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.509804, 0.580392, 0.827451, 1)
+theme_override_colors/font_hover_color = Color(0.509804, 0.580392, 0.827451, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_yk8t3")
+theme_override_font_sizes/font_size = 35
 text = "Retour au jeu"
+flat = true
 
 [node name="QuitGameBtn" type="Button" parent="HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.509085, 0.578717, 0.828373, 1)
+theme_override_colors/font_hover_color = Color(0.509804, 0.580392, 0.827451, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_yk8t3")
+theme_override_font_sizes/font_size = 29
 text = "Quitter le jeu"
+flat = true
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
