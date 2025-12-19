@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://c65o5y2weg82m"]
 
-[ext_resource type="Script" uid="uid://boqwan675d55s" path="res://scripts/UI/ShowProjectInfos.gd" id="1_2gvgq"]
-[ext_resource type="Texture2D" uid="uid://cewsw8vxclwog" path="res://assets/UI/tilesetT3.png" id="1_ycggi"]
-[ext_resource type="Texture2D" uid="uid://bwpqmipypl4c0" path="res://assets/UI/tilesetT3_pressed.png" id="3_qxkio"]
-[ext_resource type="Texture2D" uid="uid://itfh1debj6h" path="res://assets/UI/tilesetT3_hovered.png" id="4_jfwcn"]
-[ext_resource type="AudioStream" uid="uid://dxvoqtdcos0vh" path="res://assets/sounds/cancel_short.mp3" id="5_mdk7b"]
-[ext_resource type="AudioStream" uid="uid://bf01t1shiy3m3" path="res://assets/sounds/project.mp3" id="6_50yfo"]
+[ext_resource type="Script" uid="uid://b8gi3q1fb0gxj" path="res://scripts/UI/ShowProjectInfos.gd" id="1_2gvgq"]
+[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="1_ycggi"]
+[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_qxkio"]
+[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_jfwcn"]
+[ext_resource type="AudioStream" uid="uid://v4372juvyuxc" path="res://assets/sounds/cancel_short.mp3" id="5_mdk7b"]
+[ext_resource type="AudioStream" uid="uid://cbh7if3xg8sfv" path="res://assets/sounds/project.mp3" id="6_50yfo"]
 [ext_resource type="AnimationLibrary" uid="uid://cv3u0hvir6bgq" path="res://assets/animation/show_g.res" id="6_p0dbs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxkio"]
@@ -22,15 +22,15 @@ region = Rect2(320, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwadq"]
 atlas = ExtResource("1_ycggi")
-region = Rect2(0, 448, 64, 64)
+region = Rect2(320, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cew7"]
 atlas = ExtResource("3_qxkio")
-region = Rect2(0, 448, 64, 64)
+region = Rect2(320, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4qnv"]
 atlas = ExtResource("4_jfwcn")
-region = Rect2(0, 448, 64, 64)
+region = Rect2(320, 256, 64, 64)
 
 [sub_resource type="Animation" id="Animation_mdk7b"]
 length = 0.001
