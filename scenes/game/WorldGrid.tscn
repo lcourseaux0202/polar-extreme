@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://1np065kd0d37"]
 
-[ext_resource type="Texture2D" uid="uid://dsg8kf0ifpb2f" path="res://assets/ground/ground.png" id="1_c6rlt"]
+[ext_resource type="Texture2D" uid="uid://b33q0wmwoue3t" path="res://assets/ground/ground.png" id="1_c6rlt"]
 [ext_resource type="Script" uid="uid://bvmvi0q40lxv8" path="res://scripts/models/game/WorldGrid.gd" id="2_n77ic"]
 [ext_resource type="PackedScene" uid="uid://cam8g26afpinm" path="res://scenes/scientist/Plane.tscn" id="3_c6rlt"]
 

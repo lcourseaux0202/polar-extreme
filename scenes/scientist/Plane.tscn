@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://cam8g26afpinm"]
 
-[ext_resource type="Script" uid="uid://iyb3kyd823hi" path="res://scripts/models/scientists/Plane.gd" id="1_rkv03"]
-[ext_resource type="Texture2D" uid="uid://m2fkdk6vuj7r" path="res://assets/npc/plane.png" id="2_jkmwb"]
-[ext_resource type="Texture2D" uid="uid://dx7ebr1icfo6p" path="res://icon.svg" id="3_jkmwb"]
-[ext_resource type="Shader" uid="uid://c6gv4dgxf64uf" path="res://assets/path/path.gdshader" id="3_qfbax"]
-[ext_resource type="AudioStream" uid="uid://c15j3myri4hwm" path="res://assets/sounds/plane-78723.mp3" id="5_mdu58"]
+[ext_resource type="Script" uid="uid://rrvtjj3tegbl" path="res://scripts/models/scientists/Plane.gd" id="1_rkv03"]
+[ext_resource type="Texture2D" uid="uid://gy7wff7ktne6" path="res://assets/npc/plane.png" id="2_jkmwb"]
+[ext_resource type="Texture2D" uid="uid://b2wsorphlug3g" path="res://icon.svg" id="3_jkmwb"]
+[ext_resource type="Shader" uid="uid://b5mfdfgfqsn1g" path="res://assets/path/path.gdshader" id="3_qfbax"]
+[ext_resource type="AudioStream" uid="uid://bku5x2orj1j2c" path="res://assets/sounds/plane-78723.mp3" id="5_mdu58"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mdu58"]
 shader = ExtResource("3_qfbax")
