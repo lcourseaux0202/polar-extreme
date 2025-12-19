@@ -126,7 +126,6 @@ _data = {
 z_index = 10
 tile_set = SubResource("TileSet_f2w8h")
 script = ExtResource("2_tbs4h")
-effect_size = null
 
 [node name="PreviewSprite" type="Sprite2D" parent="."]
 z_index = -2

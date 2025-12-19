@@ -26,7 +26,6 @@ var images_short := [
 	"res://assets/others/Logo.png",
 	"res://assets/tutorial/menu_bat.png",
 	"res://assets/tutorial/menu_scientifique.png",
-	"res://assets/tutorial/science.png",
 ]
 
 var explanations := [
@@ -48,7 +47,6 @@ var explanations_short := [
 	"Bienvenue dans Polar Extreme ! Votre objectif est d'accumuler un maximum de Science en un minimum de temps tout en respectant l'environnement et le bien-être des scientifiques.",
 	"Construisez des laboratoires, des bâtiments de vie commune, ou des bâtiments techniques afin de réguler respectivement votre production de science, le bien-être des scientifiques, et la pollution.",
 	"Pour commencer à produire, assignez des scientifiques aux divers laboratoires.",
-	"Si vous vous sentez perdu en jeu, cliquez sur ce bouton pour obtenir plus d'informations.",
 ]
 
 

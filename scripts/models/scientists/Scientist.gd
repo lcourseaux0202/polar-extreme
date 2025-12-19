@@ -26,6 +26,10 @@ var current_animation: String = "up_walk"
 func _ready() -> void:
 	UiController.new_hour.connect(_on_new_hour)
 	navigation_agent.target_position = Vector2(0, 0)
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var random_number = rng.randi_range(0,2)
+	setTextureSprite(random_number)
 
 
 ## Handles movement along the navigation path each frame.
@@ -99,3 +103,14 @@ func change_target() -> void:
 ## [return] Global position Vector2 of a randomly selected building's door
 func get_random_building_position() -> Vector2:
 	return GameController.get_random_building_position()
+	
+
+##Set Sprite Texture
+##[param index] of the texture
+func setTextureSprite(index: int) -> void:
+	if index == 0:
+		$Sprite2D.texture = load("res://assets/npc/scientifique2.png")
+	if index==1:
+		$Sprite2D.texture = load("res://assets/npc/scientifique.png")
+	if index==2:
+		$Sprite2D.texture = load("res://assets/npc/scientifique3.png")

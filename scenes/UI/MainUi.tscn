@@ -1,16 +1,16 @@
 [gd_scene load_steps=31 format=3 uid="uid://on73whrfey7o"]
 
-[ext_resource type="Script" uid="uid://o8pamx1yydlh" path="res://scripts/UI/MainUi.gd" id="1_qp303"]
-[ext_resource type="Texture2D" uid="uid://h8vpungsiv7a" path="res://assets/UI/tilesetT3.png" id="2_tqwy0"]
-[ext_resource type="Texture2D" uid="uid://b3m3k28fnmlei" path="res://assets/UI/tilesetT3_pressed.png" id="3_xnj7m"]
-[ext_resource type="Texture2D" uid="uid://bs5aawnei770f" path="res://assets/UI/tilesetT3_hovered.png" id="4_aummo"]
+[ext_resource type="Script" uid="uid://dhucihrw22c41" path="res://scripts/UI/MainUi.gd" id="1_qp303"]
+[ext_resource type="Texture2D" uid="uid://ctfl3bub00ost" path="res://assets/UI/tilesetT3.png" id="2_tqwy0"]
+[ext_resource type="Texture2D" uid="uid://cg7tukcrc8n4s" path="res://assets/UI/tilesetT3_pressed.png" id="3_xnj7m"]
+[ext_resource type="Texture2D" uid="uid://wrb14d8klmxe" path="res://assets/UI/tilesetT3_hovered.png" id="4_aummo"]
 [ext_resource type="PackedScene" uid="uid://b8xnd4wuguu2m" path="res://scenes/UI/NotificationIndicator.tscn" id="5_tqwy0"]
 [ext_resource type="PackedScene" uid="uid://28bld6ebjyy6" path="res://scenes/UI/MenuProject.tscn" id="5_y6x1c"]
 [ext_resource type="PackedScene" uid="uid://w68s7km80fw0" path="res://scenes/UI/MenuScientist.tscn" id="6_wilqy"]
 [ext_resource type="PackedScene" uid="uid://cbkq81vgo5viw" path="res://scenes/UI/BtnCreationBuildings.tscn" id="7_gyyq1"]
-[ext_resource type="Script" uid="uid://b23jf8at13mhg" path="res://scripts/UI/CreationPath.gd" id="8_x51tq"]
-[ext_resource type="Script" uid="uid://d23ke5o0ph3ws" path="res://scripts/UI/CreationCategory.gd" id="9_18d2x"]
-[ext_resource type="Script" uid="uid://cly0kdbjknccm" path="res://scripts/UI/CreationBuildings.gd" id="10_5owsx"]
+[ext_resource type="Script" uid="uid://feiggfpj2jhl" path="res://scripts/UI/CreationPath.gd" id="8_x51tq"]
+[ext_resource type="Script" uid="uid://dskigrvtktlqy" path="res://scripts/UI/CreationCategory.gd" id="9_18d2x"]
+[ext_resource type="Script" uid="uid://dtqbebp0gm3gx" path="res://scripts/UI/CreationBuildings.gd" id="10_5owsx"]
 [ext_resource type="PackedScene" uid="uid://cws5sxnaq0d7j" path="res://scenes/UI/SubMenuGauges.tscn" id="11_75w5a"]
 [ext_resource type="PackedScene" uid="uid://b4q2wpp4uf3ys" path="res://scenes/UI/MenuBuilding.tscn" id="12_fnckq"]
 [ext_resource type="PackedScene" uid="uid://c65o5y2weg82m" path="res://scenes/UI/SubMenuShowProjectInfos.tscn" id="13_v1boy"]
@@ -443,7 +443,7 @@ building_path = "res://scenes/buildings/instanciables/Bedroom.tscn"
 [node name="btnKitchen" parent="buildingsMenu/hBoxBtnCat2" instance=ExtResource("7_gyyq1")]
 layout_mode = 2
 script = ExtResource("10_5owsx")
-textBuildingName = "Cantine"
+textBuildingName = "Cuisines"
 icon_pos = Vector2(1, 2)
 btype = 7
 building_path = "res://scenes/buildings/instanciables/DiningRoom.tscn"

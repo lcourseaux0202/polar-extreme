@@ -19,6 +19,8 @@ func _ready() -> void:
 	settings_btn.mouse_exited.connect(_settings_button_exit)
 	settings_btn.pressed.connect(settingsValue.open)
 	call_deferred("init_pivot")
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/ice_link.png"),Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/Ice-normal.png"),Input.CURSOR_ARROW)
 	
 func init_pivot():
 	start_game_btn.pivot_offset = size / 2.0

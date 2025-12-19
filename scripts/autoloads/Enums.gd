@@ -1,5 +1,7 @@
 extends Node
 
+##
+##Building Type
 enum BUILDING_TYPE {
 	LABORATORY_GLACIOLOGY,
 	LABORATORY_ATMOSPHERIC_PHYSICS,
@@ -23,11 +25,15 @@ enum BUILDING_TYPE {
 	NONE,
 }
 
+##
+##Building Genre 
 enum BUILDING_GENRE { 
 	SCIENCE,
 	UTILITY 
 }
 
+##
+##Schedule of the Scientist
 enum MOMENT {
 	MORNING_SHOWER,
 	BREAKFAST,

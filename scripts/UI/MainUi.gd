@@ -15,7 +15,7 @@ extends Control
 
 @onready var menu_building: MarginContainer = $MenuBuilding
 @onready var sub_menu_show_project_infos: MarginContainer = $SubMenuShowProjectInfos
-
+@onready var tutorial: Control = $Tutorial
 
 ## connects the signals and initialises the labels
 func _ready() -> void:
@@ -138,7 +138,8 @@ func _on_btn_back_pressed() -> void:
 	h_box_btn_cat_2.visible = false
 	h_box_btn_cat_3.visible = false
 	h_box_btns.visible = true
-
+	UiController.emit_stop_building_bat()
+	
 
 ## shows the settings
 func _on_parameters_pressed() -> void:
