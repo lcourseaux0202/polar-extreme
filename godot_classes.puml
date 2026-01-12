@@ -1,0 +1,611 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class WorldManager {
+    + world_grid
+    --
+    + place_building()
+    + place_path()
+    + place_scientist()
+}
+
+class ScientistMenu {
+    + menu_add_scientist_to_building
+    + lbl_nbr_spaces
+    + lbl_nbr_unassigned
+    + lbl_nbr_assigned
+    + btn_recruit
+    + audio_recruit
+    + animation
+    + nine_icon
+    + icon_normal
+    + icon_pressed
+    + icon_hover
+    + animation_show
+    + status
+    --
+    + _ready()
+    + _on_button_pressed()
+    + _on_visibility_changed()
+    + _on_btn_recruit_pressed()
+    + _on_update_assign_scientist()
+    + _on_update_deassign_scientist()
+    + _update_recruit_price()
+    + _update_assign_text()
+    + _update_free_spaces()
+    + _on_btn_recruit_mouse_entered()
+    + _on_btn_recruit_mouse_exited()
+}
+
+class BuildingScience {
+    + door
+    + science_per_second
+    + nb_scientists_working
+    + nb_scientists_slots
+    + projects_list
+    + text
+    --
+    + _init()
+    + set_projects()
+    + set_nbr_scientist_slots()
+    + add_scientist()
+    + remove_scientist()
+    + scientists_add_slots()
+    + building_get_type()
+    + change_science_per_second_production()
+    + get_project_list()
+    + get_nbr_scientist()
+    + get_nbr_scientist_max()
+    + get_science_production()
+    + get_science_production_ratio()
+    + get_infos()
+}
+
+class WorldGrid {
+    + scientist_spawn_position
+    + scientist_container
+    + building_container
+    + plane
+    + scientists_to_place
+    + plane_spawn
+    --
+    + _ready()
+    + get_scientist_spawn_position()
+    + add_scientist()
+    + _on_make_scientist()
+    + add_building()
+    + _restart_animation()
+
+}
+
+class ButtonBuildings {
+    + textBuildingName
+    + icon_pos
+    + btype
+    + nine_patch_rect
+    + btn_crea_building
+    + lbl_desc
+    + notif
+    + building_path
+    + building_scene
+    + building_instance
+    + is_buyable
+    + atlas
+    + atlas
+    + atlas
+    --
+    + set_button_icon_nor()
+    + set_button_icon_pressed()
+    + set_button_icon_hovered()
+    + _process()
+    + _ready()
+    + _on_button_mouse_entered()
+    + _on_button_mouse_exited()
+    + _on_button_pressed()
+}
+
+class Path {
+    + sprite_2d
+    + gauche
+    + haut
+    + droite
+    + bas
+    + collisions_detected
+    + value
+    --
+    + _ready()
+    + _on_area_changed()
+    + _on_update_sprite()
+    + check_collision()
+    + encode_collisions()
+    + get_preview()
+    + delete()
+}
+
+class BuildPlacement {
+    + animation
+    + preview
+    + door
+    + effect_size
+    + in_placement
+    + in_path_placement
+    + can_be_placed
+    + building_data
+    + path_data
+    + animation_playing
+    + n_path
+    + in_delete_object
+    + placement_position
+    + cell_array
+    + is_dragging_path
+    + path_start_pos
+    + path_preview_cells
+    + door_offset
+    + sprite_node
+    + door_node
+    + building_zone
+    + mouse_pos_glob
+    + mouse_pos_grid
+    + tile_under_mouse
+    + world_grid_pos
+    + rotated_offset
+    + tile_under_mouse
+    + size
+    + start_x
+    + end_x
+    + start_y
+    + end_y
+    + pos
+    + cell_world_pos
+    + has_collision
+    + is_adjacent_to_path
+    + door_ok
+    + shape
+    + shape_transform
+    + query
+    + result
+    + space_state
+    + tile_size
+    + directions
+    + check_pos
+    + query
+    + result
+    + instance
+    + instance
+    + space_state
+    + cell_size
+    + rect_shape
+    + query
+    + result
+    + space_state
+    + query
+    + result
+    + collision_mask
+    + tile_under_mouse
+    + tile_under_mouse
+    + cells_in_l
+    + cells
+    + dx
+    + dy
+    + do_horizontal_first
+    + current
+    + step_x
+    + step_y
+    + step_y
+    + step_x
+    + has_connection
+    + all_valid
+    + cell_world_pos
+    + is_existing_path
+    + has_obstacle
+    + placed_count
+    + cell_world_pos
+    + instance
+    + mouse_pos
+    + space_state
+    + query
+    + result
+    + clicked
+    --
+    + _ready()
+    + _input()
+    + _on_building_signal()
+    + start_building()
+    + stop_building()
+    + _update_mouse_positions()
+    + _handle_rotation_input()
+    + _handle_placement_preview()
+    + _door_touches_path()
+    + _is_adjacent_to_path()
+    + _handle_building_click()
+    + _clear_previous_preview()
+    + _handle_animation_end()
+    + _cell_collides()
+    + _cell_has_path()
+    + get_collision_layers_mask()
+    + _on_path_button_pressed()
+    + start_building_path()
+    + stop_building_path()
+    + build_path()
+    + delete_object()
+    + _handle_path_drag_input()
+    + _update_path_l_preview()
+    + _get_l_shaped_path()
+    + _draw_path_preview()
+    + _place_all_paths()
+    + _handle_delete_object()
+}
+
+class Gauges {
+    + science
+    + science_per_seconds
+    + pollution
+    + max_pollution
+    + pollution_per_seconds
+    + wellness
+    + wellness_min
+    + wellness_max
+    --
+    + get_science()
+    + change_science()
+    + get_science_per_second()
+    + change_science_per_second()
+    + get_pollution()
+    + get_pollution_per_second()
+    + change_pollution()
+    + change_pollution_per_second()
+    + set_pollution_per_second()
+    + get_wellness()
+    + change_wellness()
+    + update_gauges()
+}
+
+class BuildingFactory {
+    + data
+    + scene
+    --
+    + create_building()
+    + get_preview_texture()
+}
+
+class ScientistPlane {
+    + anim
+    + scientist_spawn_pos
+    + signal_emited
+    + audio
+    --
+    + _ready()
+    + start_animation()
+    + _process()
+}
+
+class ButtonCategory {
+    + textBuildingName
+    + textPopup
+    + icon_pos
+    + btn_crea_building
+    + lbl_desc
+    + nine_patch_rect
+    + popup
+    + notif
+    + alreadyCliked
+    + atlas
+    + atlas
+    + atlas
+    + i
+    + container
+    + show
+    + result
+    + root
+    + node_name
+    --
+    + set_button_icon_nor()
+    + set_button_icon_pressed()
+    + set_button_icon_hovered()
+    + _ready()
+    + _on_button_mouse_entered()
+    + _on_button_mouse_exited()
+    + _on_button_pressed()
+    + afficherPopup()
+    + _process()
+    + get_children_of_children()
+    + get_category_container()
+}
+
+class BuildingManager {
+    + building_factory
+    + path_factory
+    + buildingsIds
+    + building_counter
+    + hovered_building
+    + buildings_list
+    + buildings_positions
+    + building
+    + plist
+    + path
+    + type
+    + type
+    + spaces
+    --
+    + create_building()
+    + create_path()
+    + register()
+    + unregister()
+    + get_building()
+    + get_building_list()
+    + get_random_building_position()
+    + get_building_description()
+    + get_free_spaces()
+}
+
+class ScientistFactory {
+    + scene
+    --
+    + make_scientist()
+}
+
+class Project {
+    + project_name
+    + project_id
+    + project_description
+    + project_state
+    + building
+    + requirement_scientists
+    + project_time
+    + failure_chances
+    + reward_science
+    + reward_production
+    + reward_slots
+    + reward_pollution
+    + reward_pollution_per_second
+    + reward_wellness
+    + new_project
+    + gauges
+    --
+    + _init()
+    + set_building()
+    + console()
+    + copy()
+    + start()
+    + pause()
+    + finish()
+    + get_time_total()
+    + get_project_name()
+    + get_description()
+    + get_project_state()
+    + set_time()
+}
+
+class SettingsMenu {
+    + resolution_option_button
+    + master_volume
+    + sfx_volume
+    + music_volume
+    + fullscreen_chk
+    + sfx_bus_index
+    + music_bus_index
+    + window_size_string
+    + resolution_keys
+    + resolution_index
+    + key
+    + new_resolution
+    + window
+    + screen_center
+    + window_size
+    --
+    + _ready()
+    + add_resolutions()
+    + update_button_values()
+    + _on_option_button_item_selected()
+    + center_window()
+    + _on_v_sync_toggled()
+    + _on_mousse_toggled()
+    + _on_fullscreen_toggled()
+    + _on_h_slider_value_changed()
+    + _on_sfx_volume_value_changed()
+    + _on_music_volume_value_changed()
+    + close_menu()
+    + _on_back_to_game_btn_pressed()
+    + _on_quit_game_btn_pressed()
+}
+
+class ProjectsManager {
+    + list_icemine
+    + list_glaciology
+    + list_atmospheric
+    + list_magnetism
+    + list_biology
+    + list_greenhouse
+    + source
+    + new_list
+    + new_project
+    --
+    + get_list()
+}
+
+class Scientist {
+    + navigation_agent
+    + animation_player
+    + speed
+    + hours_in_same_building
+    + can_change_target
+    + current_animation
+    + rng
+    + random_number
+    + new_point_direction
+    + normal_velocity
+    + chance
+    + new_position
+    --
+    + _ready()
+    + _physics_process()
+    + play_animation()
+    + _on_new_hour()
+    + want_to_change()
+    + _on_navigation_agent_2d_navigation_finished()
+    + change_target()
+    + get_random_building_position()
+    + setTextureSprite()
+}
+
+class MainMenu {
+    + quit_game_btn
+    + settings_btn
+    + start_game_btn
+    + tutorial
+    + hover_scale
+    --
+    + _ready()
+    + init_pivot()
+    + _start_button_enter()
+    + _start_button_exit()
+    + _settings_button_enter()
+    + _settings_button_exit()
+    + _quit_button_enter()
+    + _quit_button_exit()
+    + _start_game()
+    + _quit_game()
+}
+
+class TimeManager {
+    + current_time
+    + next_hour
+    + time_speed
+    + day_length
+    + h
+    + m
+    --
+    + process_time()
+    + get_time_hours()
+    + get_time_minutes()
+    + get_formatted_time()
+}
+
+class NotificationIndicator {
+    + label
+    --
+    + setVisible()
+    + set_text()
+}
+
+class ScientistManager {
+    + scientist_factory
+    + scientist_total
+    + scientist_occupied
+    + scientist_price_factor
+    + scientist_price
+    + scientist_wellness_cost
+    + scientist_pollution_travel
+    + scientist_pollution_per_second
+    --
+    + enroll_scientist()
+    + assign_scientist()
+    + deassign_scientist()
+    + change_scientists_assigned()
+    + get_scientist_total()
+    + get_scientist_occupied()
+    + enough_scientist_for_assignement()
+    + get_scientist_non_occupied()
+    + get_scientist_price()
+    + get_scientist_pollution_travel()
+    + get_scientist_pollution_per_second()
+    + change_scientist_pollution_per_second()
+    + change_scientist_pollution_travel()
+    + increase_price()
+}
+
+class Building {
+    + particles
+    + building_zone
+    + scientist_places
+    + id
+    + building_name
+    + building_description
+    + building_genre
+    + building_type
+    + pollution_per_second
+    + price
+    + mouse_hover
+    + wellness_value
+    + cursor_texture
+    + cursor_texture
+    + door
+    + text
+    --
+    + get_id()
+    + set_id()
+    + get_building_name()
+    + get_building_type()
+    + get_pollution()
+    + change_pollution()
+    + delete()
+    + _input()
+    + _on_mouse_entered()
+    + _on_mouse_exited()
+    + get_door_position()
+    + emit_particles()
+    + _on_gpu_particles_2d_finished()
+    + get_infos()
+}
+
+class ButtonPath {
+    + textBuildingName
+    + icon_pos
+    + btn_crea_building
+    + lbl_desc
+    + nine_patch_rect
+    + popup
+    + notif
+    + alreadyCliked
+    + atlas
+    + atlas
+    + atlas
+    --
+    + set_button_icon_nor()
+    + set_button_icon_pressed()
+    + set_button_icon_hovered()
+    + _ready()
+    + _on_button_mouse_entered()
+    + _on_button_mouse_exited()
+    + _on_button_pressed()
+}
+
+Node <|-- Control
+Control <|-- MarginContainer
+
+Node <|-- Node2D
+Node2D <|-- Area2D
+Node2D <|-- CharacterBody2D
+Node2D <|-- TileMapLayer
+
+Node <|-- WorldManager
+Node <|-- BuildingManager
+Node <|-- ProjectsManager
+Node <|-- TimeManager
+Node <|-- ScientistManager
+
+Node <|-- Gauges
+Node <|-- Project
+
+Node <|-- ScientistFactory
+CharacterBody2D <|-- Scientist
+
+Node <|-- BuildingFactory
+Area2D <|-- Building
+Building <|-- BuildingScience
+TileMapLayer <|-- BuildPlacement
+
+Area2D <|-- Path
+
+Control <|-- MainMenu
+Control <|-- NotificationIndicator
+Control <|-- ButtonCategory
+Control <|-- ButtonBuildings
+Control <|-- SettingsMenu
+Control <|-- ButtonPath
+MarginContainer <|-- ScientistMenu
+
+TileMapLayer <|-- WorldGrid
+Node2D <|-- ScientistPlane
+
+@enduml
